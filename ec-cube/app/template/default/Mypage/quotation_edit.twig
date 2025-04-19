@@ -1,0 +1,196 @@
+
+
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% set mypageno = 'quotation' %}
+
+{% set body_class = 'mypage' %}
+
+{% block javascript %}
+
+  {{ parent() }}
+
+{% endblock javascript %}
+
+{% block main %}
+
+    <div class="ec-layoutRole__main">
+        <div class="ec-mypageRole">
+            <div class="ec-pageHeader">
+                <h1>{{ 'マイページ'|trans }}/{{ '新規見積書を作成する（Generate an Estimat）'|trans }}</h1>
+            </div>
+            {{ include('Mypage/navi.twig') }}
+        </div>
+        <form method="Post" action="?" novalidate class="h-adr">
+                      <div class="ec-off4Grid__cell-bk">
+                          
+                      </div>
+                    <div class="ec-RegisterRole__actions">
+                        <div class="ec-off4Grid" style="place-content: center;">
+                            <input type="text" value="" id="username" name="username" size="70%">
+                            <div class="ec-off4Grid__cell-bk">
+                                 <button type="submit" class="ec-blockBtn--cancel">{{ '自動入力'|trans }}</button>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color:#f71f04">{{siteInfo['URL_Error']}}</div>
+                    </div>
+          </form>
+                      <div class="ec-off4Grid__cell-bk">
+                            　
+                      </div>
+        <div class="ec-mypageRole">
+             <form id="myForm" method="Post" action="?" novalidate class="h-adr"> 
+            {#<form name="form1" id="form1" method="post" action="/eccube-mylocal/ec-cube/src/tcpdf/examples/example_033.php">#}
+                <div class="ec-editRole">
+                    <div class="ec-off1Grid">
+                        <div class="ec-off1Grid__cell">
+
+                            <span class="p-country-name" style="display:none;">Japan</span>
+                            {{ form_widget(form._token) }}
+                            <div class="ec-borderedDefs" style="display:none;" >
+                            
+                                <dl>
+                                    <dt>
+                                        {{ form_label(form.name, 'お名前', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                    </dt>
+                                    <dd>
+                                        <div>
+
+                                            {{ form_widget(form.name.name02, { 'attr': { 'placeholder': '名' }, 'value': 'dummy', 'id': 'myField'}) }}
+                                            {{ form_widget(form.name.name01, { 'attr': { 'placeholder': '姓' }, 'value': 'quotation'}) }}
+                                            {{ form_errors(form.name.name01, {'value': 'dummy'}) }}
+                                            {{ form_errors(form.name.name02, {'value': 'dummy'}) }}
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        {{ form_label(form.kana, 'お名前(カナ)', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                    </dt>
+                                    <dd>
+                                        <div class="ec-halfInput{{ has_errors(form.kana.kana01, form.kana.kana02) ? ' error'}}">
+                                            {{ form_widget(form.kana.kana01, { 'attr': { 'placeholder': 'セイ' }, 'value': 'カナ'}) }}
+                                            {{ form_widget(form.kana.kana02, { 'attr': { 'placeholder': 'メイ' }, 'value': 'カナ'}) }}
+                                            {{ form_errors(form.kana.kana01) }}
+                                            {{ form_errors(form.kana.kana02) }}
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        {{ form_label(form.company_name, '会社名', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                    </dt>
+                                    <dd>
+                                        <div class="ec-halfInput{{ has_errors(form.company_name) ? ' error' }}">
+                                            {{ form_widget(form.company_name, {'value': 'dummy'}) }}
+                                            {{ form_errors(form.company_name) }}
+                                        </div>
+                                    </dd>
+                                </dl>
+                                
+                                <dl>
+                                    <dt>
+                                        {{ form_label(form.address, '住所', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                    </dt>
+                                    <dd>
+                                        <div><span>{{ '〒'|trans }}</span>
+                                            {{ form_widget(form.postal_code, {'value': '1240004'}) }}
+                                            <div class="ec-zipInputHelp">
+                                                <div class="ec-zipInputHelp__icon">
+                                                    <div class="ec-icon"><img
+                                                                src="{{ asset('assets/icon/question-white.svg') }}" alt="">
+                                                    </div>
+                                                </div>></a>
+                                            </div>
+                                            {{ form_errors(form.postal_code) }}
+                                        </div>
+
+                                        <div >
+                                            {{ form_widget(form.address.pref,{id: 3, 'value': '葛飾区'}) }}
+                                 
+                                        </div>
+                                        <div >
+                                            {{ form_widget(form.address.addr01, { 'attr': { 'placeholder': '市区町村名(例：大阪市北区)' },'value': 'dummy'}) }}
+                                            {{ form_errors(form.address.addr01) }}
+                                        </div>
+                                        <div>
+                                            {{ form_widget(form.address.addr02,  { 'attr': { 'placeholder': '番地・ビル名(例：西梅田1丁目6-8)' }, 'value': 'dummy'}) }}
+                                            {{ form_errors(form.address.addr02) }}
+                                        </div>
+                                    </dd>
+                                </dl> 
+                                <dl>
+                                    <dt>
+                                        {{ form_label(form.phone_number, '電話番号', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                    </dt>
+                                    <dd>
+                                        <div >
+                                            {{ form_widget(form.phone_number,{'value': '11111111111'}) }}
+                                            {{ form_errors(form.phone_number) }}
+                                        </div>
+                                    </dd>
+                                </dl>-->
+                                {# エンティティ拡張の自動出力 #}
+                                {% for f in form|filter(f => f.vars.eccube_form_options.auto_render) %}
+                                    {% if f.vars.eccube_form_options.form_theme %}
+                                        {% form_theme f f.vars.eccube_form_options.form_theme %}
+                                        {{ form_row(f) }}
+                                    {% else %}
+                                        <dl>
+                                            <dt>
+                                                {{ form_label(f) }}
+                                            </dt>
+                                            <dd>
+                                                <div class="{{ f.vars.eccube_form_options.style_class }}{{ has_errors(f) ? ' error' }}">
+                                                    {{ form_widget(f) }}
+                                                    {{ form_errors(f) }}
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                    </div>
+
+{# Html template start #}
+
+{% set tax = "Page：, " ~ CustomerId ~ ".html" %}
+{# <p>Total Price: {{ tax }}</p> #}
+
+{% set partial = "Mypage/" ~ CustomerId ~ ".html" %}
+{% include partial %}
+
+
+
+{# Html template end #}
+
+                    <div class="ec-RegisterRole__actions">
+                        <div class="ec-off4Grid">
+                            <div class="ec-off4Grid__cell">
+                            <input type="button" value="登録する" class="ec-blockBtn--cancel" onclick="validateAndSubmit()">
+                             <!-- <button type="button" onclick="validateAndSubmit()">送信</button>   
+                               <button type="submit" 
+                                        class="ec-blockBtn--cancel">{{ '登録する'|trans }}</button>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

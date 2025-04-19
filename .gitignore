@@ -1,0 +1,9 @@
+# For EC-CUBE
+var/cache/*
+var/log/*
+
+*.htaccess
+*.png
+*.log
+*.env
+
