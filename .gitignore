@@ -3,6 +3,9 @@ var/cache/*
 var/log/*
 
 ec-cube/var/cache/*
+ec-cube/var/sessions/*
+
+ec-cube/html/upload/quotation/*
 
 *.htaccess
 *.png
