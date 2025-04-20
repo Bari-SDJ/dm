@@ -2,6 +2,8 @@
 var/cache/*
 var/log/*
 
+ec-cube/var/cache/*
+
 *.htaccess
 *.png
 *.log
