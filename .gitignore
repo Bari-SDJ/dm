@@ -7,7 +7,7 @@ var/sessions/*
 
 html/upload/quotation/*
 
-app/proxy
+#app/proxy
 
 *.htaccess
 *.png
