@@ -43,6 +43,12 @@ file that was distributed with this source code.
                             <div class="ec-off4Grid__cell-bk">
                                  <button type="submit" class="ec-blockBtn--cancel">{{ '自動入力'|trans }}</button>
                             </div>
+                                {% if siteInfo['goo-net'] != '' %}
+                                    <a href="{{siteInfo['goo-net']}}" target="_blank">
+                                        【my goo-net】
+                                    </a>
+                                {% endif %}
+
                         </div>
                         <div style="text-align: center; color:#f71f04">{{siteInfo['URL_Error']}}</div>
                     </div>

@@ -230,7 +230,7 @@ class QuotationController extends AbstractController
         'image0'=>'','image1'=>'','image2'=>'','image3'=>'','image4'=>'','image5'=>'',
          'VehiclePrice'=>'0','OtherPrice'=>'0'
          ,'CompanyName'=>'' ,'OwnerName'=>'' ,'CompanyAddress'=>'' ,'CompanyPhone'=>'' ,'CompanyFax'=>'' ,'CompanyMobilePhone'=>'' ,'CompanyEmail'=>'' ,'BankInfo'=>'' ,'CompanyRegistrationNumber'=>'' ,'CompanyLicenseNumber'=>''
-         ,'Display01'=>'','URL_Error'=>''];
+         ,'Display01'=>'','URL_Error'=>'', 'goo-net'=>''];
        
         //Note Preparaton
         $note = $Customer->getNote();
@@ -261,6 +261,7 @@ class QuotationController extends AbstractController
         $carDetails['CompanyLicenseNumber'] = $str[9];
         $carDetails['Display01'] = $str[10];
         $carDetails['CompanyWebSite'] = $str[11];
+        $carDetails['goo-net'] = $str[12];
 
         $referrer = $request->headers->get('referer') ;
         $checkPath = $request->getSchemeAndHttpHost() . $request->getBaseUrl() . "/mypage/quotation";
