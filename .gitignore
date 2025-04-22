@@ -2,13 +2,14 @@
 var/cache/*
 var/log/*
 
-ec-cube/var/cache/*
-ec-cube/var/sessions/*
+var/cache/*
+var/sessions/*
 
-ec-cube/html/upload/quotation/*
+html/upload/quotation/*
+
+app/proxy
 
 *.htaccess
 *.png
 *.log
 *.env
-
