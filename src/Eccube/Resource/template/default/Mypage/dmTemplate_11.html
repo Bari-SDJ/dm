@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .scrollable-label {
+            display: block;       /* Ensures the label acts like a block element */
+            width: 850px;         /* Set a fixed width */
+            height: 300px;        /* Set a fixed height */
+            overflow-y: auto;     /* Enable vertical scrolling */
+            border: 1px solid #ccc; /* Optional: Adds a border for visibility */
+            padding: 5px;         /* Optional: Adds padding inside the label */
+            background-color: #f9f9f9; /* Optional: Background color */
+        }
+    </style>
+
+<style>
+label {
+    font-weight: normal !important;
+}
+
+</style>
+</head>
+<body>
+
+<h1>メールテンプレート一覧</h1>
+
+<!-- Template START -->
+    <label for=""><b>① 見積もり:</b></label>
+    <br>
+    <div>
+    <label for="input" class="scrollable-label" id="template01" >
+    お世話になっております。<br>
+    です。<br><br>
+
+    見積もり<br>
+
+    <br>
+    何卒、よろしくお願いします。<br><br>
+
+    {{siteInfo['CompanyName']}}<br>
+    {{siteInfo['CompanyAddress']}}<br>
+    Mob:{{siteInfo['CompanyPhone']}}<br>
+    Fax: {{siteInfo['CompanyFax']}}<br>
+
+
+    </label>
+    <button onclick="myFunctionTem01()">Copy text</button><p id="message01" style="color: green;"></p>
+    </div>
+<!-- Template End -->
+
+<br><br>
+
+<!-- Template START -->
+    <label for=""><b>① インボイス:</b></label>
+    <br>
+    <div>
+    <label for="input" class="scrollable-label" id="template03" >
+    お世話になっております。<br>
+
+    です。<br>
+    インボイス<br>
+    <br>
+    何卒、よろしくお願いします。<br><br>
+
+    {{siteInfo['CompanyName']|raw}}<br>
+    {{siteInfo['CompanyAddress']}}<br>
+    Mob:{{siteInfo['CompanyPhone']}}<br>
+    Fax: {{siteInfo['CompanyFax']}}<br>
+
+
+    </label>
+    <button onclick="myFunctionTem03()">Copy text</button><p id="message03" style="color: green;"></p>
+    </div>
+<!-- Template End -->
+
+<br><br>
+
+<!-- Template START -->
+    <label for=""><b>① 契約書:</b></label>
+    <br>
+    <div>
+    <label for="input" class="scrollable-label" id="template02" >
+    お世話になっております。
+
+    です。<br>
+    契約書<br>
+    <br>
+    何卒、よろしくお願いします。<br><br>
+
+    {{siteInfo['CompanyName']}}<br>
+    {{siteInfo['CompanyAddress']}}<br>
+    Mob:{{siteInfo['CompanyPhone']}}<br>
+    Fax: {{siteInfo['CompanyFax']}}<br>
+
+
+    </label>
+    <button onclick="myFunctionTem02()">Copy text</button><p id="message02" style="color: green;"></p>
+    </div>
+<!-- Template End -->
+<br><br>
+<script>
+function myFunctionTem01() {
+           const label = document.getElementById('template01');
+           label.style.backgroundColor = '#f3eee0';
+
+            // Create a range and select the label's content
+            const range = document.createRange();
+            range.selectNodeContents(label);
+
+            // Clear any existing selection
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+
+            // Add the new range to the selection
+            selection.addRange(range);
+
+            try {
+                // Execute the copy command
+                const success = document.execCommand('copy');
+                if (success) {
+                    document.getElementById('message01').textContent = "Label text copied to clipboard!";
+                } else {
+                    document.getElementById('message01').textContent = "Failed to copy text.";
+                }
+            } catch (err) {
+                console.error("Unable to copy text: ", err);
+                document.getElementById('message01').textContent = "An error occurred while copying.";
+            }
+
+            // Clear the selection
+            selection.removeAllRanges();
+           setTimeout(() => {
+               document.getElementById('message01').textContent = '';
+               label.style.backgroundColor = '';
+           }, 3000); // 2000 milliseconds = 2 seconds
+}
+function myFunctionTem02() {
+           const label = document.getElementById('template02');
+           label.style.backgroundColor = '#f3eee0';
+
+            // Create a range and select the label's content
+            const range = document.createRange();
+            range.selectNodeContents(label);
+
+            // Clear any existing selection
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+
+            // Add the new range to the selection
+            selection.addRange(range);
+
+            try {
+                // Execute the copy command
+                const success = document.execCommand('copy');
+                if (success) {
+                    document.getElementById('message02').textContent = "Label text copied to clipboard!";
+                } else {
+                    document.getElementById('message02').textContent = "Failed to copy text.";
+                }
+            } catch (err) {
+                console.error("Unable to copy text: ", err);
+                document.getElementById('message02').textContent = "An error occurred while copying.";
+            }
+
+            // Clear the selection
+            selection.removeAllRanges();
+           setTimeout(() => {
+               document.getElementById('message02').textContent = '';
+               label.style.backgroundColor = '';
+           }, 3000); // 2000 milliseconds = 2 seconds
+}
+
+function myFunctionTem03() {
+           const label = document.getElementById('template03');
+           label.style.backgroundColor = '#f3eee0';
+
+            // Create a range and select the label's content
+            const range = document.createRange();
+            range.selectNodeContents(label);
+
+            // Clear any existing selection
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+
+            // Add the new range to the selection
+            selection.addRange(range);
+
+            try {
+                // Execute the copy command
+                const success = document.execCommand('copy');
+                if (success) {
+                    document.getElementById('message03').textContent = "Label text copied to clipboard!";
+                } else {
+                    document.getElementById('message03').textContent = "Failed to copy text.";
+                }
+            } catch (err) {
+                console.error("Unable to copy text: ", err);
+                document.getElementById('message03').textContent = "An error occurred while copying.";
+            }
+
+            // Clear the selection
+            selection.removeAllRanges();
+           setTimeout(() => {
+               document.getElementById('message03').textContent = '';
+               label.style.backgroundColor = '';
+           }, 3000); // 2000 milliseconds = 2 seconds
+}
+</script>
+</body>
+</html>
