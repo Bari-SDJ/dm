@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .scrollable-label {
+            display: block;       /* Ensures the label acts like a block element */
+            width: 850px;         /* Set a fixed width */
+            height: 300px;        /* Set a fixed height */
+            overflow-y: auto;     /* Enable vertical scrolling */
+            border: 1px solid #ccc; /* Optional: Adds a border for visibility */
+            padding: 5px;         /* Optional: Adds padding inside the label */
+            background-color: #f9f9f9; /* Optional: Background color */
+        }
+    </style>
+
+<style>
+label {
+    font-weight: normal !important;
+}
+
+</style>
+</head>
+<body>
+
+<h1>メールテンプレート一覧</h1>
+
+<!-- Template START -->
+    <label for=""><b>①見積書依頼関連メールテンプレート:</b></label>
+    <br>
+    <div>
+    <label for="input" class="scrollable-label" id="template01" >
+    平素よりお世話になっております。<br>
+    株式会社エムシーアイインターナショナルの山口でございます。<br>
+    <br>
+    この度は弊社へ車両のお見積りをご依頼いただき、誠にありがとうございます。<br>
+    ご依頼内容につきまして、以下の通りご案内申し上げます。<br>
+    <br>
+    可能でございましたら、ご購入前に車両の下見をおすすめいたします。<br>
+    ご来店の際には、最寄り駅等へのお迎えも可能でございますので、ご希望がございましたらお気軽にお申し付けください。<br>
+    <br>
+    また、弊社ではお車の下取り・引き取りも承っております。<br>
+    下取りをご希望の場合は、お車の詳細情報をお知らせいただけますと幸いです。<br>
+    <br>
+    さらに、弊社では現在、37周年記念キャンペーンを実施しております。<br>
+    ご契約成立金額に応じてキャッシュバックをご用意しておりますので、ぜひご検討ください。<br>
+    <br>
+    【キャンペーン内容】
+    50万円以上のご契約成立で 1万円キャッシュバック
+    100万円以上のご契約成立で 2万円キャッシュバック
+    200万円以上のご契約成立で 3万円キャッシュバック
+    300万円以上のご契約成立で 4万円キャッシュバック
+    400万円以上のご契約成立で 5万円キャッシュバック
+    500万円以上のご契約成立で 6万円キャッシュバック
+    <br>
+    弊社は、価格・品質はもちろんのこと、充実したアフターフォローにも自信を持っております。<br>
+    ご不明な点がございましたら、お気軽にお問い合わせください。<br>
+    <br>
+    なお、お見積書を本メールに添付しておりますので、ご確認のほどよろしくお願い申し上げます。<br>
+    ご検討の上、ご連絡をお待ちしております。<br>
+    <br>
+    何卒よろしくお願い申し上げます。<br>
+    <br>
+    敬具
+    <br>
+
+    {{siteInfo['CompanyName']}}<br>
+    {{siteInfo['CompanyAddress']}}<br>
+    Mob:{{siteInfo['CompanyPhone']}}<br>
+    Fax: {{siteInfo['CompanyFax']}}<br>
+
+
+    </label>
+    <button onclick="myFunctionTem01()">Copy text</button><p id="message01" style="color: green;"></p>
+    </div>
+<!-- Template End -->
+
+<br><br>
+
+<!-- Template START -->
+    <label for=""><b>① インボイス:</b></label>
+    <br>
+    <div>
+    <label for="input" class="scrollable-label" id="template03" >
+    お世話になっております。<br>
+
+    ●●●●●です。<br>
+    インボイス<br>
+    <br>
+    何卒、よろしくお願いします。<br><br>
+
+    {{siteInfo['CompanyName']|raw}}<br>
+    {{siteInfo['CompanyAddress']}}<br>
+    Mob:{{siteInfo['CompanyPhone']}}<br>
+    Fax: {{siteInfo['CompanyFax']}}<br>
+
+
+    </label>
+    <button onclick="myFunctionTem03()">Copy text</button><p id="message03" style="color: green;"></p>
+    </div>
+<!-- Template End -->
+
+<br><br>
+
+<!-- Template START -->
+    <label for=""><b>① 契約書:</b></label>
+    <br>
+    <div>
+    <label for="input" class="scrollable-label" id="template02" >
+    お世話になっております。
+
+    です。<br>
+    契約書<br>
+    <br>
+    何卒、よろしくお願いします。<br><br>
+
+    {{siteInfo['CompanyName']}}<br>
+    {{siteInfo['CompanyAddress']}}<br>
+    Mob:{{siteInfo['CompanyPhone']}}<br>
+    Fax: {{siteInfo['CompanyFax']}}<br>
+
+
+    </label>
+    <button onclick="myFunctionTem02()">Copy text</button><p id="message02" style="color: green;"></p>
+    </div>
+<!-- Template End -->
+<br><br>
+<script>
+function myFunctionTem01() {
+           const label = document.getElementById('template01');
+           label.style.backgroundColor = '#f3eee0';
+
+            // Create a range and select the label's content
+            const range = document.createRange();
+            range.selectNodeContents(label);
+
+            // Clear any existing selection
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+
+            // Add the new range to the selection
+            selection.addRange(range);
+
+            try {
+                // Execute the copy command
+                const success = document.execCommand('copy');
+                if (success) {
+                    document.getElementById('message01').textContent = "Label text copied to clipboard!";
+                } else {
+                    document.getElementById('message01').textContent = "Failed to copy text.";
+                }
+            } catch (err) {
+                console.error("Unable to copy text: ", err);
+                document.getElementById('message01').textContent = "An error occurred while copying.";
+            }
+
+            // Clear the selection
+            selection.removeAllRanges();
+           setTimeout(() => {
+               document.getElementById('message01').textContent = '';
+               label.style.backgroundColor = '';
+           }, 3000); // 2000 milliseconds = 2 seconds
+}
+function myFunctionTem02() {
+           const label = document.getElementById('template02');
+           label.style.backgroundColor = '#f3eee0';
+
+            // Create a range and select the label's content
+            const range = document.createRange();
+            range.selectNodeContents(label);
+
+            // Clear any existing selection
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+
+            // Add the new range to the selection
+            selection.addRange(range);
+
+            try {
+                // Execute the copy command
+                const success = document.execCommand('copy');
+                if (success) {
+                    document.getElementById('message02').textContent = "Label text copied to clipboard!";
+                } else {
+                    document.getElementById('message02').textContent = "Failed to copy text.";
+                }
+            } catch (err) {
+                console.error("Unable to copy text: ", err);
+                document.getElementById('message02').textContent = "An error occurred while copying.";
+            }
+
+            // Clear the selection
+            selection.removeAllRanges();
+           setTimeout(() => {
+               document.getElementById('message02').textContent = '';
+               label.style.backgroundColor = '';
+           }, 3000); // 2000 milliseconds = 2 seconds
+}
+
+function myFunctionTem03() {
+           const label = document.getElementById('template03');
+           label.style.backgroundColor = '#f3eee0';
+
+            // Create a range and select the label's content
+            const range = document.createRange();
+            range.selectNodeContents(label);
+
+            // Clear any existing selection
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+
+            // Add the new range to the selection
+            selection.addRange(range);
+
+            try {
+                // Execute the copy command
+                const success = document.execCommand('copy');
+                if (success) {
+                    document.getElementById('message03').textContent = "Label text copied to clipboard!";
+                } else {
+                    document.getElementById('message03').textContent = "Failed to copy text.";
+                }
+            } catch (err) {
+                console.error("Unable to copy text: ", err);
+                document.getElementById('message03').textContent = "An error occurred while copying.";
+            }
+
+            // Clear the selection
+            selection.removeAllRanges();
+           setTimeout(() => {
+               document.getElementById('message03').textContent = '';
+               label.style.backgroundColor = '';
+           }, 3000); // 2000 milliseconds = 2 seconds
+}
+</script>
+</body>
+</html>
