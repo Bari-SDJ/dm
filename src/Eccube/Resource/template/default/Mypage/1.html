@@ -967,7 +967,7 @@ async function uploadImage() {
             <td class="column1 style51 s style43-bk" colspan="36">御見積書</td>
             <td class="column37 style1 null"></td>
           </tr>
-          <tr class="row0">
+          <tr class="row1">
             <td class="column0">&nbsp;</td>
             <td class="column1 style242 s" colspan="0" rowspan="5">
             </td>
@@ -1010,13 +1010,11 @@ async function uploadImage() {
             <td class="column0">&nbsp;</td>
             <td class="column1 style242ddd s" colspan="3">有効期限:</td>
             <td colspan="7" class="style205"><input type="date" value="2024/11/09" name="1_3" id="1_3"></td>
-
           </tr>
           <tr class="row2">
             <td class="column0">&nbsp;</td>
             <td class="column1 style55 s style34" colspan="36" >下記の通りお見積り申し上げます </td>
             <td class="column37 style2 null"></td>
-
           </tr>
           <tr class="row3">
             <td class="column0">&nbsp;</td>
@@ -1185,7 +1183,6 @@ async function uploadImage() {
             <td class="column3 style62 s style15" colspan="11">
             <input list="browsers" name="5_1" id="5_1">
             <datalist id="browsers">
-              <option value="37周年記念キャンペーン(-)">
               <option value="夏キャンペーン(-)">
               <option value="冬キャンペーン(-)">
               <option value="特別キャンペーン (-)">
@@ -1367,7 +1364,7 @@ async function uploadImage() {
           <tr class="row47">
             <td class="column0">&nbsp;</td>
             <td class="column1 style93 s style66" rowspan="5" colspan="1">振込先</td>
-            <td class="column2 style91 s style25" colspan="15" rowspan="5">{{ siteInfo['BankInfo']|raw|nl2br }}<textarea style="display:none;" name="4_1" id="4_1"  class="asd" readonly"><br>{{ siteInfo['BankInfo']|raw|nl2br }}</textarea></td>
+            <td class="column2 style91 s style25" colspan="15" rowspan="5">{{ siteInfo['BankInfo']|raw|nl2br }}<textarea style="display:none;" name="4_1" id="4_1"  class="asd" readonly">{{ siteInfo['BankInfo']|raw|nl2br }}</textarea></td>
             <td class="column21 style97 s style24" rowspan="5">特記事項</td>
             <td class="column22 style204 s style25" colspan="19" rowspan="5"><br>表題の通り、見積もり書をお送りいたしますので、ご査収ください。<br />
               ご不明点がございましたら、<label id="4_3">{{ siteInfo['CompanyPhone']}}</label><input type="hidden" value="{{ siteInfo['CompanyPhone']}}" name="4_3">までお問合せください。<br />
