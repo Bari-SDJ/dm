@@ -1024,8 +1024,8 @@ async function uploadImage() {
           </tr>
           <tr class="row5">
             <td class="column0">&nbsp;</td>
-            <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>車種</td>
-            <td class="column19 style38 s style15" colspan="12"><input type="text" value="{{siteInfo['CarModel']}}" name="1_4" id="CarModel" placeholder="例：Ｂクラス"><span class="error" id="CarModelError" style="color: red;"></span></td>
+            <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>車台番号</td>
+            <td class="column19 style38 s style15" colspan="12"><input type="text" value="{{siteInfo['ChassisNumber']}}" name="1_6" id="ChassisNumberID" placeholder="例：XXX30-1216477"><span class="error" id="ChassisNumberIDError" style="color: red;"></span></td>
             <td class="column23 style37 s style15" colspan="4"><span style="color: #d31313;">*</span>車体色</td>
             <td class="column27 style31 f style15" colspan="12"><input type="text" value="{{siteInfo['Color']}}" name="1_4_1" id="Color" placeholder="例：ホワイト"><span class="error" id="ColorError" style="color: red;"></span></td>
             <td class="column32 style201 s style25" colspan="5">{{siteInfo['CompanyRegistrationNumber']}}<input type="hidden" value="{{siteInfo['CompanyRegistrationNumber']}}" name="10_1" id="10_1"></td>
@@ -1034,8 +1034,8 @@ async function uploadImage() {
           </tr>
           <tr class="row6">
             <td class="column0">&nbsp;</td>
-            <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>車台番号</td>
-            <td class="column19 style38 s style15" colspan="28"><input type="text" value="{{siteInfo['ChassisNumber']}}" name="1_6" id="ChassisNumberID" placeholder="例：XXX30-1216477"><span class="error" id="ChassisNumberIDError" style="color: red;"></span></td>
+            <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>車種</td>
+            <td class="column19 style38 s style15" colspan="28"><input type="text" value="{{siteInfo['CarModel']}}" name="1_4" id="CarModel" placeholder="例：Ｂクラス"><span class="error" id="CarModelError" style="color: red;"></span></td>
             <td class="column32 style200 f style25" colspan="5">古物商許可</td>
             <td class="column37 style2 null"></td>
           </tr>
@@ -1364,7 +1364,7 @@ async function uploadImage() {
           <tr class="row47">
             <td class="column0">&nbsp;</td>
             <td class="column1 style93 s style66" rowspan="5" colspan="1">振込先</td>
-            <td class="column2 style91 s style25" colspan="15" rowspan="5">{{ siteInfo['BankInfo']|raw|nl2br }}<textarea style="display:none;" name="4_1" id="4_1"  class="asd" readonly">{{ siteInfo['BankInfo']|raw|nl2br }}</textarea></td>
+            <td class="column2 style91 s style25" colspan="15" rowspan="5"><br>{{ siteInfo['BankInfo']|clean_nl2br|raw }}<textarea style="display:none;" name="4_1" id="4_1"  class="asd" readonly">{{ siteInfo['BankInfo']|clean_nl2br|raw }}</textarea></td>
             <td class="column21 style97 s style24" rowspan="5">特記事項</td>
             <td class="column22 style204 s style25" colspan="19" rowspan="5"><br>表題の通り、見積もり書をお送りいたしますので、ご査収ください。<br />
               ご不明点がございましたら、<label id="4_3">{{ siteInfo['CompanyPhone']}}</label><input type="hidden" value="{{ siteInfo['CompanyPhone']}}" name="4_3">までお問合せください。<br />

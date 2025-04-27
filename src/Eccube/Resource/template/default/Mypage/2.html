@@ -1367,7 +1367,7 @@ async function uploadImage() {
           <tr class="row47">
             <td class="column0">&nbsp;</td>
             <td class="column1 style93 s style66" rowspan="5" colspan="1">振込先</td>
-            <td class="column2 style91 s style25" colspan="15" rowspan="5">{{ siteInfo['BankInfo']|raw|nl2br }}<textarea style="display:none;" name="4_1" id="4_1"  class="asd" readonly"><br>{{ siteInfo['BankInfo']|raw|nl2br }}</textarea></td>
+            <td class="column2 style91 s style25" colspan="15" rowspan="5"><br>{{ siteInfo['BankInfo']|clean_nl2br|raw }}<textarea style="display:none;" name="4_1" id="4_1"  class="asd" readonly">{{ siteInfo['BankInfo']|clean_nl2br|raw }}</textarea></td>
             <td class="column21 style97 s style24" rowspan="5">特記事項</td>
             <td class="column22 style204 s style25" colspan="19" rowspan="5"><br>表題の通り、見積もり書をお送りいたしますので、ご査収ください。<br />
               ご不明点がございましたら、<label id="4_3">{{ siteInfo['CompanyPhone']}}</label><input type="hidden" value="{{ siteInfo['CompanyPhone']}}" name="4_3">までお問合せください。<br />
