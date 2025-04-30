@@ -42,6 +42,17 @@ document.getElementById('myInput').addEventListener('change', function() {
     });
   });
 
+    function copyText(value){
+        var name1 = document.getElementById('2_9');
+        var name2 = document.getElementById('clientName');
+        var add1 = document.getElementById('2_10');
+        var add2 = document.getElementById('2_36');
+
+        name2.value = name1.value;
+        add2.value = add1.value;
+
+    }
+
     function calculationPrice(value) {
         
         //document.getElementById('2_40').value = document.getElementById('2_34').value;
@@ -1021,11 +1032,11 @@ input[type=number] {
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class="xl63"></td>
   <td class="xl63" colspan=4 style='mso-ignore:colspan'>所有者の氏名</td>
-  <td class="xl70" colspan=9 style='mso-ignore:colspan'><input type="text" value="" name="2_9" id=""></td>
+  <td class="xl70" colspan=9 style='mso-ignore:colspan'><input type="text" value="" name="2_9" id="2_9" onkeyup="copyText(this.value)"></td>
 
   <td class="xl67" colspan=4>所有者の住所</td>
   
-  <td class="xl70" colspan=10 style='mso-ignore:colspan'><input type="text" value="" name="2_10" id=""></td>
+  <td class="xl70" colspan=10 style='mso-ignore:colspan'><input type="text" value="" name="2_10" id="2_10" onkeyup="copyText(this.value)"></td>
 
 
 
@@ -2418,8 +2429,7 @@ input[type=number] {
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td colspan=5 class="xl67">買主（乙）住所：</td>
-  <td class="xl63" colspan=11 style='mso-ignore:colspan'><input type="text" value="◯◯◯様" name="2_36" id=""><span
-  style='mso-spacerun:yes'> </span></td>
+  <td class="xl72" colspan=11 style='mso-ignore:colspan'><input type="text" value="" name="2_36" id="2_36" readonly style='background-color: #ffffff;'></td>
 
   <td class="xl63"></td>
   <td class="xl63"></td>
@@ -2438,7 +2448,7 @@ input[type=number] {
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td colspan=5 class="xl67">社名：</td>
-  <td class=xl72 colspan=11 style='mso-ignore:colspan'><input type="text" value="◯◯◯様" name="2_37" id=""></td>
+  <td class=xl72 colspan=11 style='mso-ignore:colspan'><input type="text" value="" name="2_37" id=""></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
@@ -2457,7 +2467,7 @@ input[type=number] {
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td colspan=4 class="xl67">氏名：</td>
-  <td class=xl72 colspan=11 style='mso-ignore:colspan'><input type="text" value="◯◯◯様" name="2_38" id="clientName"></td>
+  <td class=xl72 colspan=11 style='mso-ignore:colspan'><input type="text" value="" name="2_38" id="clientName" readonly style='background-color: #ffffff;'></td>
 
   <td class="xl63">㊞</td>
   <td class="xl63"></td>
