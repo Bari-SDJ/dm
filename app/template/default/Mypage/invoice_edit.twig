@@ -41,7 +41,11 @@ document.getElementById('myInput').addEventListener('change', function() {
       alert("bm");
     });
   });
+    function formatNumber(input) {
 
+      let value = input.value.replace(/,/g, '').replace(/[^\d]/g, '');
+      input.value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     function calculationPrice(value) {
 
       try{
@@ -81,10 +85,10 @@ document.getElementById('myInput').addEventListener('change', function() {
         
         var part1_total = document.getElementById('2_30');
 
-        part2_1_val = part2_1.value;
-        part2_2_val = part2_2.value;
-        part2_4_val = part2_4.value;
-        part2_6_val = part2_6.value;
+        part2_1_val = part2_1.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_2_val = part2_2.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_4_val = part2_4.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_6_val = part2_6.value.replace(/,/g, '').replace(/[^\d]/g, '');
 
         if (part2_1_val == "") part2_1_val = 0;
         if (part2_2_val == "") part2_2_val = 0;
@@ -107,14 +111,14 @@ document.getElementById('myInput').addEventListener('change', function() {
 
         var part2_total = document.getElementById('2_24');
 
-        part2_9_val = part2_9.value;
-        part2_10_val = part2_10.value;
-        part2_12_val = part2_12.value;
-        part2_14_val = part2_14.value;
-        part2_16_val = part2_16.value;
-        part2_18_val = part2_18.value;
-        part2_20_val = part2_20.value;
-        part2_22_val = part2_22.value;
+        part2_9_val = part2_9.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_10_val = part2_10.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_12_val = part2_12.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_14_val = part2_14.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_16_val = part2_16.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_18_val = part2_18.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_20_val = part2_20.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_22_val = part2_22.value.replace(/,/g, '').replace(/[^\d]/g, '');
 
         if (part2_9_val == "") part2_9_val = 0;
         if (part2_10_val == "") part2_10_val = 0;
@@ -149,19 +153,19 @@ document.getElementById('myInput').addEventListener('change', function() {
 
         var part3_total = document.getElementById('3_14');
 
-        part3_1_val = part3_1.value;
-        part3_2_val = part3_2.value;
-        part3_3_val = part3_3.value;
-        part3_4_val = part3_4.value;
-        part3_5_val = part3_5.value;
-        part3_6_val = part3_6.value;
-        part3_7_val = part3_7.value;
-        part3_8_val = part3_8.value;
-        part3_9_val = part3_9.value;
-        part3_10_val = part3_10.value;
-        part3_11_val = part3_11.value;
-        part3_12_val = part3_12.value;
-        part3_13_val = part3_13.value;
+        part3_1_val = part3_1.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_2_val = part3_2.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_3_val = part3_3.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_4_val = part3_4.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_5_val = part3_5.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_6_val = part3_6.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_7_val = part3_7.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_8_val = part3_8.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_9_val = part3_9.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_10_val = part3_10.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_11_val = part3_11.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_12_val = part3_12.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_13_val = part3_13.value.replace(/,/g, '').replace(/[^\d]/g, '');
 
 
         if (part3_1_val == "") part3_1_val = 0;
@@ -216,11 +220,11 @@ document.getElementById('myInput').addEventListener('change', function() {
 
         var part_total = document.getElementById('2_23');
 
-        part2_11_val = part2_11.value;
-        part2_13_val = part2_13.value;
-        part2_15_val = part2_15.value;
-        part2_17_val = part2_17.value;
-        part2_19_val = part2_19.value;
+        part2_11_val = part2_11.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_13_val = part2_13.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_15_val = part2_15.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_17_val = part2_17.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_19_val = part2_19.value.replace(/,/g, '').replace(/[^\d]/g, '');
 
         if (part2_11_val == "") part2_11_val = 0;
         if (part2_13_val == "") part2_13_val = 0;
@@ -236,6 +240,7 @@ document.getElementById('myInput').addEventListener('change', function() {
         document.getElementById('2_21').value = "￥" + Total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         //alert(parseInt(one.value) + parseInt(two.value))
     }
+    
 
 
 function doubleSubmit(f) 
