@@ -289,8 +289,8 @@ class QuotationController extends AbstractController
         // Find the <p> tag with id "greeting" and modify its content
         // Query for hidden input elements
         $hiddenFields = $xpath->query("//input[@type='hidden']");
-        $bm = $xpath->query('//*[@id="door_nm"]')->item(0)->nodeValue;
-        $bm = $xpath->query('//div[contains(@class,"countSlide")]')->item(0);
+        //$bm = $xpath->query('//*[@id="door_nm"]')->item(0)->nodeValue;
+        //$bm = $xpath->query('//div[contains(@class,"countSlide")]')->item(0);
         
        // var_dump($bm);exit();
         //foreach($bm as $node) {
@@ -320,18 +320,21 @@ class QuotationController extends AbstractController
             //echo 'Hidden Field Name: ' . $hiddenField->getAttribute('name') . PHP_EOL;
             //echo 'Hidden Field Value: ' . $hiddenField->getAttribute('value') . PHP_EOL;
         }
-
-        $carDetails['NumberOfDoors'] = $xpath->query('//*[@id="door_nm"]')->item(0)->nodeValue;
-        $carDetails['Color'] = $xpath->query('//*[@id="color_nm"]')->item(0)->nodeValue;
-
-        $warranty = $xpath->query('//div[contains(@class,"mainDataBottom")]/p[2]')->item(0)->nodeValue;
-        $carDetails['WarrantyDetails'] = str_replace(['(', ')', '法定整備：整備付','保証付',' '], '', $warranty);
-
-
-        //*[@id="headCarDetail"]/div[1]/div/div[2]/div/h2/p[1]/span
-
-       //var_dump($carDetails['Color']);exit;
-
+        
+        $result = $xpath->query('//*[@id="door_nm"]');
+        if ($result !== false && $result->length > 0) {
+            $carDetails['NumberOfDoors'] = $result->item(0)->nodeValue;
+        }
+        
+        $result = $xpath->query('//*[@id="color_nm"]');
+        if ($result !== false && $result->length > 0) {
+            $carDetails['Color'] = $result->item(0)->nodeValue;
+        }
+        $result = $xpath->query('//div[contains(@class,"mainDataBottom")]/p[2]');
+        if ($result !== false && $result->length > 0) {
+            $warranty = $result->item(0)->nodeValue;
+            $carDetails['WarrantyDetails'] = str_replace(['(', ')', '法定整備：整備付','保証付',' '], '', $warranty);
+        }
 
         // for without hidden eliments
         $otherElements = $xpath->query('//div[contains(@class,"box_roundWhite")]')->item(0);
@@ -349,44 +352,51 @@ class QuotationController extends AbstractController
 
         //$otherElements = $xpath->query('//*[@id="photoGalleryTop"]');
         //$otherElements = $xpath->query('//*[@id="photoGalleryTop"]/div[1]/div[4]/div/div/div[2]')->item(0);
-        $otherElements = $xpath->query('//div[contains(@class,"countSlide")][1]/div/img/@src')->item(3)->nodeValue;;
-                                        //*[@id="photoGalleryTop"]/div[1]/div[4]/div/div/div[2]/div/div[1]
-        $carIndex=0;
-        for ($i = 0; $i < 12; $i++) {
-            $otherElements = $xpath->query('//div[contains(@class,"countSlide")][1]/div/img/@src')->item($i)->nodeValue;           
-            if (str_contains($otherElements, 'playmark01.png')) {
-                //echo $otherElements2;
-                //$i--;
-            }else{
-                $carDetails['image'.$carIndex] = $otherElements;
-                $carIndex = $carIndex+1;
+        $result = $xpath->query('//div[contains(@class,"countSlide")][1]/div/img/@src');
+        if ($result !== false && $result->length > 0) {
+            $otherElements = $result->item(3)->nodeValue;
+                                            
+            $carIndex=0;
+            for ($i = 0; $i < 12; $i++) {
+                $otherElements = $result->item($i)->nodeValue;           
+                if (str_contains($otherElements, 'playmark01.png')) {
+                    //echo $otherElements2;
+                    //$i--;
+                }else{
+                    $carDetails['image'.$carIndex] = $otherElements;
+                    $carIndex = $carIndex+1;
+                }
             }
         }
 
                            
-
-        $otherElements = $xpath->query('//div[contains(@class,"mainDataMiddleLeft")]/p/em')->item(0)->nodeValue;
-        if (str_contains($otherElements, '.')) {
-            $vehiclePrice = str_replace(".", "",$otherElements);
-            $carDetails['VehiclePrice'] = $vehiclePrice*1000;
-            //echo "車両体価格". $vehiclePrice*1000;
-        }else{
-            $vehiclePrice = $otherElements;
-            $carDetails['VehiclePrice'] = $vehiclePrice*10000;
-            //echo "車両体価格". $vehiclePrice*10000;
+        $result = $xpath->query('//div[contains(@class,"mainDataMiddleLeft")]/p/em');
+        if ($result !== false && $result->length > 0) {
+            $otherElements = $result->item(0)->nodeValue;
+            if (str_contains($otherElements, '.')) {
+                $vehiclePrice = str_replace(".", "",$otherElements);
+                $carDetails['VehiclePrice'] = $vehiclePrice*1000;
+                //echo "車両体価格". $vehiclePrice*1000;
+            }else{
+                $vehiclePrice = $otherElements;
+                $carDetails['VehiclePrice'] = $vehiclePrice*10000;
+                //echo "車両体価格". $vehiclePrice*10000;
+            }
         }
 
-        $otherElements = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em')->item(0)->nodeValue;
-        if (str_contains($otherElements, '.')) {
-            $otherPrice = str_replace(".", "",$otherElements);
-            $carDetails['OtherPrice'] = $otherPrice*1000;
-            //echo "otherPrice". $otherPrice*1000;
-        }else{
-            $otherPrice = $otherElements;
-            $carDetails['OtherPrice'] = $otherPrice*10000;
-            //echo "otherPrice". $otherPrice*10000;
+        $result = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em');
+        if ($result !== false && $result->length > 0) {
+            $otherElements = $result->item(0)->nodeValue;
+            if (str_contains($otherElements, '.')) {
+                $otherPrice = str_replace(".", "",$otherElements);
+                $carDetails['OtherPrice'] = $otherPrice*1000;
+                //echo "otherPrice". $otherPrice*1000;
+            }else{
+                $otherPrice = $otherElements;
+                $carDetails['OtherPrice'] = $otherPrice*10000;
+                //echo "otherPrice". $otherPrice*10000;
+            }
         }
-
 
        // echo $carDetails['totalPrice']; 
         //$otherElements = $xpath->query('//*[@id="total_price"]')->item(0)->nodeValue;
