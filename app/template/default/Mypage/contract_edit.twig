@@ -72,7 +72,15 @@ document.getElementById('myInput').addEventListener('change', function() {
         var part1_6 = document.getElementById('1_6');
         var part1_7 = document.getElementById('1_7');
         var part1_8 = document.getElementById('1_8');
-        //var part1_9 = document.getElementById('1_9');
+        var part1_9 = document.getElementById('1_9');
+        var part1_11 = document.getElementById('1_11');
+        var part1_12 = document.getElementById('1_12');
+        var part1_13 = document.getElementById('1_13');
+        var part1_14 = document.getElementById('1_14');
+        var part1_15 = document.getElementById('1_15');
+        var part1_16 = document.getElementById('1_16');
+        var part1_17 = document.getElementById('1_17');
+        var part1_18 = document.getElementById('1_18');
         
         var part1_total = document.getElementById('1_10');
 
@@ -84,7 +92,15 @@ document.getElementById('myInput').addEventListener('change', function() {
         part1_6_val = part1_6.value.replace(/,/g, '').replace(/[^\d]/g, '');
         part1_7_val = part1_7.value.replace(/,/g, '').replace(/[^\d]/g, '');
         part1_8_val = part1_8.value.replace(/,/g, '').replace(/[^\d]/g, '');
-        //part1_9_val = part1_9.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part1_9_val = part1_9.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part1_11_val = part1_11.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part1_12_val = part1_12.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part1_13_val = part1_13.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part1_14_val = part1_14.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part1_15_val = part1_15.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part1_16_val = part1_16.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part1_17_val = part1_17.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part1_18_val = part1_18.value.replace(/,/g, '').replace(/[^\d]/g, '');
 
         if (part1_1_val == "") part1_1_val = 0;
         if (part1_2_val == "") part1_2_val = 0;
@@ -94,10 +110,27 @@ document.getElementById('myInput').addEventListener('change', function() {
         if (part1_6_val == "") part1_6_val = 0;
         if (part1_7_val == "") part1_7_val = 0;
         if (part1_8_val == "") part1_8_val = 0;
-        //if (part1_9_val == "") part1_9_val = 0;
+        if (part1_9_val == "") part1_9_val = 0;
+        if (part1_11_val == "") part1_11_val = 0;
+        if (part1_12_val == "") part1_12_val = 0;
+        if (part1_13_val == "") part1_13_val = 0;
+        if (part1_14_val == "") part1_14_val = 0;
+        if (part1_15_val == "") part1_15_val = 0;
+        if (part1_16_val == "") part1_16_val = 0;
+        if (part1_17_val == "") part1_17_val = 0;
+        if (part1_18_val == "") part1_18_val = 0;
 
         var total = parseInt(part1_1_val) + parseInt(part1_2_val) + parseInt(part1_3_val) + parseInt(part1_4_val)
-         + parseInt(part1_5_val) - parseInt(part1_6_val) - parseInt(part1_7_val) - parseInt(part1_8_val);
+         + parseInt(part1_5_val) + parseInt(part1_6_val) + parseInt(part1_7_val) + parseInt(part1_8_val)
+          + parseInt(part1_9_val)
+           + parseInt(part1_11_val)
+            - parseInt(part1_12_val)
+             + parseInt(part1_13_val)
+              + parseInt(part1_14_val)
+               + parseInt(part1_15_val)
+                + parseInt(part1_16_val)
+                 + parseInt(part1_17_val)
+                  - parseInt(part1_18_val);
         part1_total.value = total;
         document.getElementById('1_10').value  = "￥" + part1_total.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         
@@ -680,6 +713,18 @@ td
 	border-right:none;
 	border-bottom:1px solid #9E9E9E !important;
 	border-left:none;}
+.xl901
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:游明朝;
+	mso-generic-font-family:auto;
+	mso-font-charset:128;
+	mso-number-format:"\0022¥\0022\#\,\#\#0_\)\;\\\(\0022¥\0022\#\,\#\#0\\\)";
+	text-align:right;
+	border-top:.5pt hairline black;
+	border-right:none;
+	border-bottom:1px solid #9E9E9E !important;
+	border-left:none;}
 .xl91
 	{mso-style-parent:style0;
 	font-size:10.0pt;
@@ -1175,12 +1220,17 @@ input[type=number] {
   <td class="xl67">日以内</td>
   <td class="xl67"></td>
  </tr>
+  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+
+  <td class="xl67"></td>
+ </tr>
  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class=xl66></td>
-  <td class="xl63" colspan=5 style='mso-ignore:colspan'>本件自動車車両価格</td>
+  <td class="xl63" colspan=10 style='mso-ignore:colspan'>本件自動車車両価格</td>
   <td class="xl63"></td>
-  <td colspan=12 class=xl89><input type="text" value="{{siteInfo['VehiclePrice']}}" name="2_17" id="1_1"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td colspan=7 class=xl89><input type="text" value="{{siteInfo['VehiclePrice']}}" name="2_17" id="1_1"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
@@ -1195,8 +1245,8 @@ input[type=number] {
  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class="xl63"></td>
-  <td class="xl63" colspan=6 style='mso-ignore:colspan'>整備、車検、登録諸費用</td>
-  <td colspan=12 class="xl90"><input type="text" value="{{siteInfo['OtherPrice']}}" name="2_18" id="1_2"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63" colspan=11 style='mso-ignore:colspan'>整備、車検、登録諸費用</td>
+  <td colspan=7 class="xl90"><input type="text" value="{{siteInfo['OtherPrice']}}" name="2_18" id="1_2"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
   <td class="xl63"></td>
   <td colspan=8 rowspan=2 class=xl91 style='border-right:.5pt hairline black;
   border-bottom:.5pt hairline black'>下取車両情報</td>
@@ -1205,16 +1255,16 @@ input[type=number] {
  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class="xl63" style='height:18.0pt'></td>
   <td class="xl63"></td>
-  <td class="xl63" colspan=3 style='mso-ignore:colspan'>車陸送費用</td>
-  <td colspan=15 class=xl89><input type="text" value="0" name="2_19" id="1_3" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63" colspan=11 style='mso-ignore:colspan'>車陸送費用</td>
+  <td colspan=7 class=xl89><input type="text" value="0" name="2_19" id="1_3" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
   <td class="xl63"></td>
   <td class=xl73></td>
  </tr>
  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class="xl63" style='height:18.0pt'></td>
   <td class="xl63"></td>
-  <td class="xl63" colspan=5 style='mso-ignore:colspan'>ドライブレコーダー</td>
-  <td colspan=13 class="xl90"><input type="text" value="0" name="2_20" id="1_4"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63" colspan=11 style='mso-ignore:colspan'>登録代行費用</td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_4"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
   <td class="xl63"></td>
   <td colspan=3 class="xl96" style='border-right:.5pt hairline black'>メーカー：</td>
   <td colspan=5 class="xl98" style='border-right:.5pt hairline black;border-left:
@@ -1224,8 +1274,8 @@ input[type=number] {
  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class="xl63" style='height:18.0pt'></td>
   <td class="xl63"></td>
-  <td colspan=8 class="xl68">KASUVARンドロイドカーナビ</td>
-  <td colspan=10 class="xl90"><input type="text" value="0" name="2_22" id="1_5"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td colspan=11 class="xl68">車庫証明代行費用</td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_22" id="1_5"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
   <td class="xl63"></td>
   <td colspan=3 class="xl96" style='border-right:.5pt hairline black'>車種：</td>
   <td colspan=5 class="xl98" style='border-right:.5pt hairline black;border-left:
@@ -1235,10 +1285,8 @@ input[type=number] {
  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class="xl63" style='height:18.0pt'></td>
   <td class="xl63"></td>
-  <td class=xl75 colspan=7 style='mso-ignore:colspan'>下取り車価格(-)</td>
-  <td class=xl76></td>
-
-  <td colspan=10 class=xl103><input type="text" value="0" name="2_24" id="1_6"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63" colspan=11 style='mso-ignore:colspan'>納車点検費用</td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_6"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
   <td class="xl63"></td>
   <td colspan=3 class="xl96" style='border-right:.5pt hairline black'>走行距離数：</td>
   <td colspan=5 class=xl99 style='border-right:.5pt hairline black;border-left:
@@ -1248,13 +1296,19 @@ input[type=number] {
  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class="xl63" style='height:18.0pt'></td>
   <td class="xl63"></td>
-  <td colspan=8 class="xl75"　 style='mso-ignore:colspan'>
-    <select name="2_26" id="5_1" style="height:29px;">
-        <option value="特別値引き(-)">特別値引き(-)</option>
-        <option value="saab">-</option>
-    </select>
-  </td>
-  <td colspan=10 class="xl103"><input type="text" value="0" name="2_27" id="1_7"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63" colspan=11 style='mso-ignore:colspan'>納車費用</td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_7"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63"></td>
+  <td colspan=3 class="xl96" style='border-right:.5pt hairline black'>車体色:</td>
+  <td colspan=5 class="xl98" style='border-right:.5pt hairline black;border-left:
+  none'><input type="text" value="" name="2_28" id="0"></td>
+  <td class=xl73></td>
+ </tr>
+ <tr height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class="xl63" style='height:18.0pt'></td>
+  <td class="xl63"></td>
+  <td class="xl75" colspan=11 style='mso-ignore:colspan'>下取り車価格(-)</td>
+  <td colspan=7 class="xl103"><input type="text" value="0" name="1_18" id="1_18"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
   <td class="xl63"></td>
   <td colspan=3 class="xl96" style='border-right:.5pt hairline black'>車体色:</td>
   <td colspan=5 class="xl98" style='border-right:.5pt hairline black;border-left:
@@ -1264,13 +1318,145 @@ input[type=number] {
   <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class="xl63" style='height:18.0pt'></td>
   <td class=xl66></td>
-  <td class=xl75 colspan=7 style='mso-ignore:colspan'>
-    <select name="2_29" id="5_2" style="height:29px;">>
-        <option value="その他">その他</option>
+  <td class="xl63" colspan=11 style='mso-ignore:colspan'>下取車諸手続き代行費用</td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_8"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  </tr>
+  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class="xl63" style='height:18.0pt'></td>
+  <td class=xl66></td>
+  <td class="xl63" colspan=11 style='mso-ignore:colspan'>名義変更費用</td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_9"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  </tr>
+  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class="xl63" style='height:18.0pt'></td>
+  <td class=xl66></td>
+  <td class="xl63" colspan=11 style='mso-ignore:colspan'>希望ナンバー費用</td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_11"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  </tr>
+  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class="xl63" style='height:18.0pt'></td>
+  <td class=xl66></td>
+   <td colspan=11 class="xl75"　 style='mso-ignore:colspan'>
+    <select name="2_26" id="5_1" style="height:29px;">
+        <option value="特別値引き(-)">特別値引き(-)</option>
         <option value="saab">-</option>
     </select>
   </td>
-  <td colspan=11 class=xl103><input type="text" value="0" name="2_30" id="1_8"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td colspan=7 class="xl103"><input type="text" value="0" name="2_27" id="1_12"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  </tr>
+　<tr height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class="xl63" style='height:18.0pt'></td>
+  <td class=xl66></td>
+  <td class="xl901" colspan=10 style='mso-ignore:colspan'><input type="text" value="" name="" id="" style="background-color: #EFE8D2;"></td>
+  <td class="xl63"></td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_13"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  </tr>
+    <tr height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class="xl63" style='height:18.0pt'></td>
+  <td class=xl66></td>
+  <td class="xl901" colspan=10 style='mso-ignore:colspan'><input type="text" value="" name="" id="" style="background-color: #EFE8D2;"></td>
+  <td class="xl63"></td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_14"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  </tr>
+    <tr height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class="xl63" style='height:18.0pt'></td>
+  <td class=xl66></td>
+  <td class="xl901" colspan=10 style='mso-ignore:colspan'><input type="text" value="" name="" id="" style="background-color: #EFE8D2;"></td>
+  <td class="xl63"></td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_15"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  </tr>
+  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class="xl63" style='height:18.0pt'></td>
+  <td class=xl66></td>
+  <td class="xl901" colspan=10 style='mso-ignore:colspan'><input type="text" value="" name="" id="" style="background-color: #EFE8D2;"></td>
+  <td class="xl63"></td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_16"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  </tr>
+    <tr height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class="xl63" style='height:18.0pt'></td>
+  <td class=xl66></td>
+  <td class="xl901" colspan=10 style='mso-ignore:colspan'><input type="text" value="" name="" id="" style="background-color: #EFE8D2;"></td>
+  <td class="xl63"></td>
+  <td colspan=7 class="xl90"><input type="text" value="0" name="2_20" id="1_17"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
@@ -1286,8 +1472,8 @@ input[type=number] {
  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class="xl63" style='height:18.0pt'></td>
   <td class=xl66></td>
-  <td class=xl66 colspan=7 style='mso-ignore:colspan'>本件自動車売買の合計金額</td>
-  <td colspan=11 class=xl104><input type="text" value="¥0" name="2_31" id="1_10"  class="asd" readonly style="text-align:right;"></td>
+  <td class=xl66 colspan=11 style='mso-ignore:colspan'>本件自動車売買の合計金額</td>
+  <td colspan=7 class=xl104><input type="text" value="¥0" name="2_31" id="1_10"  class="asd" readonly style="text-align:right;"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
