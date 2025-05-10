@@ -1,7 +1,9 @@
 <?php
 
 
-
+foreach ($_POST as $key => $value) {
+  $_POST[$key] = preg_replace('/^￥/u', '', $value);
+}
 
 $html = <<< EOF
 
@@ -141,11 +143,11 @@ $html = <<< EOF
       th.style56 { vertical-align:top; text-align:left; padding-left:0px; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000;  font-size:8pt; background-color:white }
       td.style57 { vertical-align:middle; text-align:right; padding-right:0px; border-bottom:none; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:none #000000; color:#000000;  font-size:9pt;pt; background-color:white }
       th.style57 { vertical-align:middle; text-align:right; padding-right:0px; border-bottom:0.5px solid #40544bfc !important; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:none #000000; color:#000000;  font-size:9pt;pt; background-color:white }
-      td.style58 { vertical-align:middle; text-align:right; padding-right:3px; border-bottom:none; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:0.5px solid #40544bfc !important; font-weight:bold; color:#ffffff;  font-size:8pt; background-color:#779f78 }
+      td.style58 { vertical-align:middle; text-align:right; padding-right:3px; border-bottom:none; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:0.5px solid #40544bfc !important; color:#ffffff;  font-size:9pt; background-color:#779f78 }
       th.style58 { vertical-align:middle; text-align:right; padding-right:0px; border-bottom:none; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:none #000000; font-weight:bold; color:#ffffff;  font-size:8pt; background-color:#779f78 }
       td.style59 { vertical-align:middle; text-align:left; padding-left:0px; border-bottom:0.5px solid #40544bfc !important; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:0.5px solid #40544bfc !important; color:#000000;  font-size:8pt; background-color:white }
       th.style59 { vertical-align:middle; text-align:left; padding-left:0px; border-bottom:0.5px solid #40544bfc !important; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:none #000000; color:#000000;  font-size:8pt; background-color:white }
-      td.style60 { vertical-align:middle; text-align:right; padding-right:3px; border-bottom:none; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:0.5px solid #40544bfc !important; font-weight:bold; color:#ffffff;  font-size:9pt;pt; background-color:#779f78 }
+      td.style60 { vertical-align:middle; text-align:right; padding-right:3px; border-bottom:none; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:0.5px solid #40544bfc !important; color:#ffffff;  font-size:9pt;pt; background-color:#779f78 }
       th.style60 { vertical-align:middle; text-align:right; padding-right:0px; border-bottom:0.5px solid #40544bfc !important; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:none #000000; font-weight:bold; color:#ffffff;  font-size:9pt;pt; background-color:#779f78 }
       td.style61 { vertical-align:middle; text-align:right; padding-right:0px; border-bottom:none; border-top:0.5px solid #40544bfc !important; border-right:none #000000; color:#FF0000;  font-size:9pt;pt; background-color:white }
       th.style61 { vertical-align:middle; text-align:right; padding-right:0px; border-bottom:0.5px solid #40544bfc !important; border-top:0.5px solid #40544bfc !important; border-left:0.5px solid #40544bfc !important; border-right:none #000000; color:#FF0000;  font-size:9pt;pt; background-color:white }
@@ -446,7 +448,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
 <style>
     .english {
         font-family: sans-serif;
-        font-size: 12pt;
+        font-size: 10pt;
     }
     .japanese {
         font-family: notojp;
@@ -456,7 +458,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
         font-weight: bold;
     }
     .small {
-        font-size: 19pt;
+        font-size: 119pt;
     }
 </style>
     <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0" style="margin-left: auto; margin-right: auto;">
@@ -512,7 +514,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
 
             <td class="column1 style207 s style43-bk" colspan="20" ><br><br>{$_POST['1_1']}</td>
             
-            <td class="column4 style21 null" colspan="15" rowspan="6">
+            <td class="column4 style21 null" colspan="15" rowspan="5">
               <br>{$_POST['serialNoId']}<br><br>
               <br><b>{$_POST['0_2']}</b>&nbsp;&nbsp;&nbsp;&nbsp;<br />
               {$_POST['0_3']}&nbsp;&nbsp;&nbsp;&nbsp;<br>
@@ -602,7 +604,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
             <td class="column19 style18 s style15" colspan="12">&nbsp;{$_POST['1_14']}</td>
             <td class="column23 style30 s style15" colspan="4">修復歴&nbsp;&nbsp;</td>
             <td class="column27 style18 s style15" colspan="10">&nbsp;{$_POST['1_15']}</td>
-            <td class="column32 style36 f style25 english" colspan="7" rowspan="2">{$_POST['1_12']}</td>
+            <td class="column32 style36 f style25" colspan="7" rowspan="2">￥<span style="font-family: sans-serif;font-size: 14pt;">{$_POST['1_12']}</span></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row10">
@@ -673,7 +675,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           <tr class="row17">
             
             <td class="column3 style45 s style15" colspan="11">車両価格①</td>
-            <td class="column14 style58 f style15" colspan="9">{$_POST['2_30']}&nbsp;&nbsp;</td>
+            <td class="column14 style58 f style15" colspan="9">￥<span class="english">{$_POST['2_30']}</span>&nbsp;&nbsp;</td>
             <td class="column23 style13 s style15-bk" colspan="4">走行距離&nbsp;&nbsp;</td>
             <td class="column27 style18 s style15" colspan="10">&nbsp;{$_POST['2_8']}</td>
             <td class="column37 style2 null"></td>
@@ -761,8 +763,8 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
             <td class="column3 style18 s style15" colspan="11">&nbsp;{$_POST['5_1']}</td>
             <td class="column14 style208 s style15" colspan="9">{$_POST['2_20']}&nbsp;&nbsp;</td>
             <td class="column23 style209 s style15-bk" colspan="9" style="border-bottom:none">（内消費税・10%）</td>
-            <td class="column32 style7 f" colspan="5">{$_POST['2_21']}&nbsp;&nbsp;</td>
-<td class="column37 style2 null"></td>
+            <td class="column32 style7 f" colspan="5">￥<span class="english">{$_POST['2_21']}</span>&nbsp;&nbsp;</td>
+            <td class="column37 style2 null"></td>
             
             
             
@@ -774,7 +776,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
             <td class="column3 style18 s style15" colspan="11">&nbsp;{$_POST['5_2']}</td>
             <td class="column14 style208 s style15" colspan="9">{$_POST['2_22']}&nbsp;&nbsp;</td>
             <td class="column23 style209 s style15-bk" colspan="9">下取り車合計&nbsp;&nbsp;</td>
-            <td class="column32 style210 f" colspan="5">{$_POST['2_23']}&nbsp;&nbsp;</td>
+            <td class="column32 style210 f" colspan="5">￥<span class="english">{$_POST['2_23']}</span>&nbsp;&nbsp;</td>
 
 
             <td class="column37 style2 null"></td>
@@ -787,7 +789,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           <tr class="row26">
             
             <td class="column2 style45 s style15" colspan="12">非課税分小計②</td>
-            <td class="column14 style60 f style15" colspan="9">{$_POST['2_24']}&nbsp;&nbsp;</td>
+            <td class="column14 style60 f style15" colspan="9">￥<span class="english">{$_POST['2_24']}</span>&nbsp;&nbsp;</td>
             <td class="column23 style86 s style88-bk" colspan="14">
 
 
@@ -966,7 +968,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           <tr class="row40">
             
             <td class="column2 style68 f style15" colspan="12">諸費用（ 課税分）  小計③&nbsp;&nbsp;</td>
-            <td class="column14 style68 f style15" colspan="9">{$_POST['3_14']}&nbsp;&nbsp;</td>
+            <td class="column14 style68 f style15" colspan="9">￥<span class="english">{$_POST['3_14']}</span>&nbsp;&nbsp;</td>
             <td class="column37 style2 null"></td>
             
             
@@ -977,7 +979,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           <tr class="row41">
             
             <td class="column2 style209 s style15-bk" colspan="12">諸費用合計②+③&nbsp;&nbsp;</td>
-            <td class="column14 style209 f style15-bk" colspan="9">{$_POST['3_15']}&nbsp;&nbsp;</td>
+            <td class="column14 style209 f style15-bk" colspan="9">￥<span class="english">{$_POST['3_15']}</span>&nbsp;&nbsp;</td>
             <td class="column37 style2 null"></td>
             
             
@@ -998,7 +1000,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           <tr class="row43">
             
             <td class="column1 style68 s style70-bk" colspan="13">小計＝①＋②＋③&nbsp;&nbsp;</td>
-            <td class="column14 style68 f style78-bk" colspan="9">{$_POST['3_16']}&nbsp;&nbsp;</td>
+            <td class="column14 style68 f style78-bk" colspan="9">￥<span class="english">{$_POST['3_16']}</span>&nbsp;&nbsp;</td>
             <td class="column37 style2 null"></td>
             
             
@@ -1009,7 +1011,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           <tr class="row44">
             
             <td class="column1 style68 s style73-bk" colspan="13">（内消費税①と③の10%）</td>
-            <td class="column14 style68 f style80-bk" colspan="9">{$_POST['3_17']}&nbsp;&nbsp;</td>
+            <td class="column14 style68 f style80-bk" colspan="9">￥<span class="english">{$_POST['3_17']}</span>&nbsp;&nbsp;</td>
             <td class="column37 style2 null"></td>
             
             
@@ -1020,7 +1022,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           <tr class="row45">
             
             <td class="column1 style209 s style76-bk" colspan="13">支払合計金額（ 税込）</td>
-            <td class="column14 style209 f style82-bk " colspan="9">{$_POST['3_18']}<span style="font-family: helvetica, cid0jp; font-size: 15pt;"></span>&nbsp;&nbsp;</td>
+            <td class="column14 style209 f style82-bk " colspan="9">￥<span class="english">{$_POST['3_18']}</span>&nbsp;&nbsp;</td>
             <td class="column37 style2 null"></td>
             
             
@@ -1105,6 +1107,8 @@ EOF;
  * @group font
  * @group pdf
  */
+
+
 
 // Include the main TCPDF library (search for installation path).
 require_once('tcpdf_include.php');

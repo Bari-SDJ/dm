@@ -789,10 +789,9 @@ document.getElementById('myInput').addEventListener('change', function() {
         //（内消費税・10%）	
         Total = ((part_total)*0.1);//.toFixed(2);
         document.getElementById('2_21').value = "￥" + Total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        //alert(parseInt(one.value) + parseInt(two.value))
 
-
-
+        part2_1.value = part2_1.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        part3_6.value = part3_6.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
     function formatNumber(input) {
@@ -903,7 +902,7 @@ async function uploadImage() {
 </script>
 
 {% endblock javascript %}
-  <body onload="javascript:calculationPricebm()">
+  <body onload="javascript:calculationPricebm();">
 <style>
 @page { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin-top: 0.59055118110236in; margin-bottom: 0.59055118110236in; }
 
