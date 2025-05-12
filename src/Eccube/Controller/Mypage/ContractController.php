@@ -164,7 +164,7 @@ class ContractController extends AbstractController
         /* collect site item info */
         $url = $request->request->get('username');
         $siteInfo = "";
-        $siteInfo = $this->parser($url, $Customer);
+        $siteInfo = $this->parser($url, $Customer, $request);
 
        // var_dump($Customer->getId());exit();
         //var_dump($this->getUser()->getId());
@@ -212,9 +212,8 @@ class ContractController extends AbstractController
 
         return $this->redirect($this->generateUrl('mypage_contract'));
     }
-    function parser($url, $Customer)
+    function parser($url, $Customer, $request)
     {
-        //var_dump("parser:". $url);
         $carDetails = ['Displacement'=>'', 'Year'=>'', 'CarModel'=>'', 'ChassisNumber'=>'', 'NumberOfDoors'=>'', 
         'VehicleInspection'=>'', 'Manufacturer'=>'', 'Mileage'=>'', 'RepairHistory'=>'', 'WarrantyDetails'=>'', 'VehiclePrice'=>'', 
         'AdditionalLineTotal'=>'', 'CarTransportationFee'=>'', 'TransportationCosts'=>'', 'TradeInVehicleName'=>'', 'Color'=>'', 
@@ -224,8 +223,8 @@ class ContractController extends AbstractController
         'image0'=>'','image1'=>'','image2'=>'','image3'=>'','image4'=>'','image5'=>'',
          'VehiclePrice'=>'0','OtherPrice'=>'0'
          ,'CompanyName'=>'' ,'OwnerName'=>'' ,'CompanyAddress'=>'' ,'CompanyPhone'=>'' ,'CompanyFax'=>'' ,'CompanyMobilePhone'=>'' ,'CompanyEmail'=>'' ,'BankInfo'=>'' ,'CompanyRegistrationNumber'=>'' ,'CompanyLicenseNumber'=>''
-         ,'Display01'=>''];
-
+         ,'Display01'=>'','URL_Error'=>'', 'goo-net'=>''];
+       
         //Note Preparaton
         $note = $Customer->getNote();
         $pos1 = strrpos($note,"1st",0);
@@ -248,44 +247,34 @@ class ContractController extends AbstractController
         $carDetails['CompanyRegistrationNumber'] = $str[8];
         $carDetails['CompanyLicenseNumber'] = $str[9];
         $carDetails['Display01'] = $str[10];
+        $carDetails['CompanyWebSite'] = $str[11];
+        $carDetails['goo-net'] = $str[12];
 
-        if ($url == "") {
+        $referrer = $request->headers->get('referer') ;
+        $checkPath = $request->getSchemeAndHttpHost() . $request->getBaseUrl() . "/mypage/quotation";
+        if (($url == "" or !$this->is_url_accessible($url))) {
+            if ($referrer == $checkPath){
+                $carDetails['URL_Error'] = "";
+            }else{
+                $carDetails['URL_Error'] = "❌ 正しURLを入力お願いします。（Please enter the correct URL）";
+            }
             return $carDetails;
         }
-
         // Fetch HTML content
         $htmlContent = file_get_contents($url);
 
 
-                // Create a new DOMDocument instance
-                $dom = new \DOMDocument();
+        // Create a new DOMDocument instance
+        $dom = new \DOMDocument();
 
-                // Suppress errors for HTML5 tags not supported by DOMDocument
-                @$dom->loadHTML($htmlContent);
+        // Suppress errors for HTML5 tags not supported by DOMDocument
+        @$dom->loadHTML($htmlContent);
 
-                // Use XPath to find elements
-                $xpath = new \DOMXPath($dom);
+        // Use XPath to find elements
+        $xpath = new \DOMXPath($dom);
 
-                // Find the <p> tag with id "greeting" and modify its content
-                // Query for hidden input elements
         $hiddenFields = $xpath->query("//input[@type='hidden']");
-        $bm = $xpath->query('//*[@id="door_nm"]')->item(0)->nodeValue;
-        $bm = $xpath->query('//div[contains(@class,"countSlide")]')->item(0);
-        
-       // var_dump($bm);exit();
-        //foreach($bm as $node) {
-        //    echo $node->nodeValue, PHP_EOL;
-        //}
-        //*[@id="propertyMain"]/div[7]/div[1]/div[1]/div[2]/div[2]/table
-        //$xpath->query('//div[contains(@class,"box_roundWhite")]');
-        //*[@id="door_nm"]
-       // /html/body/div[1]/div[1]/div[3]/form[2]/div/div[7]/div[1]/div[1]/div[2]/div[2]/table/tbody/tr[4]/td[1]
 
-
-       // " ハンドル 右 年式（初度登録） 1985(昭和60)年 排気量 1200cc 乗車定員 ５名 駆動方式 2WD 燃料 ガソリン ドア 3D エコカー 減税対象車 − ミッション AT 過給器 内燃機関へ空気を強制的に送り込む装置。ターボ、スーパーチャージャーなどが該当 − 車体色 ホワイト 車台番号下3桁 902 その他仕様 − 全体のサイズ − 荷台寸法 − "
-
-        // Loop through and process the hidden input elements
-//*[@id="propertyMain"]/div[7]/div[1]/div[1]/div[2]/div[2]/table
         foreach ($hiddenFields as $hiddenField) {
             
             if ($hiddenField->getAttribute('name') == "exhaust_nm") $carDetails['Displacement'] = $hiddenField->getAttribute('value');
@@ -293,18 +282,23 @@ class ContractController extends AbstractController
             if ($hiddenField->getAttribute('name') == "brand") $carDetails['Manufacturer'] = $hiddenField->getAttribute('value');
             if ($hiddenField->getAttribute('name') == "distance") $carDetails['Mileage'] = $hiddenField->getAttribute('value');
             if ($hiddenField->getAttribute('name') == "car") $carDetails['CarModel'] = $hiddenField->getAttribute('value');
-
-            
-            //echo 'Hidden Field Name: ' . $hiddenField->getAttribute('name') . PHP_EOL;
-            //echo 'Hidden Field Value: ' . $hiddenField->getAttribute('value') . PHP_EOL;
+            if ($hiddenField->getAttribute('name') == "total_price") $carDetails['totalPrice'] = $hiddenField->getAttribute('value');
         }
-
-        $carDetails['NumberOfDoors'] = $xpath->query('//*[@id="door_nm"]')->item(0)->nodeValue;
-
-        //*[@id="headCarDetail"]/div[1]/div/div[2]/div/h2/p[1]/span
-
-       //var_dump($carDetails);exit;
-
+        
+        $result = $xpath->query('//*[@id="door_nm"]');
+        if ($result !== false && $result->length > 0) {
+            $carDetails['NumberOfDoors'] = $result->item(0)->nodeValue;
+        }
+        
+        $result = $xpath->query('//*[@id="color_nm"]');
+        if ($result !== false && $result->length > 0) {
+            $carDetails['Color'] = $result->item(0)->nodeValue;
+        }
+        $result = $xpath->query('//div[contains(@class,"mainDataBottom")]/p[2]');
+        if ($result !== false && $result->length > 0) {
+            $warranty = $result->item(0)->nodeValue;
+            $carDetails['WarrantyDetails'] = str_replace(['(', ')', '法定整備：整備付','保証付',' '], '', $warranty);
+        }
 
         // for without hidden eliments
         $otherElements = $xpath->query('//div[contains(@class,"box_roundWhite")]')->item(0);
@@ -319,50 +313,67 @@ class ContractController extends AbstractController
         for ($i = 0; $i < count($items); $i++) {
             if ($items[$i] == "車台番号下3桁") $carDetails['ChassisNumber'] = $items[$i+1];
         }
-
-        //$otherElements = $xpath->query('//*[@id="photoGalleryTop"]');
-        //$otherElements = $xpath->query('//*[@id="photoGalleryTop"]/div[1]/div[4]/div/div/div[2]')->item(0);
-        $otherElements = $xpath->query('//div[contains(@class,"countSlide")][1]/div/img/@src')->item(3)->nodeValue;;
-                                        //*[@id="photoGalleryTop"]/div[1]/div[4]/div/div/div[2]/div/div[1]
-        for ($i = 0; $i < 6; $i++) {
-            $carDetails['image'.$i] = $otherElements = $xpath->query('//div[contains(@class,"countSlide")][1]/div/img/@src')->item($i)->nodeValue;
-            
+/*
+        $result = $xpath->query('//div[contains(@class,"countSlide")][1]/div/img/@src');
+        if ($result !== false && $result->length > 0) {
+            $otherElements = $result->item(3)->nodeValue;
+                                            
+            $carIndex=0;
+            for ($i = 0; $i < 12; $i++) {
+                $otherElements = $result->item($i)->nodeValue;           
+                if (str_contains($otherElements, 'playmark01.png')) {
+                    //echo $otherElements2;
+                    //$i--;
+                }else{
+                    $carDetails['image'.$carIndex] = $otherElements;
+                    $carIndex = $carIndex+1;
+                }
+            }
         }
-        //var_dump($carDetails);exit();
-                           
-
-        $otherElements = $xpath->query('//div[contains(@class,"mainDataMiddleLeft")]/p/em')->item(0)->nodeValue;
-        if (str_contains($otherElements, '.')) {
-            $vehiclePrice = str_replace(".", "",$otherElements);
-            $carDetails['VehiclePrice'] = $vehiclePrice*1000;
-            //echo "車両体価格". $vehiclePrice*1000;
-        }else{
-            $vehiclePrice = $otherElements;
-            $carDetails['VehiclePrice'] = $vehiclePrice*10000;
-            //echo "車両体価格". $vehiclePrice*10000;
-        }
-
-        $otherElements = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em')->item(0)->nodeValue;
-        if (str_contains($otherElements, '.')) {
-            $otherPrice = str_replace(".", "",$otherElements);
-            $carDetails['OtherPrice'] = $otherPrice*1000;
-            //echo "otherPrice". $otherPrice*1000;
-        }else{
-            $otherPrice = $otherElements;
-            $carDetails['OtherPrice'] = $otherPrice*10000;
-            //echo "otherPrice". $otherPrice*10000;
+*/
+        $result = $xpath->query('//div[contains(@class,"mainDataMiddleLeft")]/p/em');
+        if ($result !== false && $result->length > 0) {
+            $otherElements = $result->item(0)->nodeValue;
+            if (str_contains($otherElements, '.')) {
+                $vehiclePrice = str_replace(".", "",$otherElements);
+                $carDetails['VehiclePrice'] = $vehiclePrice*1000;
+                //echo "車両体価格". $vehiclePrice*1000;
+            }else{
+                $vehiclePrice = $otherElements;
+                $carDetails['VehiclePrice'] = $vehiclePrice*10000;
+                //echo "車両体価格". $vehiclePrice*10000;
+            }
         }
 
-
-        //foreach ($items as $x) {
-        //    if ($x == "車台番号下3桁") $carDetails['ChassisNumber'] = $x[];
-
-       //   }
-       // print_r($words);
-        //exit;
-
+        $result = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em');
+        if ($result !== false && $result->length > 0) {
+            $otherElements = $result->item(0)->nodeValue;
+            if (str_contains($otherElements, '.')) {
+                $otherPrice = str_replace(".", "",$otherElements);
+                $carDetails['OtherPrice'] = $otherPrice*1000;
+                //echo "otherPrice". $otherPrice*1000;
+            }else{
+                $otherPrice = $otherElements;
+                $carDetails['OtherPrice'] = $otherPrice*10000;
+                //echo "otherPrice". $otherPrice*10000;
+            }
+        }
         return $carDetails;
     }
+
+    function is_url_accessible($url) {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_NOBODY, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_exec($ch);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+    
+        return ($http_code >= 200 && $http_code < 400);
+    }
+
     /**
      * お届け先を削除する.
      *
