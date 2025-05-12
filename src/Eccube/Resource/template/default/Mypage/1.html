@@ -521,6 +521,11 @@ document.getElementById('myInput').addEventListener('change', function() {
         WarrantyDetails.focus();
         isValid = false;
       }
+      if (WarrantyDetails.value.trim().length >19 ) {
+        WarrantyDetailsError.textContent = '入力文字数は1～19文字でください。';
+        WarrantyDetails.focus();
+        isValid = false;
+      }
       if (VehicleInspection.value.trim().length <=0 ) {
         VehicleInspectionError.textContent = '入力してください';
         VehicleInspection.focus();
