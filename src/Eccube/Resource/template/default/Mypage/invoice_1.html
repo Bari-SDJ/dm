@@ -643,7 +643,7 @@ input[type=number] {
             <td class="column15 style20 s style15" colspan="4">車検</td>
             <td class="column19 style59 s style15" colspan="4"><input type="text" value="{{siteInfo['VehicleInspection']}}" name="1_17"></td>
             <td class="column23 style30 s style15" colspan="4">保証内容</td>
-            <td class="column27 style59 s style15" colspan="5"><input type="text" value="" name="1_18"></td>
+            <td class="column27 style59 s style15" colspan="5"><input type="text" value="{{siteInfo['WarrantyDetails']}}" name="1_18"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -674,7 +674,7 @@ input[type=number] {
             <td class="column0">&nbsp;</td>
             <td class="column1 style102 s style25" colspan="2" rowspan="5">車両販売価格(内税)</td>
             <td class="column3 style18 s style15" colspan="11">車両体価格</td>
-            <td class="column14 style52 n style15" colspan="9"><input type="text" value="{{siteInfo['VehiclePrice']}}" id="2_1" name="2_1" oninput="formatNumber(this)" style="text-align: right;"></td>
+            <td class="column14 style52 n style15" colspan="9"><input type="text" value="{{siteInfo['VehiclePrice']}}" id="2_1" name="2_1" onkeyup="calculationPrice(this.value);" oninput="formatNumber(this);" style="text-align: right;"></td>
 
             <td class="column23 style53 s style15" colspan="14">下取車種</td>
             <td class="column33 style3-bk null"></td>

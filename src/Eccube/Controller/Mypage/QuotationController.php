@@ -220,7 +220,6 @@ class QuotationController extends AbstractController
     }
     function parser($url, $Customer, $request)
     {
-        //var_dump("parser:". $url);
         $carDetails = ['Displacement'=>'', 'Year'=>'', 'CarModel'=>'', 'ChassisNumber'=>'', 'NumberOfDoors'=>'', 
         'VehicleInspection'=>'', 'Manufacturer'=>'', 'Mileage'=>'', 'RepairHistory'=>'', 'WarrantyDetails'=>'', 'VehiclePrice'=>'', 
         'AdditionalLineTotal'=>'', 'CarTransportationFee'=>'', 'TransportationCosts'=>'', 'TradeInVehicleName'=>'', 'Color'=>'', 
@@ -241,12 +240,6 @@ class QuotationController extends AbstractController
         //var_dump($noteSecond);
         $carDetails['note1'] = $noteFirst;
         $carDetails['note2'] = $noteSecond;
-/*
-
-        <br>&nbsp;銀行：東日本銀行<br>&nbsp;支店：松戸支店(403)<br>&nbsp;口座：0619181(普通)<br>&nbsp;名義：(カ)エムシーアイインターナショナル
-        1st
-        &nbsp;〒270－2241千葉県松戸市松戸新田９<br>&nbsp;TEL：047-367-5107,または090-2467-8171<br>&nbsp;FAX：047-362-7425 営業時間10:00～20:00<br>&nbsp;Mail：bm@mciinternational.jp
-*/
 
         $str = explode('[Next_Item]',$note);
         $carDetails['CompanyName'] = $str[0];
@@ -286,26 +279,8 @@ class QuotationController extends AbstractController
         // Use XPath to find elements
         $xpath = new \DOMXPath($dom);
 
-        // Find the <p> tag with id "greeting" and modify its content
-        // Query for hidden input elements
         $hiddenFields = $xpath->query("//input[@type='hidden']");
-        //$bm = $xpath->query('//*[@id="door_nm"]')->item(0)->nodeValue;
-        //$bm = $xpath->query('//div[contains(@class,"countSlide")]')->item(0);
-        
-       // var_dump($bm);exit();
-        //foreach($bm as $node) {
-        //    echo $node->nodeValue, PHP_EOL;
-        //}
-        //*[@id="propertyMain"]/div[7]/div[1]/div[1]/div[2]/div[2]/table
-        //$xpath->query('//div[contains(@class,"box_roundWhite")]');
-        //*[@id="door_nm"]
-       // /html/body/div[1]/div[1]/div[3]/form[2]/div/div[7]/div[1]/div[1]/div[2]/div[2]/table/tbody/tr[4]/td[1]
 
-
-       // " ハンドル 右 年式（初度登録） 1985(昭和60)年 排気量 1200cc 乗車定員 ５名 駆動方式 2WD 燃料 ガソリン ドア 3D エコカー 減税対象車 − ミッション AT 過給器 内燃機関へ空気を強制的に送り込む装置。ターボ、スーパーチャージャーなどが該当 − 車体色 ホワイト 車台番号下3桁 902 その他仕様 − 全体のサイズ − 荷台寸法 − "
-
-        // Loop through and process the hidden input elements
-//*[@id="propertyMain"]/div[7]/div[1]/div[1]/div[2]/div[2]/table
         foreach ($hiddenFields as $hiddenField) {
             
             if ($hiddenField->getAttribute('name') == "exhaust_nm") $carDetails['Displacement'] = $hiddenField->getAttribute('value');
@@ -313,12 +288,7 @@ class QuotationController extends AbstractController
             if ($hiddenField->getAttribute('name') == "brand") $carDetails['Manufacturer'] = $hiddenField->getAttribute('value');
             if ($hiddenField->getAttribute('name') == "distance") $carDetails['Mileage'] = $hiddenField->getAttribute('value');
             if ($hiddenField->getAttribute('name') == "car") $carDetails['CarModel'] = $hiddenField->getAttribute('value');
-
             if ($hiddenField->getAttribute('name') == "total_price") $carDetails['totalPrice'] = $hiddenField->getAttribute('value');
-
-            
-            //echo 'Hidden Field Name: ' . $hiddenField->getAttribute('name') . PHP_EOL;
-            //echo 'Hidden Field Value: ' . $hiddenField->getAttribute('value') . PHP_EOL;
         }
         
         $result = $xpath->query('//*[@id="door_nm"]');
@@ -333,7 +303,12 @@ class QuotationController extends AbstractController
         $result = $xpath->query('//div[contains(@class,"mainDataBottom")]/p[2]');
         if ($result !== false && $result->length > 0) {
             $warranty = $result->item(0)->nodeValue;
-            $carDetails['WarrantyDetails'] = str_replace(['(', ')', '法定整備：整備付','保証付',' '], '', $warranty);
+            $str = str_replace(['(', ')', '法定整備：整備付','保証付',' '], '', $warranty);
+            $pos = strpos($str, "※"); //remove all after ※
+            if ($pos !== false) {
+                $str = substr($str, 0, $pos); 
+            }
+            $carDetails['WarrantyDetails'] = $str;
         }
 
         // for without hidden eliments
@@ -350,8 +325,6 @@ class QuotationController extends AbstractController
             if ($items[$i] == "車台番号下3桁") $carDetails['ChassisNumber'] = $items[$i+1];
         }
 
-        //$otherElements = $xpath->query('//*[@id="photoGalleryTop"]');
-        //$otherElements = $xpath->query('//*[@id="photoGalleryTop"]/div[1]/div[4]/div/div/div[2]')->item(0);
         $result = $xpath->query('//div[contains(@class,"countSlide")][1]/div/img/@src');
         if ($result !== false && $result->length > 0) {
             $otherElements = $result->item(3)->nodeValue;
@@ -369,7 +342,6 @@ class QuotationController extends AbstractController
             }
         }
 
-                           
         $result = $xpath->query('//div[contains(@class,"mainDataMiddleLeft")]/p/em');
         if ($result !== false && $result->length > 0) {
             $otherElements = $result->item(0)->nodeValue;
@@ -397,20 +369,6 @@ class QuotationController extends AbstractController
                 //echo "otherPrice". $otherPrice*10000;
             }
         }
-
-       // echo $carDetails['totalPrice']; 
-        //$otherElements = $xpath->query('//*[@id="total_price"]')->item(0)->nodeValue;
-        //echo $otherElements;
-
-//exit();
-
-        //foreach ($items as $x) {
-        //    if ($x == "車台番号下3桁") $carDetails['ChassisNumber'] = $x[];
-
-       //   }
-       // print_r($words);
-        //exit;
-
         return $carDetails;
     }
 
