@@ -35,6 +35,23 @@ file that was distributed with this source code.
                 </a>
             </div>
 
+            <!-- Language Support -->
+            <div class="ec-headerNav__item">
+                    <i class="ec-headerNav__itemIcon fas fa-cog fa-fw"></i>
+                    <span class="ec-headerNav__itemLink">
+                    <form id="languageForm">
+                        <select id="languageSwitcher">
+                            <option value="{{ path('change_locale', {'locale': 'ja'}) }}" {% if app.request.locale == 'ja' %}selected{% endif %}>日本語</option>
+                            <option value="{{ path('change_locale', {'locale': 'en'}) }}" {% if app.request.locale == 'en' %}selected{% endif %}>English</option>
+                        </select>
+                    </form>
+            </div>
+            <script>
+                document.getElementById('languageSwitcher').addEventListener('change', function () {
+                    window.location.href = this.value;
+                });
+            </script>
+
         <div class="ec-headerNav__item">
             <a href="{{ url('logout') }}">
                 <i class="ec-headerNav__itemIcon fas fa-lock fa-fw"></i>

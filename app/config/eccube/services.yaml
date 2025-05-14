@@ -213,3 +213,7 @@ services:
 
     Customize\Twig\AppExtension:
         tags: [ 'twig.extension' ]
+
+    Customize\EventListener\RequestListener:
+            tags:
+                - { name: kernel.event_listener, event: kernel.request, priority: 17 }
