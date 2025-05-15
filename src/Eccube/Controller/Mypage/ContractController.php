@@ -251,7 +251,7 @@ class ContractController extends AbstractController
         $carDetails['goo-net'] = $str[12];
 
         $referrer = $request->headers->get('referer') ;
-        $checkPath = $request->getSchemeAndHttpHost() . $request->getBaseUrl() . "/mypage/quotation";
+        $checkPath = $request->getSchemeAndHttpHost() . $request->getBaseUrl() . "/mypage/contract";
         if (($url == "" or !$this->is_url_accessible($url))) {
             if ($referrer == $checkPath){
                 $carDetails['URL_Error'] = "";
