@@ -126,7 +126,7 @@ file that was distributed with this source code.
                     {% if Customer.CustomerAddresses|length > 0 %}
                         <div class="ec-addressList">
                         {% set i = 0 %}
-                        {% set colors = ['#ffffff', '#f2f2f2'] %}
+                        {% set colors = ['#f2f2f2', '#ffffff'] %}
                             {% for CustomerAddress in Customer.CustomerAddresses %}
                                 {% if CustomerAddress.Name01 == "quotation" %}
                                     <div class="ec-addressList__item" style="background-color: {{ cycle(colors, i) }};">
