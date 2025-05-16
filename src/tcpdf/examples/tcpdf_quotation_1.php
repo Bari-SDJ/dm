@@ -1199,7 +1199,7 @@ $pdf->Image($_SERVER['DOCUMENT_ROOT'] . $_POST['uploadPath'] . '/html/upload/han
 //$pdf->Image('http://localhost:8888/eccube-mylocal/ec-cube/html/upload/hanko/20003.png', 175, 40, 15, 15, '', 'http://www.tcpdf.org', '', false, 300);
 
 //Logo
-$pdf->Image($_SERVER['DOCUMENT_ROOT'] . $_POST['uploadPath'] . '/html/upload/save_image/companyLogo/' . $_POST['customerId'] . '.png', 14.5, 28, 10, 10, '', 'http://www.tcpdf.org', '', false, 300);
+//$pdf->Image($_SERVER['DOCUMENT_ROOT'] . $_POST['uploadPath'] . '/html/upload/save_image/companyLogo/' . $_POST['customerId'] . '.png', 14.5, 28, 10, 10, '', 'http://www.tcpdf.org', '', false, 300);
 //$pdf->Image('http://localhost:8888/eccube-mylocal/ec-cube/html/upload/save_image/companyLogo/20003.png', 14.5, 28, 10, 10, '', 'http://www.tcpdf.org', '', false, 300);
 
 
