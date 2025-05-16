@@ -125,9 +125,11 @@ file that was distributed with this source code.
                     </div>
                     {% if Customer.CustomerAddresses|length > 0 %}
                         <div class="ec-addressList">
+                        {% set i = 0 %}
+                        {% set colors = ['#ffffff', '#f2f2f2'] %}
                             {% for CustomerAddress in Customer.CustomerAddresses %}
                                 {% if CustomerAddress.Name01 == "quotation" %}
-                                    <div class="ec-addressList__item" style="background-color: {{ loop.index is even ? '#ffffff' : '#f2f2f2' }};">
+                                    <div class="ec-addressList__item" style="background-color: {{ cycle(colors, i) }};">
                                         <a class="ec-addressList__remove" href="{{ url('mypage_quotation_delete', { id : CustomerAddress.id }) }}" {{ csrf_token_for_anchor() }} data-method="delete">
                                             <div class="ec-icon">
                                                 <img src="{{ asset('assets/icon/cross.svg') }}" alt="remove">
@@ -147,6 +149,7 @@ file that was distributed with this source code.
                                         </div>
                                     </div>
                                 {% endif %}
+                                {% set i = i + 1 %}
                             {% endfor %}
                         </div>
                     {% endif %}
