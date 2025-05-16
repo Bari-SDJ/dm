@@ -1209,7 +1209,7 @@ rt
   <td class="xl63"></td>
   <td class="xl63" colspan="19" style='mso-ignore:colspan'>
   買主は、以下の方法に従い、売買価格を支払います。<br>
-    ⚫︎ 支払い方法に◯つけくだいさい。<br>
+    ⚫︎ 支払い方法に「◯」つけくだいさい。<br>
         &nbsp;&nbsp;&nbsp;1. クレジットカード<br>
         &nbsp;&nbsp;&nbsp;2. 銀行振込・ネットバンク<br>
         &nbsp;&nbsp;&nbsp;3. 電子マネー（Suica, PASMOなど）<br>
