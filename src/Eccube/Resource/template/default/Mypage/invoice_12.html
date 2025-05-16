@@ -643,7 +643,7 @@ input[type=number] {
             <td class="column15 style20 s style15" colspan="4">車検</td>
             <td class="column19 style59 s style15" colspan="4"><input type="text" value="{{siteInfo['VehicleInspection']}}" name="1_17"></td>
             <td class="column23 style30 s style15" colspan="4">保証内容</td>
-            <td class="column27 style59 s style15" colspan="5"><input type="text" value="" name="1_18"></td>
+            <td class="column27 style59 s style15" colspan="5"><input type="text" value="{{siteInfo['WarrantyDetails']}}" name="1_18"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -674,7 +674,7 @@ input[type=number] {
             <td class="column0">&nbsp;</td>
             <td class="column1 style102 s style25" colspan="2" rowspan="5">車両販売価格(内税)</td>
             <td class="column3 style18 s style15" colspan="11">車両体価格</td>
-            <td class="column14 style52 n style15" colspan="9"><input type="number" value="{{siteInfo['VehiclePrice']}}" id="2_1" name="2_1" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style52 n style15" colspan="9"><input type="text" value="{{siteInfo['VehiclePrice']}}" id="2_1" name="2_1" onkeyup="calculationPrice(this.value);" oninput="formatNumber(this);" style="text-align: right;"></td>
 
             <td class="column23 style53 s style15" colspan="14">下取車種</td>
             <td class="column33 style3-bk null"></td>
@@ -691,7 +691,7 @@ input[type=number] {
           <tr class="row14">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">追加明細合計</td>
-            <td class="column14 style52 s style15" colspan="9"><input type="number" value="0" name="2_2" id="2_2"  onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style52 s style15" colspan="9"><input type="text" value="0" name="2_2" id="2_2"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="4">下取車名</td>
             <td class="column27 style54 s style15" colspan="10"><input type="text" value="" name="2_3"></td>
             <td class="column37 style2 null"></td>
@@ -704,7 +704,7 @@ input[type=number] {
           <tr class="row15">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">車陸送代</td>
-            <td class="column14 style57 s style15" colspan="9"><input type="number" value="0" name="2_4" id="2_4"  onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style57 s style15" colspan="9"><input type="text" value="0" name="2_4" id="2_4"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="4">色</td>
             <td class="column27 style54 s style15" colspan="10"><input type="text" value="" name="2_5"></td>
             <td class="column37 style2 null"></td>
@@ -717,7 +717,7 @@ input[type=number] {
           <tr class="row16">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">陸送費用</td>
-            <td class="column14 style57 s style15" colspan="9"><input type="number" value="0" name="2_6" id="2_6"  onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style57 s style15" colspan="9"><input type="text" value="0" name="2_6" id="2_6"  onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="4">車体番号</td>
             <td class="column27 style54 s style15" colspan="10"><input type="text" value="" name="2_7"></td>
             <td class="column37 style2 null"></td>
@@ -745,7 +745,7 @@ input[type=number] {
             <td class="column1 style64 s style66-bk" rowspan="24">諸費用内訳</td>
             <td class="column2 style64 s style66-bk" rowspan="5">非課税分</td>
             <td class="column3 style18 s style15" colspan="11">環境性能割</td>
-            <td class="column14 style19 s style15" colspan="9"><input type="number" value="0" name="2_9" id="2_9" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="9"><input type="text" value="0" name="2_9" id="2_9" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style16 s style15" colspan="14">下取車価格(内税)</td>
 
             
@@ -757,9 +757,9 @@ input[type=number] {
           <tr class="row19">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">自動車税</td>
-            <td class="column14 style19 s style15" colspan="9"><input type="number" value="0" name="2_10" id="2_10" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="9"><input type="text" value="0" name="2_10" id="2_10" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="4">車両本体価格</td>
-            <td class="column27 style17 s style15" colspan="10"><input type="number" value="0" name="2_11" id="2_11" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column27 style17 s style15" colspan="10"><input type="text" value="0" name="2_11" id="2_11" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -770,9 +770,9 @@ input[type=number] {
           <tr class="row20">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">非課税分 自賠責保険料</td>
-            <td class="column14 style19 s style15" colspan="9"><input type="number" value="0" name="2_12" id="2_12" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="9"><input type="text" value="0" name="2_12" id="2_12" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="4">陸送代</td>
-            <td class="column27 style17 s style15" colspan="10"><input type="number" value="0" name="2_13" id="2_13" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column27 style17 s style15" colspan="10"><input type="text" value="0" name="2_13" id="2_13" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -783,9 +783,9 @@ input[type=number] {
           <tr class="row21">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">重量税</td>
-            <td class="column14 style19 s style15" colspan="9"><input type="number" value="0" name="2_14" id="2_14" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="9"><input type="text" value="0" name="2_14" id="2_14" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style16 s style15" colspan="4" rowspan="3">その他</td>
-            <td class="column27 style17 s style15" colspan="10"><input type="number" value="0" name="2_15" id="2_15" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column27 style17 s style15" colspan="10"><input type="text" value="0" name="2_15" id="2_15" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -796,8 +796,8 @@ input[type=number] {
           <tr class="row22">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">リサイクル預託金</td>
-            <td class="column14 style19 s style15" colspan="9"><input type="number" value="0" name="2_16" id="2_16" onkeyup="calculationPrice(this.value)"></td>
-            <td class="column27 style17 s style15" colspan="10"><input type="number" value="0" name="2_17" id="2_17" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="9"><input type="text" value="0" name="2_16" id="2_16" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+            <td class="column27 style17 s style15" colspan="10"><input type="text" value="0" name="2_17" id="2_17" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -809,8 +809,8 @@ input[type=number] {
             <td class="column0">&nbsp;</td>
             <td class="column2 style105 s style66" rowspan="3">値引き</td>
             <td class="column3 style62 s style15" colspan="11">下取り車価格(-)</td>
-            <td class="column14 style61 n style15" colspan="9"><input type="number" value="0" name="2_18" id="2_18" readonly onkeyup="calculationPrice(this.value)"></td>
-            <td class="column27 style17 s style15" colspan="10"><input type="number" value="0" name="2_19" id="2_19" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style61 n style15" colspan="9"><input type="text" value="0" name="2_18" id="2_18" readonly onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+            <td class="column27 style17 s style15" colspan="10"><input type="text" value="0" name="2_19" id="2_19" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -829,7 +829,7 @@ input[type=number] {
               <option value="特別キャンペーン (-)">
             </datalist>
             </td>
-            <td class="column14 style61 s style15" colspan="9"><input type="number" value="0" name="2_20" id="2_20" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style61 s style15" colspan="9"><input type="text" value="0" name="2_20" id="2_20" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="9">（内消費税・10%）</td>
             <td class="column32 style7 f" colspan="5"><input type="text" value="¥0" name="2_21" id="2_21"  class="asd" readonly style="text-align:right;"></td>
 
@@ -848,7 +848,7 @@ input[type=number] {
               <option value="売買仮契約預り金 (-)">
             </datalist>
             </td>
-            <td class="column14 style61 s style15" colspan="9"><input type="number" value="0" name="2_22" id="2_22" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style61 s style15" colspan="9"><input type="text" value="0" name="2_22" id="2_22" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="9">下取り車合計</td>
             <td class="column32 style7 f" colspan="5"><input type="text" value="¥0" name="2_23" id="2_23"  class="asd" readonly style="text-align:right;"></td>
             <td class="column33 style10-bk null"></td>
@@ -885,7 +885,7 @@ input[type=number] {
             <td class="column0">&nbsp;</td>
             <td class="column2 style67 s style66" rowspan="13">税対象(内税)</td>
             <td class="column3 style18 s style15" colspan="11">登録代行費用</td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="0" name="3_1" id="3_1" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="0" name="3_1" id="3_1" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
 
             <td class="column37 style2 null"></td>
             
@@ -897,7 +897,7 @@ input[type=number] {
           <tr class="row28">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">車庫証明代行費用</td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="0" name="3_2" id="3_2" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="0" name="3_2" id="3_2" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -908,7 +908,7 @@ input[type=number] {
           <tr class="row29">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">納車点検費用</td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="0" name="3_3" id="3_3" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="0" name="3_3" id="3_3" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -919,7 +919,7 @@ input[type=number] {
           <tr class="row30">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">納車費用</td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="0" name="3_4" id="3_4" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="0" name="3_4" id="3_4" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -930,7 +930,7 @@ input[type=number] {
           <tr class="row31">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">下取車諸手続き代行費用</td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="0" name="3_5" id="3_5" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="0" name="3_5" id="3_5" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -941,7 +941,7 @@ input[type=number] {
           <tr class="row32">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">整備、車検、登錄諸費用</td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="{{siteInfo['OtherPrice']}}" name="3_6" id="3_6" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="{{siteInfo['OtherPrice']}}" name="3_6" id="3_6" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -952,7 +952,7 @@ input[type=number] {
           <tr class="row33">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">名義変更費用</td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="0" name="3_7" id="3_7" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="0" name="3_7" id="3_7" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -963,7 +963,7 @@ input[type=number] {
           <tr class="row34">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">希望ナンバー費用</td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="0" name="3_8" id="3_8" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="0" name="3_8" id="3_8" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -974,7 +974,7 @@ input[type=number] {
           <tr class="row35">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11"><input type="text" value="" name="30_1" id="30_1" style="background:#f2e9a1"></td></td>
-            <td class="column14 style19 n style15" colspan="23"><input type="number" value="0" name="3_9" id="3_9" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 n style15" colspan="23"><input type="text" value="0" name="3_9" id="3_9" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -985,7 +985,7 @@ input[type=number] {
           <tr class="row36">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11"><input type="text" value="" name="30_2" id="30_2" style="background:#f2e9a1"></td></td>
-            <td class="column14 style19 n style15" colspan="23"><input type="number" value="0" name="3_10" id="3_10" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 n style15" colspan="23"><input type="text" value="0" name="3_10" id="3_10" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -996,7 +996,7 @@ input[type=number] {
           <tr class="row37">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11"><input type="text" value="" name="30_3" id="30_3" style="background:#f2e9a1"></td></td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="0" name="3_11" id="3_11" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="0" name="3_11" id="3_11" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -1007,7 +1007,7 @@ input[type=number] {
           <tr class="row38">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11"><input type="text" value="" name="30_4" id="30_4" style="background:#f2e9a1"></td></td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="0" name="3_12" id="3_12" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="0" name="3_12" id="3_12" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
@@ -1018,7 +1018,7 @@ input[type=number] {
           <tr class="row39">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11"><input type="text" value="" name="30_5" id="30_5" style="background:#f2e9a1"></td></td>
-            <td class="column14 style19 s style15" colspan="23"><input type="number" value="0" name="3_13" id="3_13" onkeyup="calculationPrice(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="23"><input type="text" value="0" name="3_13" id="3_13" onkeyup="calculationPrice(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             
             
