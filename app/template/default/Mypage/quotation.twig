@@ -148,8 +148,8 @@ file that was distributed with this source code.
                                             <a href= "{{ app.request.schemeAndHttpHost }}{{ app.request.basePath }}/html/upload/quotation/{{ Customer.id }}/{{ CustomerAddress.name02 }}.pdf" target="_blank">Download</a>
                                         </div>
                                     </div>
+                                    {% set i = i + 1 %}
                                 {% endif %}
-                                {% set i = i + 1 %}
                             {% endfor %}
                         </div>
                     {% endif %}
