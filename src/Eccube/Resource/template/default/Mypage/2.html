@@ -3,20 +3,20 @@
   <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <meta name="generator" content="PhpSpreadsheet, https://github.com/PHPOffice/PhpSpreadsheet">
-      <meta name="author" content="fujiba.com" />
+      <meta name="author" content="藤川 アハメド" />
       <meta name="company" content="Microsoft Corporation" />
     <style type="text/css">
     :root {
-        --headerBG: #041F30;
+        --headerBG: #041f30;
         --headerFontColor: #ffffff;
-        --body01BG: #041F30;
+        --body01BG: #041f30;
        /* --body01FontColor: #ffffff; */
         --body02BG: #366092;
        /* --body02FontColor: #ffffff; */
         --body03BG: #366092;
        /* --body03FontColor: #ffffff; */
         --textbox01BG: #dfebf8;
-        --footer01BG: #041F30;
+        --footer01BG: #041f30;
        /* --footer01FontColor: #ffffff; */
         --footer02BG: #DBE5F1;
         /* --footer02FontColor: #000000;*/
@@ -521,6 +521,11 @@ document.getElementById('myInput').addEventListener('change', function() {
         WarrantyDetails.focus();
         isValid = false;
       }
+      if (WarrantyDetails.value.trim().length >19 ) {
+        WarrantyDetailsError.textContent = '入力文字数は1～19文字でください。';
+        WarrantyDetails.focus();
+        isValid = false;
+      }
       if (VehicleInspection.value.trim().length <=0 ) {
         VehicleInspectionError.textContent = '入力してください';
         VehicleInspection.focus();
@@ -636,10 +641,10 @@ document.getElementById('myInput').addEventListener('change', function() {
         
         var part1_total = document.getElementById('2_30');
 
-        part2_1_val = part2_1.value;
-        part2_2_val = part2_2.value;
-        part2_4_val = part2_4.value;
-        part2_6_val = part2_6.value;
+        part2_1_val = part2_1.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_2_val = part2_2.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_4_val = part2_4.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_6_val = part2_6.value.replace(/,/g, '').replace(/[^\d]/g, '');
 
         if (part2_1_val == "") part2_1_val = 0;
         if (part2_2_val == "") part2_2_val = 0;
@@ -662,14 +667,14 @@ document.getElementById('myInput').addEventListener('change', function() {
 
         var part2_total = document.getElementById('2_24');
 
-        part2_9_val = part2_9.value;
-        part2_10_val = part2_10.value;
-        part2_12_val = part2_12.value;
-        part2_14_val = part2_14.value;
-        part2_16_val = part2_16.value;
-        part2_18_val = part2_18.value;
-        part2_20_val = part2_20.value;
-        part2_22_val = part2_22.value;
+        part2_9_val = part2_9.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_10_val = part2_10.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_12_val = part2_12.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_14_val = part2_14.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_16_val = part2_16.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_18_val = part2_18.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_20_val = part2_20.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_22_val = part2_22.value.replace(/,/g, '').replace(/[^\d]/g, '');
 
         if (part2_9_val == "") part2_9_val = 0;
         if (part2_10_val == "") part2_10_val = 0;
@@ -704,19 +709,19 @@ document.getElementById('myInput').addEventListener('change', function() {
 
         var part3_total = document.getElementById('3_14');
 
-        part3_1_val = part3_1.value;
-        part3_2_val = part3_2.value;
-        part3_3_val = part3_3.value;
-        part3_4_val = part3_4.value;
-        part3_5_val = part3_5.value;
-        part3_6_val = part3_6.value;
-        part3_7_val = part3_7.value;
-        part3_8_val = part3_8.value;
-        part3_9_val = part3_9.value;
-        part3_10_val = part3_10.value;
-        part3_11_val = part3_11.value;
-        part3_12_val = part3_12.value;
-        part3_13_val = part3_13.value;
+        part3_1_val = part3_1.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_2_val = part3_2.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_3_val = part3_3.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_4_val = part3_4.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_5_val = part3_5.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_6_val = part3_6.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_7_val = part3_7.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_8_val = part3_8.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_9_val = part3_9.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_10_val = part3_10.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_11_val = part3_11.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_12_val = part3_12.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part3_13_val = part3_13.value.replace(/,/g, '').replace(/[^\d]/g, '');
 
 
         if (part3_1_val == "") part3_1_val = 0;
@@ -771,11 +776,11 @@ document.getElementById('myInput').addEventListener('change', function() {
 
         var part_total = document.getElementById('2_23');
 
-        part2_11_val = part2_11.value;
-        part2_13_val = part2_13.value;
-        part2_15_val = part2_15.value;
-        part2_17_val = part2_17.value;
-        part2_19_val = part2_19.value;
+        part2_11_val = part2_11.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_13_val = part2_13.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_15_val = part2_15.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_17_val = part2_17.value.replace(/,/g, '').replace(/[^\d]/g, '');
+        part2_19_val = part2_19.value.replace(/,/g, '').replace(/[^\d]/g, '');
 
         if (part2_11_val == "") part2_11_val = 0;
         if (part2_13_val == "") part2_13_val = 0;
@@ -787,12 +792,17 @@ document.getElementById('myInput').addEventListener('change', function() {
         document.getElementById('2_23').value = "￥" + part_total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
         //（内消費税・10%）	
-　　　　　Total = ((part_total)*0.1);//.toFixed(2);
+        Total = ((part_total)*0.1);//.toFixed(2);
         document.getElementById('2_21').value = "￥" + Total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        //alert(parseInt(one.value) + parseInt(two.value))
 
+        part2_1.value = part2_1.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        part3_6.value = part3_6.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
+    function formatNumber(input) {
 
+      let value = input.value.replace(/,/g, '').replace(/[^\d]/g, '');
+      input.value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
 function doubleSubmit(f) 
@@ -897,7 +907,7 @@ async function uploadImage() {
 </script>
 
 {% endblock javascript %}
-  <body onload="javascript:calculationPricebm()">
+  <body onload="javascript:calculationPricebm();">
 <style>
 @page { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin-top: 0.59055118110236in; margin-bottom: 0.59055118110236in; }
 
@@ -967,7 +977,7 @@ async function uploadImage() {
             <td class="column1 style51 s style43-bk" colspan="36">御見積書</td>
             <td class="column37 style1 null"></td>
           </tr>
-          <tr class="row0">
+          <tr class="row1">
             <td class="column0">&nbsp;</td>
             <td class="column1 style242 s" colspan="0" rowspan="5">
             </td>
@@ -984,7 +994,7 @@ async function uploadImage() {
               {{siteInfo['CompanyAddress']}}<br><input type="hidden" value="{{siteInfo['CompanyAddress']}}" name="0_3">
               TEL:{{siteInfo['CompanyPhone']}} FAX:{{siteInfo['CompanyFax']}}<br><input type="hidden" value="{{siteInfo['CompanyPhone']}}" name="0_4"><input type="hidden" value="{{siteInfo['CompanyFax']}}" name="0_5">
               Mail:{{siteInfo['CompanyEmail']}}<br><input type="hidden" value="{{siteInfo['CompanyEmail']}}" name="0_6">
-              Web:{{siteInfo['CompanyWebSite']}}<br><br><input type="hidden" value="{{siteInfo['CompanyWebSite']}}" name="0_7">
+              {{siteInfo['CompanyWebSite']}}<br><br><input type="hidden" value="{{siteInfo['CompanyWebSite']}}" name="0_7">
             </td>
             <td class="column37 style2 null"></td>
 
@@ -997,26 +1007,24 @@ async function uploadImage() {
           <tr class="row2">
             <td class="column0">&nbsp;</td>
             <td class="column1 style242ddd s" colspan="3">メール:</td>
-            <td colspan="17" class="style205"><input type="text" value="" name="1_9"></td>
+            <td colspan="17" class="style205"><input type="text" value="" name="1_9" maxlength="40"></td>
           </tr>
           <tr class="row2">
             <td class="column0">&nbsp;</td>
             <td class="column1 style242ddd s" colspan="2">電話:</td>
-            <td colspan="7" class="style205"><input type="text" value="" name="1_13"></td>
+            <td colspan="7" class="style205"><input type="text" value="" name="1_13" maxlength="15"></td>
             <td class="column1 style242ddd s" colspan="2">&nbsp;Fax:</td>
-            <td colspan="9" class="style205"><input type="text" value="" name="1_16"></td>
+            <td colspan="9" class="style205"><input type="text" value="" name="1_16" maxlength="15"></td>
           </tr>
           <tr class="row2">
             <td class="column0">&nbsp;</td>
             <td class="column1 style242ddd s" colspan="3">有効期限:</td>
             <td colspan="7" class="style205"><input type="date" value="2024/11/09" name="1_3" id="1_3"></td>
-
           </tr>
           <tr class="row2">
             <td class="column0">&nbsp;</td>
             <td class="column1 style55 s style34" colspan="36" >下記の通りお見積り申し上げます </td>
             <td class="column37 style2 null"></td>
-
           </tr>
           <tr class="row3">
             <td class="column0">&nbsp;</td>
@@ -1026,54 +1034,54 @@ async function uploadImage() {
           </tr>
           <tr class="row5">
             <td class="column0">&nbsp;</td>
-            <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>車種</td>
-            <td class="column19 style38 s style15" colspan="12"><input type="text" value="{{siteInfo['CarModel']}}" name="1_4" id="CarModel" placeholder="例：Ｂクラス"><span class="error" id="CarModelError" style="color: red;"></span></td>
+            <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>車台番号</td>
+            <td class="column19 style38 s style15" colspan="12"><input type="text" value="{{siteInfo['ChassisNumber']}}" name="1_6" id="ChassisNumberID" placeholder="例：XXX30-1216477" maxlength="19"><span class="error" id="ChassisNumberIDError" style="color: red;"></span></td>
             <td class="column23 style37 s style15" colspan="4"><span style="color: #d31313;">*</span>車体色</td>
-            <td class="column27 style31 f style15" colspan="12"><input type="text" value="{{siteInfo['Color']}}" name="1_4_1" id="Color" placeholder="例：ホワイト"><span class="error" id="ColorError" style="color: red;"></span></td>
+            <td class="column27 style31 f style15" colspan="12"><input type="text" value="{{siteInfo['Color']}}" name="1_4_1" id="Color" placeholder="例：ホワイト" maxlength="19"><span class="error" id="ColorError" style="color: red;"></span></td>
             <td class="column32 style201 s style25" colspan="5">{{siteInfo['CompanyRegistrationNumber']}}<input type="hidden" value="{{siteInfo['CompanyRegistrationNumber']}}" name="10_1" id="10_1"></td>
 
 
           </tr>
           <tr class="row6">
             <td class="column0">&nbsp;</td>
-            <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>車台番号</td>
-            <td class="column19 style38 s style15" colspan="28"><input type="text" value="{{siteInfo['ChassisNumber']}}" name="1_6" id="ChassisNumberID" placeholder="例：XXX30-1216477"><span class="error" id="ChassisNumberIDError" style="color: red;"></span></td>
+            <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>車種</td>
+            <td class="column19 style38 s style15" colspan="28"><input type="text" value="{{siteInfo['CarModel']}}" name="1_4" id="CarModel" placeholder="例：Ｂクラス" maxlength="50"><span class="error" id="CarModelError" style="color: red;"></span></td>
             <td class="column32 style200 f style25" colspan="5">古物商許可</td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row7">
             <td class="column0">&nbsp;</td>
             <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>排気量</td>
-            <td class="column19 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['Displacement']}}" name="1_7" id="Displacement" placeholder="例：1200cc"><span class="error" id="DisplacementError" style="color: red;"></span></td>
+            <td class="column19 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['Displacement']}}" name="1_7" id="Displacement" placeholder="例：1200cc" maxlength="19"><span class="error" id="DisplacementError" style="color: red;"></span></td>
             <td class="column23 style30 s style15" colspan="4"><span style="color: #d31313;">*</span>メーカー</td>
-            <td class="column27 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['Manufacturer']}}" name="1_8" id="Manufacturer"  placeholder="例：トヨタ"><span class="error" id="ManufacturerError" style="color: red;"></span></td>
+            <td class="column27 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['Manufacturer']}}" name="1_8" id="Manufacturer"  placeholder="例：トヨタ" maxlength="19"><span class="error" id="ManufacturerError" style="color: red;"></span></td>
             <td class="column32 style201 f style15" colspan="5">{{siteInfo['CompanyLicenseNumber']}}<input type="hidden" value="{{siteInfo['CompanyLicenseNumber']}}" name="10_2" id="10_2"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row8">
             <td class="column0">&nbsp;</td>
             <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>年式</td>
-            <td class="column19 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['Year']}}" name="1_10" id="Year" placeholder="例：2023(令和5)年"><span class="error" id="YearError" style="color: red;"></span></td>
+            <td class="column19 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['Year']}}" name="1_10" id="Year" placeholder="例：2023(令和5)年" maxlength="19"><span class="error" id="YearError" style="color: red;"></span></td>
             <td class="column23 style30 s style15" colspan="4"><span style="color: #d31313;">*</span>走行距離</td>
-            <td class="column27 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['Mileage']}}" name="1_11" id="Mileage" placeholder="例：1.2万km"><span class="error" id="MileageError" style="color: red;"></span></td>
+            <td class="column27 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['Mileage']}}" name="1_11" id="Mileage" placeholder="例：1.2万km" maxlength="19"><span class="error" id="MileageError" style="color: red;"></span></td>
             <td class="column32 style203 f style25" colspan="5" >ご請求予定金額</td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row9">
             <td class="column0">&nbsp;</td>
             <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>ドア数</td>
-            <td class="column19 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['NumberOfDoors']}}" name="1_14" id="NumberOfDoors" placeholder="例：5D"><span class="error" id="NumberOfDoorsError" style="color: red;"></span></td>
+            <td class="column19 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['NumberOfDoors']}}" name="1_14" id="NumberOfDoors" placeholder="例：5D" maxlength="19"><span class="error" id="NumberOfDoorsError" style="color: red;"></span></td>
             <td class="column23 style30 s style15" colspan="4"><span style="color: #d31313;">*</span>修復歴</td>
-            <td class="column27 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['RepairHistory']}}" name="1_15" id="RepairHistory" placeholder="例：なし"><span class="error" id="RepairHistoryError" style="color: red;"></span></td>
+            <td class="column27 style18 s style15" colspan="12"><input type="text" value="{{siteInfo['RepairHistory']}}" name="1_15" id="RepairHistory" placeholder="例：なし" maxlength="19"><span class="error" id="RepairHistoryError" style="color: red;"></span></td>
             <td class="column32 style36 f style25" colspan="5" rowspan="2"><input type="text" value="¥0" name="1_12" id="1_12"  class="asd" readonly style="text-align:center;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row10">
             <td class="column0">&nbsp;</td>
             <td class="column15 style20 s style15" colspan="3"><span style="color: #d31313;">*</span>車検</td>
-            <td class="column19 style59 s style15" colspan="12"><input type="text" value="{{siteInfo['VehicleInspection']}}" name="1_17" id="VehicleInspection" placeholder="例：2026(令和8)年10月"><span class="error" id="VehicleInspectionError" style="color: red;"></span></td>
+            <td class="column19 style59 s style15" colspan="12"><input type="text" value="{{siteInfo['VehicleInspection']}}" name="1_17" id="VehicleInspection" placeholder="例：2026(令和8)年10月" maxlength="19"><span class="error" id="VehicleInspectionError" style="color: red;"></span></td>
             <td class="column23 style30 s style15" colspan="4"><span style="color: #d31313;">*</span>保証内容</td>
-            <td class="column27 style59 s style15" colspan="12"><input type="text" value="{{siteInfo['WarrantyDetails']}}" name="1_18" id="WarrantyDetails" placeholder="例：12ヶ月・走行無制限"><span class="error" id="WarrantyDetailsError" style="color: red;"></span></td>
+            <td class="column27 style59 s style15" colspan="12"><input type="text" value="{{siteInfo['WarrantyDetails']}}" name="1_18" id="WarrantyDetails" placeholder="例：12ヶ月・走行無制限" maxlength="19"><span class="error" id="WarrantyDetailsError" style="color: red;"></span></td>
             <td class="column37 style2 null"></td>
           </tr>
 
@@ -1085,7 +1093,7 @@ async function uploadImage() {
             <td class="column0">&nbsp;</td>
             <td class="column1 style102 s style25" colspan="2" rowspan="5">車両販売価格(内税)</td>
             <td class="column3 style18 s style15" colspan="11"><span style="color: #d31313;">*</span>車両体価格</td>
-            <td class="column14 style52 n style15" colspan="10"><input type="number" value="{{siteInfo['VehiclePrice']}}" id="2_1" name="2_1" onkeyup="calculationPricebm(this.value)"><span class="error" id="VehiclePriceError" style="color: red;"></span></td>
+            <td class="column14 style52 n style15" colspan="10"><input type="text" value="{{siteInfo['VehiclePrice']}}" id="2_1" name="2_1" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"><span class="error" id="VehiclePriceError" style="color: red;"></span></td>
 
             <td class="column23 style53 s style15" colspan="13">下取車種</td>
             <td class="column33 style3-bk null"></td>
@@ -1102,25 +1110,25 @@ async function uploadImage() {
           <tr class="row14">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">追加明細合計</td>
-            <td class="column14 style52 s style15" colspan="10"><input type="number" value="0" name="2_2" id="2_2"  onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style52 s style15" colspan="10"><input type="text" value="0" name="2_2" id="2_2"  onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="4">下取車名</td>
-            <td class="column27 style54 s style15" colspan="9"><input type="text" value="" name="2_3"></td>
+            <td class="column27 style54 s style15" colspan="9"><input type="text" value="" name="2_3" maxlength="19"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row15">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">車陸送代</td>
-            <td class="column14 style57 s style15" colspan="10"><input type="number" value="0" name="2_4" id="2_4"  onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style57 s style15" colspan="10"><input type="text" value="0" name="2_4" id="2_4"  onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="4">色</td>
-            <td class="column27 style54 s style15" colspan="9"><input type="text" value="" name="2_5"></td>
+            <td class="column27 style54 s style15" colspan="9"><input type="text" value="" name="2_5" maxlength="19"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row16">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">陸送費用</td>
-            <td class="column14 style57 s style15" colspan="10"><input type="number" value="0" name="2_6" id="2_6"  onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style57 s style15" colspan="10"><input type="text" value="0" name="2_6" id="2_6"  onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="4">車体番号</td>
-            <td class="column27 style54 s style15" colspan="9"><input type="text" value="" name="2_7"></td>
+            <td class="column27 style54 s style15" colspan="9"><input type="text" value="" name="2_7" maxlength="19"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row17">
@@ -1128,56 +1136,56 @@ async function uploadImage() {
             <td class="column3 style45 s style15" colspan="11">車両価格①</td>
             <td class="column14 style58 f style15" colspan="10"><input type="text" value="¥0" name="2_30" id="2_30"  class="asd" readonly style="text-align:right;"><!-- <label id="2_30">￥0</label><input type="text" value="" name="2_30" id="2_30" style="color:black;"> --></td>
             <td class="column23 style13 s style15-bk" colspan="4">走行距離</td>
-            <td class="column27 style54 s style15" colspan="9"><input type="text" value="" name="2_8"></td>
+            <td class="column27 style54 s style15" colspan="9"><input type="text" value="" name="2_8" maxlength="19"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row18">
             <td class="column0">&nbsp;</td>
-            <td class="column1 style64 s style66-bk" rowspan="24">諸費用内訳</td>
-            <td class="column2 style64 s style66-bk" rowspan="5">非課税分</td>
+            <td class="column1 style64 s style66-bk" rowspan="24">諸<br>費<br>用<br>内<br>訳</td>
+            <td class="column2 style64 s style66-bk" rowspan="5">非<br>課<br>税<br>分</td>
             <td class="column3 style18 s style15" colspan="11">環境性能割</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="2_9" id="2_9" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="2_9" id="2_9" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style16 s style15" colspan="13">下取車価格(内税)</td>
           </tr>
           <tr class="row19">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">自動車税</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="2_10" id="2_10" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="2_10" id="2_10" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="4">車両本体価格</td>
-            <td class="column27 style17 s style15" colspan="9"><input type="number" value="0" name="2_11" id="2_11" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column27 style17 s style15" colspan="9"><input type="text" value="0" name="2_11" id="2_11" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row20">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">非課税分 自賠責保険料</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="2_12" id="2_12" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="2_12" id="2_12" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="4">陸送代</td>
-            <td class="column27 style17 s style15" colspan="9"><input type="number" value="0" name="2_13" id="2_13" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column27 style17 s style15" colspan="9"><input type="text" value="0" name="2_13" id="2_13" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row21">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">重量税</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="2_14" id="2_14" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="2_14" id="2_14" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style16 s style15" colspan="4" rowspan="3">その他</td>
-            <td class="column27 style17 s style15" colspan="9"><input type="number" value="0" name="2_15" id="2_15" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column27 style17 s style15" colspan="9"><input type="text" value="0" name="2_15" id="2_15" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row22">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">リサイクル預託金</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="2_16" id="2_16" onkeyup="calculationPricebm(this.value)"></td>
-            <td class="column27 style17 s style15" colspan="9"><input type="number" value="0" name="2_17" id="2_17" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="2_16" id="2_16" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+            <td class="column27 style17 s style15" colspan="9"><input type="text" value="0" name="2_17" id="2_17" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
             <td class="column41 style6 null"></td>
             
           </tr>
           <tr class="row23">
             <td class="column0">&nbsp;</td>
-            <td class="column2 style105 s style66" rowspan="3">値引き</td>
+            <td class="column2 style105 s style66" rowspan="3">値<br>引<br>き</td>
             <td class="column3 style62 s style15" colspan="11">下取り車価格(-)</td>
-            <td class="column14 style61 n style15" colspan="10"><input type="number" value="0" name="2_18" id="2_18" readonly onkeyup="calculationPricebm(this.value)"></td>
-            <td class="column27 style17 s style15" colspan="9"><input type="number" value="0" name="2_19" id="2_19" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style61 n style15" colspan="10"><input type="text" value="0" name="2_18" id="2_18" readonly onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
+            <td class="column27 style17 s style15" colspan="9"><input type="text" value="0" name="2_19" id="2_19" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row24">
@@ -1185,7 +1193,6 @@ async function uploadImage() {
             <td class="column3 style62 s style15" colspan="11">
             <input list="browsers" name="5_1" id="5_1">
             <datalist id="browsers">
-              <option value="37周年記念キャンペーン(-)">
               <option value="夏キャンペーン(-)">
               <option value="冬キャンペーン(-)">
               <option value="特別キャンペーン (-)">
@@ -1193,7 +1200,7 @@ async function uploadImage() {
 
             
             </td>
-            <td class="column14 style61 s style15" colspan="10"><input type="number" value="0" name="2_20" id="2_20" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style61 s style15" colspan="10"><input type="text" value="0" name="2_20" id="2_20" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="9">（内消費税・10%）</td>
             <td class="column32 style7 f" colspan="4"><input type="text" value="¥0" name="2_21" id="2_21"  class="asd" readonly style="text-align:right;"></td>
           </tr>
@@ -1206,7 +1213,7 @@ async function uploadImage() {
               <option value="売買仮契約預り金 (-)">
             </datalist>
             </td>
-            <td class="column14 style61 s style15" colspan="10"><input type="number" value="0" name="2_22" id="2_22" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style61 s style15" colspan="10"><input type="text" value="0" name="2_22" id="2_22" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style13 s style15-bk" colspan="9">下取り車合計</td>
             <td class="column32 style7 f" colspan="4"><input type="text" value="¥0" name="2_23" id="2_23"  class="asd" readonly style="text-align:right;"></td>
 
@@ -1226,9 +1233,9 @@ async function uploadImage() {
           </tr>
           <tr class="row27">
             <td class="column0">&nbsp;</td>
-            <td class="column2 style67 s style66" rowspan="13">税対象(内税)</td>
+            <td class="column2 style67 s style66" rowspan="13">税<br>対<br>象<br>(内<br>税)</td>
             <td class="column3 style18 s style15" colspan="11">登録代行費用</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="3_1" id="3_1" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="3_1" id="3_1" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column23 style89 null style25" colspan="13" rowspan="19">
             
             {% if siteInfo['image0'] != "" %}
@@ -1253,73 +1260,73 @@ async function uploadImage() {
           <tr class="row28">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">車庫証明代行費用</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="3_2" id="3_2" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="3_2" id="3_2" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row29">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">納車点検費用</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="3_3" id="3_3" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="3_3" id="3_3" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row30">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">納車費用</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="3_4" id="3_4" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="3_4" id="3_4" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row31">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">下取車諸手続き代行費用</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="3_5" id="3_5" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="3_5" id="3_5" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row32">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">整備、車検、登錄諸費用</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="{{siteInfo['OtherPrice']}}" name="3_6" id="3_6" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="{{siteInfo['OtherPrice']}}" name="3_6" id="3_6" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row33">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">名義変更費用</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="3_7" id="3_7" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="3_7" id="3_7" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row34">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11">希望ナンバー費用</td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="3_8" id="3_8" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="3_8" id="3_8" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row35">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11"><input type="text" value="" name="30_1" id="30_1"></td>
-            <td class="column14 style19 n style15" colspan="10"><input type="number" value="0" name="3_9" id="3_9" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 n style15" colspan="10"><input type="text" value="0" name="3_9" id="3_9" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row36">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11"><input type="text" value="" name="30_2" id="30_2"></td>
-            <td class="column14 style19 n style15" colspan="10"><input type="number" value="0" name="3_10" id="3_10" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 n style15" colspan="10"><input type="text" value="0" name="3_10" id="3_10" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row37">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11"><input type="text" value="" name="30_3" id="30_3"></td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="3_11" id="3_11" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="3_11" id="3_11" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row38">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11"><input type="text" value="" name="30_4" id="30_4"></td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="3_12" id="3_12" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="3_12" id="3_12" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row39">
             <td class="column0">&nbsp;</td>
             <td class="column3 style18 s style15" colspan="11"><input type="text" value="" name="30_5" id="30_5"></td>
-            <td class="column14 style19 s style15" colspan="10"><input type="number" value="0" name="3_13" id="3_13" onkeyup="calculationPricebm(this.value)"></td>
+            <td class="column14 style19 s style15" colspan="10"><input type="text" value="0" name="3_13" id="3_13" onkeyup="calculationPricebm(this.value)" oninput="formatNumber(this)" style="text-align: right;"></td>
             <td class="column37 style2 null"></td>
           </tr>
           <tr class="row40">
@@ -1366,9 +1373,9 @@ async function uploadImage() {
           </tr>
           <tr class="row47">
             <td class="column0">&nbsp;</td>
-            <td class="column1 style93 s style66" rowspan="5" colspan="1">振込先</td>
+            <td class="column1 style93 s style66" rowspan="5" colspan="1">振<br>込<br>先</td>
             <td class="column2 style91 s style25" colspan="15" rowspan="5"><br>{{ siteInfo['BankInfo']|clean_nl2br|raw }}<textarea style="display:none;" name="4_1" id="4_1"  class="asd" readonly">{{ siteInfo['BankInfo']|clean_nl2br|raw }}</textarea></td>
-            <td class="column21 style97 s style24" rowspan="5">特記事項</td>
+            <td class="column21 style97 s style24" rowspan="5">特<br>記<br>事<br>項</td>
             <td class="column22 style204 s style25" colspan="19" rowspan="5"><br>表題の通り、見積もり書をお送りいたしますので、ご査収ください。<br />
               ご不明点がございましたら、<label id="4_3">{{ siteInfo['CompanyPhone']}}</label><input type="hidden" value="{{ siteInfo['CompanyPhone']}}" name="4_3">までお問合せください。<br />
               今後ともどうぞよろしくお願いいたします。<textarea style="display:none;" name="4_2" id="4_2"  class="asd" readonly">表題の通り、見積もり書をお送りいたしますので、ご査収ください。<br />
