@@ -1235,8 +1235,8 @@ $pdf->writeHTML($html, true, 0, true, 0);
 //$pdf->Write(5, $html, '', 0, '', false, 0, false, false, 0);
 //$pdf->Output($_SERVER['DOCUMENT_ROOT'] . '/eccube-mylocal/ec-cube/html/upload/quotation/' . $_POST['customerId'] . '/' . $_POST['pdfFileName'] . '.pdf', 'FI');
 
-//$pdf->Output($_SERVER['DOCUMENT_ROOT'] . $_POST['uploadPath'] . '/html/upload/quotation/' . $_POST['customerId'] . '/' . $_POST['pdfFileName'] . '.pdf', 'FI');
+$pdf->Output($_SERVER['DOCUMENT_ROOT'] . $_POST['uploadPath'] . '/html/upload/quotation/' . $_POST['customerId'] . '/' . $_POST['pdfFileName'] . '.pdf', 'FI');
 
 //$pdf->Output($_SERVER['DOCUMENT_ROOT'] . '/eccube-mylocal/ec-cube/html/upload/contract/20002/test.pdf', 'FI'); //for debug
-$pdf->Output($_SERVER['DOCUMENT_ROOT'] . '/dm/html/upload/quotation/1/test.pdf', 'FI'); //for debug
+//$pdf->Output($_SERVER['DOCUMENT_ROOT'] . '/dm/html/upload/quotation/1/test.pdf', 'FI'); //for debug
 
