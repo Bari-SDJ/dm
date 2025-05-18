@@ -724,7 +724,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
             
             <td class="column3 style18 s style15" colspan="11">&nbsp;重量税</td>
             <td class="column14 style208 s style15" colspan="9">{$_POST['2_14']}&nbsp;&nbsp;</td>
-            <td class="column23 style13 s style15-bk" colspan="4" rowspan="3" style="line-height:40px;" >その他&nbsp;&nbsp;</td>
+            <td class="column23 style13 s style15-bk" colspan="4" rowspan="3" style="line-height:40px; text-align:right" >その他&nbsp;&nbsp;</td>
             <td class="column27 style208 s style15" colspan="10">{$_POST['2_15']}&nbsp;&nbsp;</td>
             <td class="column37 style2 null"></td>
             
