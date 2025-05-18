@@ -545,7 +545,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           <tr class="row2">
             <td class="column0">&nbsp;</td>
             <td class="column1 style206 s" colspan="4">有効期限：</td>
-            <td colspan="7" class="style205 english">&nbsp;{$_POST['1_3']}2025-05-25</td>
+            <td colspan="7" class="style205 english">&nbsp;{$_POST['1_3']}</td>
 
           </tr>
           <tr class="row2">
