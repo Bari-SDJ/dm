@@ -29,7 +29,7 @@ file that was distributed with this source code.
     <div class="ec-layoutRole__main">
         <div class="ec-mypageRole">
             <div class="ec-pageHeader">
-                <h1>{{ 'マイページ'|trans }}/{{ '新規見積書を作成する（Generate an Estimat）'|trans }}</h1>
+                <h1>{{ 'front.mypage.title'|trans }}/{{ 'front.mypage.quotation.generate'|trans }}</h1>
             </div>
             {{ include('Mypage/navi.twig') }}
         </div>
@@ -41,7 +41,7 @@ file that was distributed with this source code.
                         <div class="ec-off4Grid" style="place-content: center;">
                             <input type="text" value="" id="username" name="username" size="70%">
                             <div class="ec-off4Grid__cell-bk">
-                                 <button type="submit" class="ec-blockBtn--cancel">{{ '自動入力'|trans }}</button>
+                                 <button type="submit" class="ec-blockBtn--cancel">{{ 'front.mypage.btnAutoInput'|trans }}</button>
                             </div>
                                 {% if siteInfo['goo-net'] != '' %}
                                     <a href="{{siteInfo['goo-net']}}" target="_blank">
@@ -187,7 +187,7 @@ file that was distributed with this source code.
                     <div class="ec-RegisterRole__actions">
                         <div class="ec-off4Grid">
                             <div class="ec-off4Grid__cell">
-                            <input type="button" value="登録する" class="ec-blockBtn--cancel" onclick="validateAndSubmit()">
+                            <input type="button" value="{{ 'front.mypage.btnGenerate'|trans }}" class="ec-blockBtn--cancel" onclick="validateAndSubmit()">
                              <!-- <button type="button" onclick="validateAndSubmit()">送信</button>   
                                <button type="submit" 
                                         class="ec-blockBtn--cancel">{{ '登録する'|trans }}</button>

@@ -12,21 +12,21 @@ file that was distributed with this source code.
 <div class="ec-navlistRole">
     <ul class="ec-navlistRole__navlist">
         <li class="ec-navlistRole__item {% if mypageno|default('') == 'quotation' %}active{% endif %}">
-            <a href="{{ url('mypage_quotation') }}">{{ '見積書一覧'|trans }}</a>
+            <a href="{{ url('mypage_quotation') }}">{{ 'front.mypage.nav__quotation'|trans }}</a>
         </li>
         <li class="ec-navlistRole__item {% if mypageno|default('') == 'invoice' %}active{% endif %}">
-            <a href="{{ url('mypage_invoice') }}">{{ 'インボイス一覧'|trans }}</a>
+            <a href="{{ url('mypage_invoice') }}">{{ 'front.mypage.nav__invoice'|trans }}</a>
         </li>
         <li class="ec-navlistRole__item {% if mypageno|default('') == 'contract' %}active{% endif %}">
-            <a href="{{ url('mypage_contract') }}">{{ '契約書一覧'|trans }}</a>
+            <a href="{{ url('mypage_contract') }}">{{ 'front.mypage.nav__contract'|trans }}</a>
         </li>
 
         <li class="ec-navlistRole__item {% if mypageno|default('') == 'priceboard' %}active{% endif %}">
-            <a href="{{ url('mypage_priceboard_new') }}">{{ 'プライスボード'|trans }}</a>
+            <a href="{{ url('mypage_priceboard_new') }}">{{ 'front.mypage.nav__priceboard'|trans }}</a>
         </li>
 
         <li class="ec-navlistRole__item {% if mypageno|default('') == 'dmtemplate' %}active{% endif %}">
-            <a href="{{ url('mypage_dmtemplate') }}">{{ 'テンプレート'|trans }}</a>
+            <a href="{{ url('mypage_dmtemplate') }}">{{ 'front.mypage.nav__dmtemplate'|trans }}</a>
         </li>
         
         {#
@@ -39,10 +39,10 @@ file that was distributed with this source code.
         {% endif %}
         #}
         <li class="ec-navlistRole__item {% if mypageno|default('') == 'change' %}active{% endif %}">
-            <a href="{{ url('mypage_change') }}">{{ '会員情報編集'|trans }}</a>
+            <a href="{{ url('mypage_change') }}">{{ 'front.mypage.nav__change'|trans }}</a>
         </li>
         <li class="ec-navlistRole__item {% if mypageno|default('') == 'index' %}active{% endif %}">
-            <a href="{{ url('mypage') }}">{{ '支払い履歴'|trans }}</a>
+            <a href="{{ url('mypage') }}">{{ 'front.mypage.nav__paymenthistory'|trans }}</a>
         </li>
         {#
         <li class="ec-navlistRole__item {% if mypageno|default('') == 'delivery' %}active{% endif %}">

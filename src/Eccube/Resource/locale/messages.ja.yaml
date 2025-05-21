@@ -1759,4 +1759,97 @@ purchase_flow.over_stock: '「%name%」の在庫が足りません。'
 
 command.composer_require_already_installed.not_supported_plugin: '%name% %plugin_version% は EC-CUBE %eccube_version% には対応していません。続行しますか？'
 
-homepage.greeting: "日本語"
+#------------------------------------------------------------------------------------
+# DM System
+#------------------------------------------------------------------------------------
+
+front.block.login.help: help
+front.mypage.btnAutoInput: Auto Input
+
+front.mypage.nav__quotation: Quotation List
+front.mypage.nav__invoice: Invoice List
+front.mypage.nav__contract: Contract List
+front.mypage.nav__priceboard: Price Board
+front.mypage.nav__dmtemplate: Mail Template
+front.mypage.nav__change: My Information
+front.mypage.nav__paymenthistory: Payment Info
+
+
+front.mypage.quotation.generate: Generate an Estimat
+
+front.mypage.quotation.title: 御見積書
+front.mypage.quotation.customer_address: 住所:
+front.mypage.quotation.customer_email: メール:
+front.mypage.quotation.customer_phone: 電話:
+front.mypage.quotation.customer_fax: Fax:
+front.mypage.quotation.dateOfExpiry: 有効期限:
+front.mypage.quotation.title2: 下記の通りお見積り申し上げます
+front.mypage.quotation.title3: ご検討の車種
+front.mypage.quotation.registrationNumber: 登録番号
+front.mypage.quotation.chassisNumber: 車台番号
+front.mypage.quotation.color: 車体色
+front.mypage.quotation.vehicleType: 車種
+front.mypage.quotation.licenseNumber: 古物商許可
+front.mypage.quotation.displacement: 排気量
+front.mypage.quotation.manufacturer: メーカー
+front.mypage.quotation.modelYear: 年式
+front.mypage.quotation.mileage: 走行距離
+front.mypage.quotation.billingAmount: ご請求予定金額	
+front.mypage.quotation.doors: ドア数
+front.mypage.quotation.repairHistor: 修復歴
+front.mypage.quotation.vehicleInspection: 車検
+front.mypage.quotation.guarantee: 保証内容
+
+front.mypage.quotation.vehicleSalesPriceWithTax: 車両販売価格(内税)
+front.mypage.quotation.vehiclePrice: 車両体価格
+front.mypage.quotation.additionalLineTotal: 追加明細合計
+front.mypage.quotation.carTransportationFee: 追加明細合計
+front.mypage.quotation.landTransportationCosts: 陸送費用
+
+front.mypage.quotation.title4: 下取車種
+front.mypage.quotation.tradeInVehicleName: 下取車名
+front.mypage.quotation.tradeInColor: 色
+front.mypage.quotation.tradeInVehicleNumer: 車体番号
+front.mypage.quotation.tradeInMileage: 走行距離
+front.mypage.quotation.tradeInPriceWithTax: 下取車価格(内税)
+front.mypage.quotation.tradeInVehiclePrice: 車両本体価格
+front.mypage.quotation.tradeInLandTransportationFee: 陸送代
+front.mypage.quotation.tradeInOthers: その他
+front.mypage.quotation.tradeInConsumptionTax: （内消費税・10%）
+front.mypage.quotation.tradeInTotalPrice: 下取り車合計
+
+front.mypage.quotation.VehiclePrice_1: 車両価格①
+front.mypage.quotation.breakdownOfExpenses: 諸<br>費<br>用<br>内<br>訳
+front.mypage.quotation.taxExemptPortion: 非<br>課<br>税<br>分
+front.mypage.quotation.discount: 値<br>引<br>き
+front.mypage.quotation.environmentalPerformance: 環境性能割
+front.mypage.quotation.automobileTax: 自動車税
+front.mypage.quotation.liabilityInsurancePremiums: 非課税分 自賠責保険料
+front.mypage.quotation.weightTax: 重量税
+front.mypage.quotation.recyclingDeposit: リサイクル預託金
+front.mypage.quotation.TradeInPrice: 下取り車価格(-)
+
+front.mypage.quotation.nonTaxableSubtotal_2	: 非課税分小計②
+front.mypage.quotation.taxableItem: 税<br>対<br>象<br>(内<br>税)
+front.mypage.quotation.registrationAgencyFee: 登録代行費用
+front.mypage.quotation.garageCertificationAgencyFee: 車庫証明代行費用
+front.mypage.quotation.deliveryInspectionFee: 納車点検費用
+front.mypage.quotation.deliveryCost: 納車費用
+front.mypage.quotation.TradeInVehicleHandlingFees	: 下取車諸手続き代行費用
+front.mypage.quotation.maintenanceVehicleInspectionRegistration: 整備、車検、登錄諸費用
+front.mypage.quotation.nameChangeFee: 名義変更費用
+front.mypage.quotation.preferredNumberFee	: 希望ナンバー費用
+front.mypage.quotation.miscellaneousExpensesTaxableSubtotal_3: 諸費用（ 課税分） 小計③
+front.mypage.quotation.totalExpenses_2_3: 諸費用合計②+③
+front.mypage.quotation.subtotal_2_3	: 小計＝①＋②＋③
+front.mypage.quotation.ConsumptionTax_1_3 : （内消費税①と③の10%）
+front.mypage.quotation.TotalPaymentAmountWithTax: 支払合計金額（ 税込）
+
+front.mypage.quotation.imageNotFound: 画像が見つかりませんでした。
+
+front.mypage.quotation.footer.bankDetails: 振<br>込<br>先
+front.mypage.quotation.footer.importantNotes: 特<br>記<br>事<br>項
+
+front.mypage.btnGenerate: 作成する
+
+homepage.greeting: "Welcome to our store! old5"

@@ -97,7 +97,7 @@ file that was distributed with this source code.
     <div class="ec-layoutRole__main">
         <div class="ec-mypageRole">
             <div class="ec-pageHeader">
-                <h1>{{ 'マイページ'|trans }}/{{ '見積書一覧'|trans }}</h1>
+                <h1>{{ 'front.mypage.title'|trans }}/{{ 'front.mypage.nav__quotation'|trans }}</h1>
             </div>
             {{ include('Mypage/navi.twig') }}
         </div>
@@ -117,7 +117,7 @@ file that was distributed with this source code.
                     <div class="ec-addressRole">
                         <div class="ec-addressRole__actions">
                             {% if Customer.CustomerAddresses|length < eccube_config.eccube_deliv_addr_max %}
-                                <a class="ec-inlineBtn" href="{{ url('mypage_quotation_new') }}">{{ '新規見積書を作成する/Generate an Estimat'|trans }}</a>
+                                <a class="ec-inlineBtn" href="{{ url('mypage_quotation_new') }}">{{ 'front.mypage.quotation.generate'|trans }}</a>
                             {% else %}
                                 <span class="ec-errorMessage">{{ 'お届け先登録の上限の%count%件に達しています。お届け先を入力したい場合は、削除か変更を行ってください。'|trans({ '%count%': eccube_config.eccube_deliv_addr_max }) }}</span>
                             {% endif %}

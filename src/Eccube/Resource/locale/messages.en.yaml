@@ -211,7 +211,7 @@ front.guide.title: Shopping Guide
 #------------------------------------------------------------------------------------
 
 front.mypage.welcome: 'Hi %last_name% %first_name%'
-front.mypage.title: My Account
+front.mypage.title: My Page
 front.mypage.welcome__point: 'You have %point%points'
 front.mypage.nav__history: Order History
 front.mypage.nav__history_detail: Order History Details
@@ -1758,5 +1758,98 @@ purchase_flow.over_stock: '%name% does not have enough stock.'
 #------------------------------------------------------------------------------------
 
 command.composer_require_already_installed.not_supported_plugin: '%name% %plugin_version% does not support EC-CUBE %eccube_version% . Do you want to continue?'
+
+#------------------------------------------------------------------------------------
+# DM System
+#------------------------------------------------------------------------------------
+
+front.block.login.help: help
+front.mypage.btnAutoInput: Auto Input
+
+front.mypage.nav__quotation: Quotation List
+front.mypage.nav__invoice: Invoice List
+front.mypage.nav__contract: Contract List
+front.mypage.nav__priceboard: Price Board
+front.mypage.nav__dmtemplate: Mail Template
+front.mypage.nav__change: My Information
+front.mypage.nav__paymenthistory: Payment Info
+
+
+front.mypage.quotation.generate: Generate an Estimat
+
+front.mypage.quotation.title: Quotation	
+front.mypage.quotation.customer_address: Address:
+front.mypage.quotation.customer_email: Email:
+front.mypage.quotation.customer_phone: Phone:
+front.mypage.quotation.customer_fax: Fax:
+front.mypage.quotation.dateOfExpiry: date Of Expiry:
+front.mypage.quotation.title2: We would like to provide you with the following estimate
+front.mypage.quotation.title3: The vehicle you are considering
+front.mypage.quotation.registrationNumber: Registration Number
+front.mypage.quotation.chassisNumber: Chassis Number
+front.mypage.quotation.color: Color
+front.mypage.quotation.vehicleType: Vehicle Type
+front.mypage.quotation.licenseNumber: License Number
+front.mypage.quotation.displacement: Displacement
+front.mypage.quotation.manufacturer: Manufacturer
+front.mypage.quotation.modelYear: Year of Model
+front.mypage.quotation.mileage: Mileage
+front.mypage.quotation.billingAmount: Billing Amount
+front.mypage.quotation.doors: Doors
+front.mypage.quotation.repairHistor: Repair Histor
+front.mypage.quotation.vehicleInspection: Vehicle Inspection
+front.mypage.quotation.guarantee: Guarantee
+
+front.mypage.quotation.vehicleSalesPriceWithTax: Vehicle sales price (tax included)
+front.mypage.quotation.vehiclePrice: Vehicle Price
+front.mypage.quotation.additionalLineTotal: Additional Line Total
+front.mypage.quotation.carTransportationFee: Car Transportation Fee
+front.mypage.quotation.landTransportationCosts: Land Transportation Costs
+
+front.mypage.quotation.title4: Trade-in vehicle
+front.mypage.quotation.tradeInVehicleName: Vehicle Name
+front.mypage.quotation.tradeInColor: Color
+front.mypage.quotation.tradeInVehicleNumer: Vehicle Number
+front.mypage.quotation.tradeInMileage: Mileage
+front.mypage.quotation.tradeInPriceWithTax: Trade-in Price (tax included)
+front.mypage.quotation.tradeInVehiclePrice: Vehicle Price
+front.mypage.quotation.tradeInLandTransportationFee: Transportation
+front.mypage.quotation.tradeInOthers: Others
+front.mypage.quotation.tradeInConsumptionTax: (Consumption tax・10%)
+front.mypage.quotation.tradeInTotalPrice: Trade-in Total Price
+
+front.mypage.quotation.VehiclePrice_1: Vehicle Price ①
+front.mypage.quotation.breakdownOfExpenses: B<br>r<br>e<br>a<br>k<br>d<br>o<br>w<br>n<br> of<br> e<br>x<br>p<br>e<br>n<br>s<br>e<br>s
+front.mypage.quotation.taxExemptPortion: Tax-exempt Portion
+front.mypage.quotation.discount: dis<br>count
+front.mypage.quotation.environmentalPerformance: Environmental Performance
+front.mypage.quotation.automobileTax: Automobile Tax
+front.mypage.quotation.liabilityInsurancePremiums: Liability Insurance Premiums
+front.mypage.quotation.weightTax: Weight Tax
+front.mypage.quotation.recyclingDeposit: Recycling Deposit
+front.mypage.quotation.TradeInPrice: Trade-in Price(-)
+
+front.mypage.quotation.nonTaxableSubtotal_2	: Non-taxable Subtotal②
+front.mypage.quotation.taxableItem: Taxable Item
+front.mypage.quotation.registrationAgencyFee: Registration Agency Fee
+front.mypage.quotation.garageCertificationAgencyFee: Garage Certification Agency Fee
+front.mypage.quotation.deliveryInspectionFee: Delivery Inspection Fee
+front.mypage.quotation.deliveryCost: Delivery Cost
+front.mypage.quotation.TradeInVehicleHandlingFees	: Trade-in Vehicle Handling Fees
+front.mypage.quotation.maintenanceVehicleInspectionRegistration: Maintenance, Vehicle inspection, Registration fees
+front.mypage.quotation.nameChangeFee: Name Change Fee
+front.mypage.quotation.preferredNumberFee	: Preferred Number Fee
+front.mypage.quotation.miscellaneousExpensesTaxableSubtotal_3: Expenses (taxable) Subtotal ③
+front.mypage.quotation.totalExpenses_2_3: Total Expenses ②+③
+front.mypage.quotation.subtotal_2_3	: Subtotal = ① + ② + ③
+front.mypage.quotation.ConsumptionTax_1_3 : (10% of consumption tax ① and ③)
+front.mypage.quotation.TotalPaymentAmountWithTax: Total Payment Amount (tax included)
+
+front.mypage.quotation.imageNotFound: Image Not Available
+
+front.mypage.quotation.footer.bankDetails: Bank <br>Details
+front.mypage.quotation.footer.importantNotes: Important <br>Notes
+
+front.mypage.btnGenerate: Generate
 
 homepage.greeting: "Welcome to our store! old5"

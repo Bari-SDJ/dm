@@ -14,7 +14,7 @@ file that was distributed with this source code.
         <div class="ec-headerNav__item">
             <a href="{{ url('mypage_quotation') }}">
                 <i class="ec-headerNav__itemIcon fas fa-user fa-fw"></i>
-                <span class="ec-headerNav__itemLink">{{ 'マイページ'|trans }}</span>
+                <span class="ec-headerNav__itemLink">{{ 'front.block.login.mypage'|trans }}</span>
             </a>
         </div>
         <!--
@@ -29,12 +29,19 @@ file that was distributed with this source code.
         -->
        
             <div class="ec-headerNav__item">
-                <a href="https://dm.fujiba.jp/help/" target="_blank" }}">
+                <a href="https://dm.fujiba.jp/help/" target="_blank">
                     <i class="ec-headerNav__itemIcon fas fa-cube fa-fw"></i>
-                    <span class="ec-headerNav__itemLink">{{ 'Help'|trans }}</span>
+                    <span class="ec-headerNav__itemLink">{{ 'front.block.login.help'|trans }}</span>
                 </a>
             </div>
-
+        <div class="ec-headerNav__item">
+            <a href="{{ url('logout') }}">
+                <i class="ec-headerNav__itemIcon fas fa-lock fa-fw"></i>
+                <span class="ec-headerNav__itemLink">{{ 'front.block.login.logout'|trans }}</span>
+            </a>
+        </div>
+        
+        {% if (CustomerId == "4") %}       
             <!-- Language Support -->
             <div class="ec-headerNav__item">
                     <i class="ec-headerNav__itemIcon fas fa-cog fa-fw"></i>
@@ -51,18 +58,12 @@ file that was distributed with this source code.
                     window.location.href = this.value;
                 });
             </script>
-
-        <div class="ec-headerNav__item">
-            <a href="{{ url('logout') }}">
-                <i class="ec-headerNav__itemIcon fas fa-lock fa-fw"></i>
-                <span class="ec-headerNav__itemLink">{{ 'ログアウト'|trans }}</span>
-            </a>
-        </div>
+        {% endif %}
     {% else %}
         <div class="ec-headerNav__item">
             <a href="{{ url('entry') }}">
                 <i class="ec-headerNav__itemIcon fas fa-user fa-fw"></i>
-                <span class="ec-headerNav__itemLink">{{ '新規会員登録'|trans }}</span>
+                <span class="ec-headerNav__itemLink">{{ 'common.signup'|trans }}</span>
             </a>
         </div>
         <!--
@@ -78,8 +79,24 @@ file that was distributed with this source code.
         <div class="ec-headerNav__item">
             <a href="{{ url('mypage_login') }}">
                 <i class="ec-headerNav__itemIcon fas fa-lock fa-fw"></i>
-                <span class="ec-headerNav__itemLink">{{ 'ログイン'|trans }}</span>
+                <span class="ec-headerNav__itemLink">{{ 'front.block.login.login'|trans }}</span>
             </a>
         </div>
+        <!-- Language Support -->
+        <div class="ec-headerNav__item">
+                <i class="ec-headerNav__itemIcon fas fa-cog fa-fw"></i>
+                <span class="ec-headerNav__itemLink">
+                <form id="languageForm">
+                    <select id="languageSwitcher">
+                        <option value="{{ path('change_locale', {'locale': 'ja'}) }}" {% if app.request.locale == 'ja' %}selected{% endif %}>日本語</option>
+                        <option value="{{ path('change_locale', {'locale': 'en'}) }}" {% if app.request.locale == 'en' %}selected{% endif %}>English</option>
+                    </select>
+                </form>
+        </div>
+        <script>
+            document.getElementById('languageSwitcher').addEventListener('change', function () {
+                window.location.href = this.value;
+            });
+        </script>
     {% endif %}
 </div>
