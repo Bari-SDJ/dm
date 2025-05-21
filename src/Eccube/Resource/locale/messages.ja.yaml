@@ -1766,13 +1766,13 @@ command.composer_require_already_installed.not_supported_plugin: '%name% %plugin
 front.block.login.help: help
 front.mypage.btnAutoInput: Auto Input
 
-front.mypage.nav__quotation: Quotation List
-front.mypage.nav__invoice: Invoice List
-front.mypage.nav__contract: Contract List
-front.mypage.nav__priceboard: Price Board
-front.mypage.nav__dmtemplate: Mail Template
-front.mypage.nav__change: My Information
-front.mypage.nav__paymenthistory: Payment Info
+front.mypage.nav__quotation: 見積書一覧
+front.mypage.nav__invoice: インボイス一覧
+front.mypage.nav__contract: 契約書一覧
+front.mypage.nav__priceboard: プライスボード
+front.mypage.nav__dmtemplate: テンプレート
+front.mypage.nav__change: 会員情報編集
+front.mypage.nav__paymenthistory: 支払い履歴
 
 
 front.mypage.quotation.generate: Generate an Estimat
