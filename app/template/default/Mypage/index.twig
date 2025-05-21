@@ -22,10 +22,6 @@ file that was distributed with this source code.
             </div>
             {% include 'Mypage/navi.twig' %}
         </div>
-        <p>Current locale: {{ app.request.locale }}</p>
-        {{ 'homepage.greeting'|trans({}, 'messages', 'en') }}<br>
-        {{ 'homepage.greeting'|trans }}
-        <p>{{ 'homepage.greeting'|trans }}</p>
         <div class="ec-mypageRole">
             {% if pagination.totalItemCount > 0 %}
                 <p class="ec-para-normal">{{ '%count%件の履歴があります'|trans({'%count%':pagination.totalItemCount}) }}</p>
