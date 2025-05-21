@@ -43,6 +43,28 @@ $year_2_32 =  $spliteData[0];
 $month_2_32 =  $spliteData[1];
 $day_2_32 =  $spliteData[2];
 
+$str = $_POST['4_3'];
+$spliteData = explode('-',$str);
+$year_4_3 =  $spliteData[0];
+$month_4_3 =  $spliteData[1];
+$day_4_3 =  $spliteData[2];
+
+$str = $_POST['4_6'];
+$spliteData = explode('-',$str);
+$year_4_6 =  $spliteData[0];
+$month_4_6 =  $spliteData[1];
+
+$day_time =  $spliteData[2];
+$pos = strpos($day_time, "T");
+$day_4_6 = substr($day_time, 0, $pos);
+
+// Get time part
+$datetime = $_POST['4_6'];
+$time = substr($datetime, strpos($datetime, "T") + 1);
+// Split hour and minute
+list($hour, $minute) = explode(":", $time);
+$hour_4_6 =  $hour;
+$min_4_6 =  $minute;
 
 $html = <<< EOF
 
@@ -1035,16 +1057,10 @@ rt
  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class=xl66></td>
-    <td class="xl63"></td>
-  <td class="xl63" colspan="22" style='mso-ignore:colspan'>売主は以下の中古車両を買主に売却し、買主はこれを購入することに合意します。<br>
-    ⚫︎　車名：[車名]<br>
-    ⚫︎　型式：[型式]<br>
-    ⚫︎　車体番号：[車体番号]<br>
-    ⚫︎　年式：[年式]<br>
-    ⚫︎　走行距離：[走行距離] km<br>
-    ⚫︎　色：[色]<br>
-    ⚫︎　その他特徴：[その他特徴]</td>
-
+  <td class="xl63"></td>
+  <td class="xl63" colspan="22" style='mso-ignore:colspan'>
+  売主は以下の中古車両を買主に売却し、買主はこれを購入することに合意します。
+  </td>
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
@@ -1114,11 +1130,20 @@ rt
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
-  <td class="xl63" colspan="24" style='mso-ignore:colspan'>本契約に基づく売買価格は、以下の通りです。<br>
-    ⚫︎　売買価格：[価格]円（税込）</td>
+  <td class="xl63" colspan="22" style='mso-ignore:colspan'>
+  本契約に基づく売買価格は、以下の通りです。
+  </td>
   <td class="xl63"></td>
   <td class="xl63"></td>
+ </tr>
+  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63" colspan="5" style='mso-ignore:colspan'>
+  ⚫︎　売買価格：</td> 
+  <td class="xl82" colspan="6" style="text-align:right;">{$_POST['4_1']}</td>
+  <td class="xl63" colspan="6">円（税込）</td>
  </tr>
   <tr height=20 style='mso-height-source:userset;height:15.75pt'>
   <td height=20 class="xl63" style='height:15.75pt'></td>
@@ -1182,10 +1207,14 @@ rt
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
-  <td class="xl63" colspan="19" style='mso-ignore:colspan'>買主は、以下の方法に従い、売買価格を支払います。<br>
-    ⚫︎　支払い方法：[銀行振込、現金支払い、ローン等]<br>
-    ⚫︎　支払い期限：[支払い期限]<br>
-    ⚫︎　支払い場所：[支払い場所]</td>
+  <td class="xl63" colspan="19" style='mso-ignore:colspan'>
+  買主は、以下の方法に従い、売買価格を支払います。<br>
+    ⚫︎ 支払い方法に「◯」つけくだいさい。<br>
+        &nbsp;&nbsp;&nbsp;1. クレジットカード<br>
+        &nbsp;&nbsp;&nbsp;2. 銀行振込・ネットバンク<br>
+        &nbsp;&nbsp;&nbsp;3. 電子マネー（Suica, PASMOなど）<br>
+        &nbsp;&nbsp;&nbsp;4. QRコード決済（PayPay, d払いなど）
+  </td>
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
@@ -1193,6 +1222,41 @@ rt
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
+  <td class="xl63"></td>
+ </tr>
+ <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63" colspan="4" style='mso-ignore:colspan'>
+        &nbsp;&nbsp;&nbsp;5. その他（
+  </td>
+  <td class="xl82" colspan="10">{$_POST['4_2']}</td>
+  <td class="xl63">）</td>
+ </tr>
+ <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63" colspan="6" style='mso-ignore:colspan'>
+        ⚫︎ 支払い期限：
+  </td>
+  <td colspan="2" class="xl72" style='border-top:none'>$year_4_3</td>
+  <td class="xl63">年</td>
+  <td class="xl72" style='border-top:none'>$month_4_3</td>
+  <td class="xl63">月</td>
+  <td class="xl721" style='border-top:none'>$day_4_3</td>
+  <td class="xl63">日</td>
+  <td class="xl63"></td>
+ </tr>
+ <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63" colspan="6" style='mso-ignore:colspan'>
+        ⚫︎ 支払い場所：
+  </td>
+  <td class="xl82" colspan="10">{$_POST['4_4']}</td>
   <td class="xl63"></td>
  </tr>
   <tr height=20 style='mso-height-source:userset;height:15.75pt'>
@@ -1254,14 +1318,54 @@ rt
   <td class="xl63"></td>
   <td class="xl63"></td>
  </tr>
+  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63" colspan="23" style='mso-ignore:colspan'>
+    1. 車両の引渡しは、以下の日時・場所で行います。</td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+ </tr>
  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
-  <td class="xl63" colspan="23" style='mso-ignore:colspan'><p>&nbsp;1. 車両の引渡しは、以下の日時・場所で行います。<br>
-    &nbsp;&nbsp;⚫︎　引渡し場所：[引渡し場所]<br>
-    &nbsp;&nbsp;⚫︎　引渡し日時：[引渡し日時]<br>
-    2. 買主が車両の引渡しを受けることによって、車両の所有権は買主に移転します。</p></td>
+  <td class="xl63" colspan="6" style='mso-ignore:colspan'>
+    &nbsp;&nbsp;⚫︎　引渡し場所：
+  </td>
+  <td class="xl82" colspan="10">{$_POST['4_5']}</td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+ </tr>
+  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63" colspan="6" style='mso-ignore:colspan'>
+        &nbsp;&nbsp;⚫︎　引渡し日時：
+  </td>
+  <td colspan="2" class="xl72" style='border-top:none'>$year_4_6</td>
+  <td class="xl63">年</td>
+  <td class="xl72" style='border-top:none'>$month_4_6</td>
+  <td class="xl63">月</td>
+  <td class="xl721" style='border-top:none'>$day_4_6</td>
+  <td class="xl63">日</td>
+  <td class="xl721" style='border-top:none'>$hour_4_6</td>
+  <td class="xl63">時</td>
+  <td class="xl721" style='border-top:none'>$min_4_6</td>
+  <td class="xl63">分</td>
+  <td class="xl63"></td>
+ </tr>
+ <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl63" colspan="23" style='mso-ignore:colspan'>
+    2. 買主が車両の引渡しを受けることによって、車両の所有権は買主に移転します。</td>
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
@@ -1331,9 +1435,29 @@ rt
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
-  <td colspan="27" rowspan="4" class="xl78" width="675" style='width:513pt'>
-    1. 売主は、買主に対して以下の保証を提供します。<br>
-    &nbsp;&nbsp;⚫︎　保証期間：1ヶ月または1,000kmのいずれか早い方<br>
+  <td colspan="27" rowspan="0" class="xl78" width="675" style='width:513pt'>
+    1. 売主は、買主に対して以下の保証を提供します。
+  </td>
+  <td class="xl78"></td>
+ </tr>
+
+ <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td colspan="5" class="xl78">
+    &nbsp;&nbsp;⚫︎　保証期間：
+    </td>
+  <td class="xl82" colspan="1" style="text-align:right;">{$_POST['4_7']}</td>
+  <td class="xl78" colspan="3">ヶ月または</td>
+  <td class="xl82" colspan="2" style="text-align:right;">{$_POST['4_8']}</td>
+  <td class="xl78" colspan="8">kmのいずれか早い方</td>
+ </tr>
+  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td colspan="27" rowspan="0" class="xl78"  style='width:513pt'>
     &nbsp;&nbsp;⚫︎　保証内容：エンジン及び主要機関の故障に対する保証。ただし、消耗品（タイヤ、<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;バッテリー、オイル等）や事故による損傷は保証の対象外です。<br>
     &nbsp;&nbsp;⚫︎　保証条件：車両は正常に使用され、定期的なメンテナンスが行われていることが前提です。
     <br>
@@ -1342,31 +1466,26 @@ rt
     &nbsp;&nbsp;⚫︎　車両が事故にあった場合<br>
     &nbsp;&nbsp;⚫︎　使用者による不適切な維持管理が原因の場合
     </td>
+  <td class="xl78"></td>
+ </tr>
+ <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
   <td class="xl78" width=25 style='width:19pt'></td>
  </tr>
 
- 
- <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class="xl63"></td>
   <td class="xl78" width=25 style='width:19pt'></td>
  </tr>
- 
+
+
  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class="xl63"></td>
-  <td class="xl78" width=25 style='width:19pt'></td>
- </tr>
- <tr height=20 style='mso-height-source:userset;height:15.75pt'>
-  <td height=20 class="xl63" style='height:15.75pt'></td>
-  <td class="xl63"></td>
-  <td class="xl78" width=25 style='width:19pt'></td>
- </tr>
- 
- <tr height=20 style='mso-height-source:userset;height:15.75pt'>
-  <td height=20 class="xl63" style='height:15.75pt'></td>
-  <td class="xl63"></td>
-  <td class="xl66" colspan="7" style='mso-ignore:colspan'>第6条（瑕疵担保責任）</td>
+  <td class="xl66" colspan="7" style='mso-ignore:colspan'>
+  第6条（瑕疵担保責任）</td>
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
@@ -1394,8 +1513,36 @@ rt
   <td class="xl63"></td>
   <td class="xl63"></td>
   <td class="xl79" colspan="21" style='mso-ignore:colspan'>
-  1.車両引渡し後、買主が車両に瑕疵（欠陥）を発見した場合、<br>&nbsp;&nbsp;&nbsp;買主は瑕疵発見後[7日以内]に売主に通知しなければなりません。
-    <br>
+  1.車両引渡し後、買主が車両に瑕疵（欠陥）を発見した場合、
+  </td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+ </tr>
+  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl79" colspan="5" style='mso-ignore:colspan'>
+  買主は瑕疵発見後
+  </td>
+  <td class="xl82" width=25 style='width:19pt' colspan="1" style="text-align:right;">{$_POST['4_9']}</td>
+  <td class="xl79" width=25 style='width:19pt' colspan="21" >日以内に売主に通知しなければなりません。</td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+  <td class=xl80 width=25 style='width:19pt'></td>
+ </tr>
+  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
+  <td height=20 class="xl63" style='height:15.75pt'></td>
+  <td class="xl63"></td>
+  <td class="xl63"></td>
+  <td class="xl79" colspan="21" style='mso-ignore:colspan'>
   2. 売主は、通知を受けた瑕疵について責任を負い、修理または返品対応を行います。</td>
   <td class=xl80 width=25 style='width:19pt'></td>
   <td class=xl80 width=25 style='width:19pt'></td>
@@ -1405,7 +1552,8 @@ rt
   <td class=xl80 width=25 style='width:19pt'></td>
   <td class=xl80 width=25 style='width:19pt'></td>
  </tr>
- 
+
+
  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
   <td height=20 class="xl63" style='height:15.75pt'></td>
   <td class="xl63"></td>
@@ -1549,10 +1697,11 @@ rt
   <td height="24" class="xl63" style='height:18.0pt'></td>
   <td class="xl63"></td>
   <td class="xl63"></td>
-  <td class="xl63" colspan="24" style='mso-ignore:colspan'>
-    本契約に関して生じた紛争については、[地域名]地方裁判所を第一審の管轄裁判所とします。
+  <td class="xl63" colspan="10" style='mso-ignore:colspan'>
+    本契約に関して生じた紛争については、
   </td>
-  <td class="xl63"></td>
+  <td class="xl82" colspan="3" >{$_POST['4_10']}</td>
+  <td class="xl63" colspan="12">地方裁判所を第一審の管轄裁判所とします。</td>
   <td class="xl63"></td>
   <td class="xl63"></td>
  <tr height=20 style='mso-height-source:userset;height:15.75pt'>
@@ -2153,5 +2302,5 @@ $pdf->writeHTML($html, true, 0, true, 0);
 $pdf->Output($_SERVER['DOCUMENT_ROOT'] . $_POST['uploadPath'] . '/html/upload/contract/' . $_POST['customerId'] . '/' . $_POST['pdfFileName'] . '.pdf', 'FI');
 
 //debug
-//$pdf->Output($_SERVER['DOCUMENT_ROOT'] . '/eccube-mylocal/ec-cube/html/upload/contract/20002/test.pdf', 'FI');
+//$pdf->Output($_SERVER['DOCUMENT_ROOT'] . '/dm/html/upload/contract/1/test.pdf', 'FI');
 

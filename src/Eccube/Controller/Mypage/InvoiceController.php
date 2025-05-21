@@ -305,7 +305,16 @@ class InvoiceController extends AbstractController
         //*[@id="headCarDetail"]/div[1]/div/div[2]/div/h2/p[1]/span
 
        //var_dump($carDetails);exit;
-
+       $result = $xpath->query('//div[contains(@class,"mainDataBottom")]/p[2]');
+       if ($result !== false && $result->length > 0) {
+           $warranty = $result->item(0)->nodeValue;
+           $str = str_replace(['(', ')', '法定整備：整備付','保証付',' '], '', $warranty);
+           $pos = strpos($str, "※"); //remove all after ※
+           if ($pos !== false) {
+               $str = substr($str, 0, $pos); 
+           }
+           $carDetails['WarrantyDetails'] = $str;
+       }
 
         // for without hidden eliments
         $otherElements = $xpath->query('//div[contains(@class,"box_roundWhite")]')->item(0);

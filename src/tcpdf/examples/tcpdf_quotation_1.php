@@ -687,8 +687,8 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           </tr>
           <tr class="row18">
             
-            <td valign="middle" class="column1 style209 s style66-bk" rowspan="24" style="text-align:center;">諸費用内訳</td>
-            <td class="column2 style64 s style66-bk" rowspan="5">非課税分</td>
+            <td valign="middle" class="column1 style209 s style66-bk" rowspan="24" style="text-align:center;">諸<br>費<br>用<br>内<br>訳</td>
+            <td class="column2 style64 s style66-bk" rowspan="5">非<br>課<br>税<br>分</td>
             <td class="column3 style18 s style15-bk" colspan="11">&nbsp;環境性能割</td>
             <td class="column14 style208 s style15" colspan="9">{$_POST['2_9']}&nbsp;&nbsp;</td>
             <td class="column23 style53 s style15" colspan="14">下取車価格(内税)</td>
@@ -747,7 +747,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           </tr>
           <tr class="row23">
             
-            <td class="column2 style64 s style66-bk" rowspan="3">値引き</td>
+            <td class="column2 style64 s style66-bk" rowspan="3">値<br>引<br>き</td>
             <td class="column3 style18 s style15-bk" colspan="11">&nbsp;車両本体価格(-)</td>
             <td class="column14 style208 n style15-bk" colspan="9">{$_POST['2_18']}&nbsp;&nbsp;</td>
             <td class="column27 style208 s style15" colspan="10">{$_POST['2_19']}&nbsp;&nbsp;</td>
@@ -805,7 +805,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
           </tr>
           <tr class="row27">
             
-            <td class="column2 style67 s style66" rowspan="13">税対象(内税)</td>
+            <td class="column2 style67 s style66" rowspan="13">税<br>対<br>象<br>(内<br>税)</td>
             <td class="column3 style18 s style15" colspan="11">&nbsp;登録代行費用</td>
             <td class="column14 style208 s style15" colspan="9">{$_POST['3_1']}&nbsp;&nbsp;</td>
             <td class="column23 style89 null style25" colspan="14" rowspan="19">
@@ -1199,7 +1199,7 @@ $pdf->Image($_SERVER['DOCUMENT_ROOT'] . $_POST['uploadPath'] . '/html/upload/han
 //$pdf->Image('http://localhost:8888/eccube-mylocal/ec-cube/html/upload/hanko/20003.png', 175, 40, 15, 15, '', 'http://www.tcpdf.org', '', false, 300);
 
 //Logo
-$pdf->Image($_SERVER['DOCUMENT_ROOT'] . $_POST['uploadPath'] . '/html/upload/save_image/companyLogo/' . $_POST['customerId'] . '.png', 14.5, 28, 10, 10, '', 'http://www.tcpdf.org', '', false, 300);
+//$pdf->Image($_SERVER['DOCUMENT_ROOT'] . $_POST['uploadPath'] . '/html/upload/save_image/companyLogo/' . $_POST['customerId'] . '.png', 14.5, 28, 10, 10, '', 'http://www.tcpdf.org', '', false, 300);
 //$pdf->Image('http://localhost:8888/eccube-mylocal/ec-cube/html/upload/save_image/companyLogo/20003.png', 14.5, 28, 10, 10, '', 'http://www.tcpdf.org', '', false, 300);
 
 

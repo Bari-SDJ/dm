@@ -125,9 +125,11 @@ file that was distributed with this source code.
                     </div>
                     {% if Customer.CustomerAddresses|length > 0 %}
                         <div class="ec-addressList">
+                        {% set i = 0 %}
+                        {% set colors = ['#f2f2f2', '#ffffff'] %}
                             {% for CustomerAddress in Customer.CustomerAddresses %}
                                 {% if CustomerAddress.Name01 == "quotation" %}
-                                    <div class="ec-addressList__item">
+                                    <div class="ec-addressList__item" style="background-color: {{ cycle(colors, i) }};">
                                         <a class="ec-addressList__remove" href="{{ url('mypage_quotation_delete', { id : CustomerAddress.id }) }}" {{ csrf_token_for_anchor() }} data-method="delete">
                                             <div class="ec-icon">
                                                 <img src="{{ asset('assets/icon/cross.svg') }}" alt="remove">
@@ -146,6 +148,7 @@ file that was distributed with this source code.
                                             <a href= "{{ app.request.schemeAndHttpHost }}{{ app.request.basePath }}/html/upload/quotation/{{ Customer.id }}/{{ CustomerAddress.name02 }}.pdf" target="_blank">Download</a>
                                         </div>
                                     </div>
+                                    {% set i = i + 1 %}
                                 {% endif %}
                             {% endfor %}
                         </div>
