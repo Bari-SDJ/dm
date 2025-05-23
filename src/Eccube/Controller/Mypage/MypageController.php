@@ -133,6 +133,7 @@ class MypageController extends AbstractController
         return [
             'error' => $utils->getLastAuthenticationError(),
             'form' => $form->createView(),
+            'CustomerId' => ''
         ];
     }
 
