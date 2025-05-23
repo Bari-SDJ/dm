@@ -475,7 +475,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
             <td class="column1 style242 s" colspan="3" rowspan="3"><br></td>
             <td class="column3 style49 s style43" colspan="21" rowspan="3"><br><br><br><u><i>{$_POST['0_1']}</i></u></td>
             <td class="column4 style21 null" colspan="12" rowspan="6">
-            見積No: E200032501301133<br> 発行日: 2025年01月30日<br />
+            <br>{$_POST['serialNoId']}<br><br>
             <br>{$_POST['0_2']}&nbsp;&nbsp;&nbsp;&nbsp;<br />
             {$_POST['0_3']}&nbsp;&nbsp;&nbsp;&nbsp;<br>
             TEL:{$_POST['0_4']} FAX:{$_POST['0_5']}&nbsp;&nbsp;&nbsp;&nbsp;<br>
