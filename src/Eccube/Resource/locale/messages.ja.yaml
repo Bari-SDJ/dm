@@ -1755,14 +1755,14 @@ command.composer_require_already_installed.not_supported_plugin: '%name% %plugin
 #------------------------------------------------------------------------------------
 # DM System
 #------------------------------------------------------------------------------------
-common.login: ログイン3
-common.signup: 新規会員登録3
-common.forgot_login: ログイン情報をお忘れですか？3
-common.remember_me: 次回から自動的にログインする3
+common.login: ログイン
+common.signup: 新規会員登録
+common.forgot_login: ログイン情報をお忘れですか？
+common.remember_me: 次回から自動的にログインする
 
-front.block.login.mypage: マイページ2
-front.block.login.login: ログイン2
-front.block.login.logout: ログアウト2
+front.block.login.mypage: マイページ
+front.block.login.login: ログイン
+front.block.login.logout: ログアウト
 
 front.block.login.help: help
 front.mypage.btnAutoInput: Auto Input
