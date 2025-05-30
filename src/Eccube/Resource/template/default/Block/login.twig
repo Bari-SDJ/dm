@@ -50,6 +50,7 @@ file that was distributed with this source code.
                         <select id="languageSwitcher">
                             <option value="{{ path('change_locale', {'locale': 'ja'}) }}" {% if app.request.locale == 'ja' %}selected{% endif %}>日本語</option>
                             <option value="{{ path('change_locale', {'locale': 'en'}) }}" {% if app.request.locale == 'en' %}selected{% endif %}>English</option>
+                            <option value="{{ path('change_locale', {'locale': 'bd'}) }}" {% if app.request.locale == 'bd' %}selected{% endif %}>Bangla</option>
                         </select>
                     </form>
             </div>
@@ -91,6 +92,7 @@ file that was distributed with this source code.
                         <select id="languageSwitcher">
                             <option value="{{ path('change_locale', {'locale': 'ja'}) }}" {% if app.request.locale == 'ja' %}selected{% endif %}>日本語</option>
                             <option value="{{ path('change_locale', {'locale': 'en'}) }}" {% if app.request.locale == 'en' %}selected{% endif %}>English</option>
+                            <option value="{{ path('change_locale', {'locale': 'bd'}) }}" {% if app.request.locale == 'bd' %}selected{% endif %}>Bangla</option>
                         </select>
                     </form>
             </div>

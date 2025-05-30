@@ -72,6 +72,10 @@ common.enabled: 有効
 common.disabled: 無効
 common.user_name: '%last_name% %first_name% 様'
 common.user_name.honor: '様'
+common.login: ログイン
+common.remember_me: 次回から自動的にログインする
+common.signup: 新規会員登録
+common.forgot_login: ログイン情報をお忘れですか？
 common.customer_address_count_is_over: 'お届け先登録の上限の%count%件に達しています。お届け先を入力したい場合は、削除か変更を行ってください。'
 common.search_keyword: キーワードを入力
 common.delete_confirm: 削除してもよろしいですか?
@@ -126,7 +130,10 @@ front.block.news.title__ja: 新着情報
 front.block.news.read_more: more
 front.block.news.see_details: 詳しくはこちら
 front.block.login.customer_registration: 新規会員登録
+front.block.login.mypage: マイページ
 front.block.login.favorite: お気に入り
+front.block.login.login: ログイン
+front.block.login.logout: ログアウト
 front.block.login.to_cart: カートを見る
 front.block.login.to_home: ホームに戻る
 
@@ -1755,102 +1762,95 @@ command.composer_require_already_installed.not_supported_plugin: '%name% %plugin
 #------------------------------------------------------------------------------------
 # DM System
 #------------------------------------------------------------------------------------
-common.login: ログイン3
-common.signup: 新規会員登録3
-common.forgot_login: ログイン情報をお忘れですか？3
-common.remember_me: 次回から自動的にログインする3
 
-front.block.login.mypage: マイページ2
-front.block.login.login: ログイン2
-front.block.login.logout: ログアウト2
-
-front.block.login.help: help
-front.mypage.btnAutoInput: Auto Input
+front.block.login.help: সাহায্য
+front.mypage.btnAutoInput: অটো ইনপুট
  
-front.mypage.nav__quotation: 見積書一覧
-front.mypage.nav__invoice: インボイス一覧
-front.mypage.nav__contract: 契約書一覧
-front.mypage.nav__priceboard: プライスボード
-front.mypage.nav__dmtemplate: テンプレート
-front.mypage.nav__change: 会員情報編集
-front.mypage.nav__paymenthistory: 支払い履歴
+front.mypage.nav__quotation: উদ্ধৃতি তালিকা
+front.mypage.nav__invoice: চালান তালিকা
+front.mypage.nav__contract: চুক্তির তালিকা
+front.mypage.nav__priceboard: মূল্য বোর্ড
+front.mypage.nav__dmtemplate: টেমপ্লেট
+front.mypage.nav__change: সদস্য তথ্য সম্পাদনা করুন
+front.mypage.nav__paymenthistory: পেমেন্ট ইতিহাস
  
  
-front.mypage.quotation.generate: Generate an Estimat
+front.mypage.quotation.generate: একটি অনুমান তৈরি করুন
  
-front.mypage.quotation.title: 御見積書
-front.mypage.quotation.customer_address: 住所:
-front.mypage.quotation.customer_email: メール:
-front.mypage.quotation.customer_phone: 電話:
-front.mypage.quotation.customer_fax: Fax:
-front.mypage.quotation.dateOfExpiry: 有効期限:
-front.mypage.quotation.title2: 下記の通りお見積り申し上げます
-front.mypage.quotation.title3: ご検討の車種
-front.mypage.quotation.registrationNumber: 登録番号
-front.mypage.quotation.chassisNumber: 車台番号
-front.mypage.quotation.color: 車体色
-front.mypage.quotation.vehicleType: 車種
-front.mypage.quotation.licenseNumber: 古物商許可
-front.mypage.quotation.displacement: 排気量
-front.mypage.quotation.manufacturer: メーカー
-front.mypage.quotation.modelYear: 年式
-front.mypage.quotation.mileage: 走行距離
-front.mypage.quotation.billingAmount: ご請求予定金額
-front.mypage.quotation.doors: ドア数
-front.mypage.quotation.repairHistor: 修復歴
-front.mypage.quotation.vehicleInspection: 車検
-front.mypage.quotation.guarantee: 保証内容
+front.mypage.quotation.title: অনুমান
+front.mypage.quotation.customer_address: ঠিকানা:
+front.mypage.quotation.customer_email: ইমেইল:
+front.mypage.quotation.customer_phone: ফোন:
+front.mypage.quotation.customer_fax: ফ্যাক্স:
+front.mypage.quotation.dateOfExpiry: মেয়াদ শেষ হওয়ার তারিখ:
+front.mypage.quotation.title2: আমরা আপনাকে নীচের মত একটি উদ্ধৃতি দিতে চাই.
+front.mypage.quotation.title3: আপনি বিবেচনা করছেন গাড়ির মডেল
+front.mypage.quotation.registrationNumber: রেজিস্ট্রেশন নম্বর
+front.mypage.quotation.chassisNumber: চ্যাসি নম্বর
+front.mypage.quotation.color: গায়ের রং
+front.mypage.quotation.vehicleType: গাড়ির মডেল
+front.mypage.quotation.licenseNumber: এন্টিক ডিলার লাইসেন্স
+front.mypage.quotation.displacement: স্থানচ্যুতি
+front.mypage.quotation.manufacturer: প্রস্তুতকারক
+front.mypage.quotation.modelYear: মডেল বছর
+front.mypage.quotation.mileage: মাইলেজ
+front.mypage.quotation.billingAmount: নির্ধারিত পরিমাণ বিল করা হবে
+front.mypage.quotation.doors: দরজার সংখ্যা
+front.mypage.quotation.repairHistor: মেরামতের ইতিহাস
+front.mypage.quotation.vehicleInspection: যানবাহন পরিদর্শন
+front.mypage.quotation.guarantee: ওয়্যারেন্টি বিবরণ
  
-front.mypage.quotation.vehicleSalesPriceWithTax: 車両販売価格(内税)
-front.mypage.quotation.vehiclePrice: 車両体価格
-front.mypage.quotation.additionalLineTotal: 追加明細合計
-front.mypage.quotation.carTransportationFee: 追加明細合計
-front.mypage.quotation.landTransportationCosts: 陸送費用
+front.mypage.quotation.vehicleSalesPriceWithTax: গাড়ির বিক্রয় মূল্য (ট্যাক্স অন্তর্ভুক্ত)
+front.mypage.quotation.vehiclePrice: গাড়ির দাম
+front.mypage.quotation.additionalLineTotal: অতিরিক্ত লাইন মোট
+front.mypage.quotation.carTransportationFee: অতিরিক্ত লাইন মোট
+front.mypage.quotation.landTransportationCosts: স্থল পরিবহন খরচ
  
-front.mypage.quotation.title4: 下取車種
-front.mypage.quotation.tradeInVehicleName: 下取車名
-front.mypage.quotation.tradeInColor: 色
-front.mypage.quotation.tradeInVehicleNumer: 車体番号
-front.mypage.quotation.tradeInMileage: 走行距離
-front.mypage.quotation.tradeInPriceWithTax: 下取車価格(内税)
-front.mypage.quotation.tradeInVehiclePrice: 車両本体価格
-front.mypage.quotation.tradeInLandTransportationFee: 陸送代
-front.mypage.quotation.tradeInOthers: その他
-front.mypage.quotation.tradeInConsumptionTax: （内消費税・10%）
-front.mypage.quotation.tradeInTotalPrice: 下取り車合計
+front.mypage.quotation.title4: ট্রেড-ইন গাড়ির মডেল
+front.mypage.quotation.tradeInVehicleName: ট্রেড-ইন গাড়ির নাম
+front.mypage.quotation.tradeInColor: রঙ
+front.mypage.quotation.tradeInVehicleNumer: গাড়ির নম্বর
+front.mypage.quotation.tradeInMileage: মাইলেজ
+front.mypage.quotation.tradeInPriceWithTax: ট্রেড-ইন গাড়ির মূল্য (ট্যাক্স অন্তর্ভুক্ত)
+front.mypage.quotation.tradeInVehiclePrice: গাড়ির দাম
+front.mypage.quotation.tradeInLandTransportationFee: স্থল পরিবহন ফি
+front.mypage.quotation.tradeInOthers: অন্যদের
+front.mypage.quotation.tradeInConsumptionTax: (ব্যবহার কর/10% সহ)
+front.mypage.quotation.tradeInTotalPrice: মোট ট্রেড-ইন গাড়ি
  
-front.mypage.quotation.VehiclePrice_1: 車両価格①
-front.mypage.quotation.breakdownOfExpenses: 諸<br>費<br>用<br>内<br>訳
-front.mypage.quotation.taxExemptPortion: 非<br>課<br>税<br>分
-front.mypage.quotation.discount: 値<br>引<br>き
-front.mypage.quotation.environmentalPerformance: 環境性能割
-front.mypage.quotation.automobileTax: 自動車税
-front.mypage.quotation.liabilityInsurancePremiums: 非課税分 自賠責保険料
-front.mypage.quotation.weightTax: 重量税
-front.mypage.quotation.recyclingDeposit: リサイクル預託金
-front.mypage.quotation.TradeInPrice: 下取り車価格(-)
+front.mypage.quotation.VehiclePrice_1: গাড়ির দাম ①
+front.mypage.quotation.breakdownOfExpenses: বিবিধ খরচ<br>অনুবাদ
+front.mypage.quotation.taxExemptPortion: অ<br>ট্যাক্স<br>মিনিট
+front.mypage.quotation.discount: মান<br>আর্গুমেন্ট<br>
+front.mypage.quotation.environmentalPerformance: পরিবেশগত কর্মক্ষমতা শতাংশ
+front.mypage.quotation.automobileTax: গাড়ী ট্যাক্স
+front.mypage.quotation.liabilityInsurancePremiums: কর-মুক্ত অংশ বাধ্যতামূলক অটোমোবাইল দায় বীমা প্রিমিয়াম
+front.mypage.quotation.weightTax: ওজন কর
+front.mypage.quotation.recyclingDeposit: পুনর্ব্যবহারযোগ্য আমানত
+front.mypage.quotation.TradeInPrice: ট্রেড-ইন গাড়ির দাম (-)
  
-front.mypage.quotation.nonTaxableSubtotal_2: 非課税分小計②
-front.mypage.quotation.taxableItem: 税<br>対<br>象<br>(内<br>税)
-front.mypage.quotation.registrationAgencyFee: 登録代行費用
-front.mypage.quotation.garageCertificationAgencyFee: 車庫証明代行費用
-front.mypage.quotation.deliveryInspectionFee: 納車点検費用
-front.mypage.quotation.deliveryCost: 納車費用
-front.mypage.quotation.TradeInVehicleHandlingFees: 下取車諸手続き代行費用
-front.mypage.quotation.maintenanceVehicleInspectionRegistration: 整備、車検、登錄諸費用
-front.mypage.quotation.nameChangeFee: 名義変更費用
-front.mypage.quotation.preferredNumberFee: 希望ナンバー費用
-front.mypage.quotation.miscellaneousExpensesTaxableSubtotal_3: 諸費用（ 課税分） 小計③
-front.mypage.quotation.totalExpenses_2_3: 諸費用合計②+③
-front.mypage.quotation.subtotal_2_3: 小計＝①＋②＋③
-front.mypage.quotation.ConsumptionTax_1_3 : （内消費税①と③の10%）
-front.mypage.quotation.TotalPaymentAmountWithTax: 支払合計金額（ 税込）
+front.mypage.quotation.nonTaxableSubtotal_2: কর-মুক্ত সাবটোটাল ②
+front.mypage.quotation.taxableItem: ট্যাক্স<br>টার্গেট<br>(ট্যাক্স সহ)
+front.mypage.quotation.registrationAgencyFee: রেজিস্ট্রেশন এজেন্সি ফি
+front.mypage.quotation.garageCertificationAgencyFee: গ্যারেজ প্রুফ এজেন্সি ফি
+front.mypage.quotation.deliveryInspectionFee: ডেলিভারি পরিদর্শন ফি
+front.mypage.quotation.deliveryCost: ডেলিভারি খরচ
+front.mypage.quotation.TradeInVehicleHandlingFees: ট্রেড-ইন যানবাহন পদ্ধতি এজেন্সি ফি
+front.mypage.quotation.maintenanceVehicleInspectionRegistration: রক্ষণাবেক্ষণ, যানবাহন পরিদর্শন, নিবন্ধন ফি
+front.mypage.quotation.nameChangeFee: নাম পরিবর্তন ফি
+front.mypage.quotation.preferredNumberFee: পছন্দসই নম্বর খরচ
+front.mypage.quotation.miscellaneousExpensesTaxableSubtotal_3: বিবিধ খরচ (ট্যাক্স অংশ) সাবটোটাল ③
+front.mypage.quotation.totalExpenses_2_3: মোট খরচ ②+③
+front.mypage.quotation.subtotal_2_3: সাবটোটাল = ① + ② + ③
+front.mypage.quotation.ConsumptionTax_1_3 : (10% ভোগ করের ① এবং ③)
+front.mypage.quotation.TotalPaymentAmountWithTax: মোট অর্থপ্রদানের পরিমাণ (ট্যাক্স অন্তর্ভুক্ত)
  
-front.mypage.quotation.imageNotFound: 画像が見つかりませんでした。
+front.mypage.quotation.imageNotFound: কোন ছবি পাওয়া যায়নি.
  
-front.mypage.quotation.footer.bankDetails: 振<br>込<br>先
-front.mypage.quotation.footer.importantNotes: 特<br>記<br>事<br>項
+front.mypage.quotation.footer.bankDetails: স্থানান্তর<br>গন্তব্য
+front.mypage.quotation.footer.importantNotes: বিশেষ <br>নোট<br>
  
-front.mypage.btnGenerate: 作成する
+front.mypage.btnGenerate: তৈরি
+ 
  
 homepage.greeting: Welcome to our store! old5
