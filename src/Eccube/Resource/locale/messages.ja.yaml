@@ -1765,7 +1765,7 @@ front.block.login.login: ログイン
 front.block.login.logout: ログアウト
 
 front.block.login.help: help
-front.mypage.btnAutoInput: Auto Input
+front.mypage.btnAutoInput: 自動入力
  
 front.mypage.nav__quotation: 見積書一覧
 front.mypage.nav__invoice: インボイス一覧
@@ -1776,7 +1776,7 @@ front.mypage.nav__change: 会員情報編集
 front.mypage.nav__paymenthistory: 支払い履歴
  
  
-front.mypage.quotation.generate: Generate an Estimat
+front.mypage.quotation.generate: 新規見積書を作成する
  
 front.mypage.quotation.title: 御見積書
 front.mypage.quotation.customer_address: 住所:
