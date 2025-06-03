@@ -33,7 +33,7 @@ class HelpController extends AbstractController
      */
     public function tradelaw()
     {
-        return [];
+        return ['CustomerId' => ''];
     }
 
     /**
@@ -44,7 +44,7 @@ class HelpController extends AbstractController
      */
     public function guide()
     {
-        return [];
+        return ['CustomerId' => ''];
     }
 
     /**
@@ -55,7 +55,7 @@ class HelpController extends AbstractController
      */
     public function about()
     {
-        return [];
+        return ['CustomerId' => ''];
     }
 
     /**
@@ -66,7 +66,7 @@ class HelpController extends AbstractController
      */
     public function privacy()
     {
-        return [];
+        return ['CustomerId' => ''];
     }
 
     /**
@@ -77,6 +77,6 @@ class HelpController extends AbstractController
      */
     public function agreement()
     {
-        return [];
+        return ['CustomerId' => ''];
     }
 }

@@ -97,6 +97,7 @@ class ContactController extends AbstractController
                     return $this->render('Contact/confirm.twig', [
                         'form' => $form->createView(),
                         'Page' => $this->pageRepository->getPageByRoute('contact_confirm'),
+                        'CustomerId' => ''
                     ]);
 
                 case 'complete':
@@ -122,6 +123,7 @@ class ContactController extends AbstractController
 
         return [
             'form' => $form->createView(),
+            'CustomerId' => ''
         ];
     }
 
@@ -133,6 +135,6 @@ class ContactController extends AbstractController
      */
     public function complete()
     {
-        return [];
+        return ['CustomerId' => ''];
     }
 }
