@@ -217,3 +217,7 @@ services:
     Customize\EventListener\RequestListener:
             tags:
                 - { name: kernel.event_listener, event: kernel.request, priority: 17 }
+
+    Customize\Form\Extension\EntryTypeExtension:
+        tags:
+            - { name: form.type_extension }

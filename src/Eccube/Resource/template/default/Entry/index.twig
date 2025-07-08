@@ -55,6 +55,7 @@ file that was distributed with this source code.
                                 </div>
                             </dd>
                         </dl>
+                        <!--
                         <dl>
                             <dt>
                                 {{ form_label(form.company_name, '会社名', { 'label_attr': { 'class': 'ec-label' }}) }}
@@ -66,6 +67,7 @@ file that was distributed with this source code.
                                 </div>
                             </dd>
                         </dl>
+                        -->
                         <dl>
                             <dt>
                                 {{ form_label(form.address, '住所', { 'label_attr': { 'class': 'ec-label' }}) }}
@@ -144,6 +146,7 @@ file that was distributed with this source code.
                                 </div>
                             </dd>
                         </dl>
+                        <!--
                         <dl>
                             <dt>
                                 {{ form_label(form.birth, '生年月日', { 'label_attr': {'class': 'ec-label' }}) }}
@@ -168,6 +171,53 @@ file that was distributed with this source code.
                                 </div>
                             </dd>
                         </dl>
+
+                        -->
+                        <dl>
+                            <dt>
+                                {{ form_label(form.sex, '会社の情報', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                            <div class="ec-input{{ has_errors(form.note) ? ' error' }}">
+                                
+                                    {{ form_label(form.note) }}
+                                    {{ form_widget(form.note, { 'attr': { 'class': 'form-control', placeholder: "Line 1\nLine 2\nLine 3" , 'rows': 30 }, 
+                                    'value': '
+[会社名]▼
+株式会社〇〇〇
+[担当者名]▼
+〇〇〇　〇〇〇
+[会社住所]▼
+「例」〒150-0001 東京都、渋谷区、神宮前〇〇番〇〇号
+[固定電話]▼
+047-000-0000
+[ファックス]▼
+047-000-0000
+[携帯電話]▼
+090-0000-0000
+[メールアドレス]▼
+〇〇〇@〇〇〇.jp
+[銀行アカウント]▼
+銀行：〇〇〇銀行
+支店：〇〇〇支店(〇〇〇)
+口座：〇〇〇〇〇〇〇(普通)
+名義：(カ)〇〇〇〇
+[会社の登録番号]▼
+T4〇〇〇〇〇〇〇〇
+[会社の古物商許可]▼
+第4410〇〇〇〇〇〇〇〇号
+[営業時間]▼
+??:??～??:??
+[Website](任意)▼
+〇〇〇〇〇〇.jp
+[goo-netのURL](任意)▼
+https://www.goo-net.com/usedcar_shop/〇〇〇〇〇〇/stock.html
+                                    ' }) }}
+                                    {{ form_errors(form.note) }}
+                                </div>
+                            </dd>
+                        </dl>
+                        <!--
                         <dl>
                             <dt>
                                 {{ form_label(form.job, '職業', { 'label_attr': {'class': 'ec-label' }}) }}
@@ -179,6 +229,7 @@ file that was distributed with this source code.
                                 </div>
                             </dd>
                         </dl>
+                        -->
                         {# エンティティ拡張の自動出力 #}
                         {% for f in form|filter(f => f.vars.eccube_form_options.auto_render) %}
                             {% if f.vars.eccube_form_options.form_theme %}
