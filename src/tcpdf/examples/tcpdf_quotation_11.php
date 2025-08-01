@@ -518,7 +518,7 @@ body { margin-left: 0.59055118110236in; margin-right: 0.59055118110236in; margin
               <br>{$_POST['serialNoId']}<br><br>
               <br><b>{$_POST['0_2']}</b>&nbsp;&nbsp;&nbsp;&nbsp;<br />
               {$_POST['0_3']}&nbsp;&nbsp;&nbsp;&nbsp;<br>
-              TEL:{$_POST['0_4']} FAX:{$_POST['0_5']}&nbsp;&nbsp;&nbsp;&nbsp;<br>
+              MOB:{$_POST['0_4']} TEL&FAX:{$_POST['0_5']}&nbsp;&nbsp;&nbsp;&nbsp;<br>
               Mail:{$_POST['0_6']}&nbsp;&nbsp;&nbsp;&nbsp;<br>
               {$_POST['0_7']}&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
