@@ -340,30 +340,33 @@ class InvoiceController extends AbstractController
         }
         //var_dump($carDetails);exit();
                            
-
-        $otherElements = $xpath->query('//div[contains(@class,"mainDataMiddleLeft")]/p/em')->item(0)->nodeValue;
-        if (str_contains($otherElements, '.')) {
-            $vehiclePrice = str_replace(".", "",$otherElements);
-            $carDetails['VehiclePrice'] = $vehiclePrice*1000;
-            //echo "車両体価格". $vehiclePrice*1000;
-        }else{
-            $vehiclePrice = $otherElements;
-            $carDetails['VehiclePrice'] = $vehiclePrice*10000;
-            //echo "車両体価格". $vehiclePrice*10000;
+        $result = $xpath->query('//div[contains(@class,"mainDataList")]/div[2]/div/span');
+        if ($result !== false && $result->length > 0) {
+            $otherElements = $result->item(0)->nodeValue;
+            if (str_contains($otherElements, '.')) {
+                $vehiclePrice = str_replace(".", "",$otherElements);
+                $carDetails['VehiclePrice'] = $vehiclePrice*1000;
+                //echo "車両体価格". $vehiclePrice*1000;
+            }else{
+                $vehiclePrice = $otherElements;
+                $carDetails['VehiclePrice'] = $vehiclePrice*10000;
+                //echo "車両体価格". $vehiclePrice*10000;
+            }
         }
 
-        $otherElements = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em')->item(0)->nodeValue;
-        if (str_contains($otherElements, '.')) {
-            $otherPrice = str_replace(".", "",$otherElements);
-            $carDetails['OtherPrice'] = $otherPrice*1000;
-            //echo "otherPrice". $otherPrice*1000;
-        }else{
-            $otherPrice = $otherElements;
-            $carDetails['OtherPrice'] = $otherPrice*10000;
-            //echo "otherPrice". $otherPrice*10000;
+        $result = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em');
+        if ($result !== false && $result->length > 0) {
+            $otherElements = $result->item(0)->nodeValue;
+            if (str_contains($otherElements, '.')) {
+                $otherPrice = str_replace(".", "",$otherElements);
+                $carDetails['OtherPrice'] = $otherPrice*1000;
+                //echo "otherPrice". $otherPrice*1000;
+            }else{
+                $otherPrice = $otherElements;
+                $carDetails['OtherPrice'] = $otherPrice*10000;
+                //echo "otherPrice". $otherPrice*10000;
+            }
         }
-
-
         //foreach ($items as $x) {
         //    if ($x == "車台番号下3桁") $carDetails['ChassisNumber'] = $x[];
 

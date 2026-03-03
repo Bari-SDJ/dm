@@ -348,21 +348,26 @@ class PriceboardController extends AbstractController
                            
 
         //$otherElements = $xpath->query('//div[contains(@class,"mainDataMiddleLeft")]/p/em')->item(0)->nodeValue;
-        $otherElements = $xpath->query('//div[contains(@class,"num-right")]/span')->item(0)->nodeValue;
-        $vehiclePrice = $otherElements;
-        $carDetails['VehiclePrice'] = $vehiclePrice. "万";
-        //echo "車両体価格". $vehiclePrice*10000;
+        
+        $result = $xpath->query('//div[contains(@class,"mainDataList")]/div[2]/div/span');
+        if ($result !== false && $result->length > 0) {
+            $otherElements = $result->item(0)->nodeValue;
+            $vehiclePrice = $otherElements;
+            $carDetails['VehiclePrice'] = $vehiclePrice. "万";
+        }
 
-
-        $otherElements = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em')->item(0)->nodeValue;
-        if (str_contains($otherElements, '.')) {
-            $otherPrice = str_replace(".", "",$otherElements);
-            $carDetails['OtherPrice'] = $otherPrice*1000;
-            //echo "otherPrice". $otherPrice*1000;
-        }else{
-            $otherPrice = $otherElements;
-            $carDetails['OtherPrice'] = $otherPrice*10000;
-            //echo "otherPrice". $otherPrice*10000;
+        $result = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em');
+        if ($result !== false && $result->length > 0) {
+            $otherElements = $result->item(0)->nodeValue;
+            if (str_contains($otherElements, '.')) {
+                $otherPrice = str_replace(".", "",$otherElements);
+                $carDetails['OtherPrice'] = $otherPrice*1000;
+                //echo "otherPrice". $otherPrice*1000;
+            }else{
+                $otherPrice = $otherElements;
+                $carDetails['OtherPrice'] = $otherPrice*10000;
+                //echo "otherPrice". $otherPrice*10000;
+            }
         }
 
 
