@@ -342,7 +342,7 @@ class QuotationController extends AbstractController
             }
         }
 
-        $result = $xpath->query('//div[contains(@class,"mainDataList")]/div[2]/div/span');
+        $result = $xpath->query('//div[contains(@class,"mainDataMiddleLeft")]/p/em');
         if ($result !== false && $result->length > 0) {
             $otherElements = $result->item(0)->nodeValue;
             if (str_contains($otherElements, '.')) {
