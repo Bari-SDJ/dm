@@ -342,9 +342,10 @@ class QuotationController extends AbstractController
             }
         }
 
-        $result = $xpath->query('//div[contains(@class,"mainDataList")]/div[2]/div/span');
+        //$result = $xpath->query('//div[contains(@class,"mainDataList")]/div[2]/div/span');//modified 2026/04/05
+        $result = $xpath->query('(//div[contains(@class,"mainDataList")])[2]/div[@class="num"]/span');//modified 2026/04/05
         if ($result !== false && $result->length > 0) {
-            $otherElements = $result->item(0)->nodeValue;
+            $otherElements = $result->item(0)->nodeValue; 
             if (str_contains($otherElements, '.')) {
                 $vehiclePrice = str_replace(".", "",$otherElements);
                 $carDetails['VehiclePrice'] = $vehiclePrice*1000;
@@ -355,8 +356,8 @@ class QuotationController extends AbstractController
                 //echo "車両体価格". $vehiclePrice*10000;
             }
         }
-
-        $result = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em');
+        //$result = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em');//modified 2026/04/05
+        $result = $xpath->query('//div[contains(@class,"mainDataList")][1]//div[@class="num"]/p/span');//modified 2026/04/05
         if ($result !== false && $result->length > 0) {
             $otherElements = $result->item(0)->nodeValue;
             if (str_contains($otherElements, '.')) {
