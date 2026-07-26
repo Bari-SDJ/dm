@@ -324,10 +324,11 @@ class PriceboardController extends AbstractController
        //var_dump($carDetails);exit;
 
 
-       $entries = $xpath->query("//th[contains(., '車検')]/following-sibling::td[1]");
+       $entries = $xpath->query("//dt[contains(., '車検')]/following-sibling::dd[1]");
        if ($entries->length > 0) {
            $carDetails['VehicleInspection'] = trim($entries->item(0)->nodeValue); 
        }
+       
        $entries = $xpath->query("//th[contains(., '修復歴')]/following-sibling::td[1]");
        if ($entries->length > 0) {
            $carDetails['RepairHistory'] = trim($entries->item(0)->nodeValue); 

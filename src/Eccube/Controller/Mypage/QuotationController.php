@@ -341,7 +341,8 @@ class QuotationController extends AbstractController
             if ($items[$i] == "修復歴") $carDetails['RepairHistory'] = $items[$i+1];
         }
         */
-        $entries = $xpath->query("//th[contains(., '車検')]/following-sibling::td[1]");
+        //$entries = $xpath->query("//th[contains(., '車検')]/following-sibling::td[1]");
+        $entries = $xpath->query("//dt[contains(., '車検')]/following-sibling::dd[1]");
         if ($entries->length > 0) {
             $carDetails['VehicleInspection'] = trim($entries->item(0)->nodeValue); 
         }
