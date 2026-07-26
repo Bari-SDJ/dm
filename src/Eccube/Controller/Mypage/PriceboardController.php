@@ -282,8 +282,7 @@ class PriceboardController extends AbstractController
                 // Find the <p> tag with id "greeting" and modify its content
                 // Query for hidden input elements
         $hiddenFields = $xpath->query("//input[@type='hidden']");
-        $bm = $xpath->query('//*[@id="door_nm"]')->item(0)->nodeValue;
-        $bm = $xpath->query('//div[contains(@class,"countSlide")]')->item(0);
+
         
        // var_dump($bm);exit();
         //foreach($bm as $node) {
@@ -308,32 +307,36 @@ class PriceboardController extends AbstractController
             if ($hiddenField->getAttribute('name') == "car") $carDetails['CarModel'] = $hiddenField->getAttribute('value');
 
             if ($hiddenField->getAttribute('name') == "total_price") $carDetails['totalPrice'] = $hiddenField->getAttribute('value');
+            if ($hiddenField->getAttribute('name') == "loan_price") $carDetails['VehiclePrice'] = $hiddenField->getAttribute('value');
 
             
             //echo 'Hidden Field Name: ' . $hiddenField->getAttribute('name') . PHP_EOL;
             //echo 'Hidden Field Value: ' . $hiddenField->getAttribute('value') . PHP_EOL;
         }
 
-        $carDetails['NumberOfDoors'] = $xpath->query('//*[@id="door_nm"]')->item(0)->nodeValue;
+        $entries = $xpath->query("//th[contains(., 'ドア')]/following-sibling::td[1]");
+        if ($entries->length > 0) {
+            $carDetails['NumberOfDoors'] = trim($entries->item(0)->nodeValue); 
+        }
 
         //*[@id="headCarDetail"]/div[1]/div/div[2]/div/h2/p[1]/span
 
        //var_dump($carDetails);exit;
 
 
-        // for without hidden eliments
-        $otherElements = $xpath->query('//div[contains(@class,"box_roundWhite")]')->item(0);
-        $items = preg_split('/\s+/', $otherElements->nodeValue, -1, PREG_SPLIT_NO_EMPTY);
-        for ($i = 0; $i < count($items); $i++) {
-            if ($items[$i] == "車検") $carDetails['VehicleInspection'] = $items[$i+1];
-            if ($items[$i] == "修復歴") $carDetails['RepairHistory'] = $items[$i+1];
-        }
+       $entries = $xpath->query("//th[contains(., '車検')]/following-sibling::td[1]");
+       if ($entries->length > 0) {
+           $carDetails['VehicleInspection'] = trim($entries->item(0)->nodeValue); 
+       }
+       $entries = $xpath->query("//th[contains(., '修復歴')]/following-sibling::td[1]");
+       if ($entries->length > 0) {
+           $carDetails['RepairHistory'] = trim($entries->item(0)->nodeValue); 
+       }
 
-        $otherElements = $xpath->query('//div[contains(@class,"box_roundWhite")]')->item(1);
-        $items = preg_split('/\s+/', $otherElements->nodeValue, -1, PREG_SPLIT_NO_EMPTY);
-        for ($i = 0; $i < count($items); $i++) {
-            if ($items[$i] == "車台番号下3桁") $carDetails['ChassisNumber'] = $items[$i+1];
-        }
+       $entries = $xpath->query("//th[contains(., '車台番号下３桁')]/following-sibling::td[1]");
+       if ($entries->length > 0) {
+           $carDetails['ChassisNumber'] = trim($entries->item(0)->nodeValue); 
+       }
 
         //$otherElements = $xpath->query('//*[@id="photoGalleryTop"]');
         //$otherElements = $xpath->query('//*[@id="photoGalleryTop"]/div[1]/div[4]/div/div/div[2]')->item(0);
@@ -349,10 +352,10 @@ class PriceboardController extends AbstractController
 
         //$otherElements = $xpath->query('//div[contains(@class,"mainDataMiddleLeft")]/p/em')->item(0)->nodeValue;
         
-        $result = $xpath->query('//div[contains(@class,"mainDataList")]/div[2]/div/span');
-        if ($result !== false && $result->length > 0) {
-            $otherElements = $result->item(0)->nodeValue;
-            $vehiclePrice = $otherElements;
+        $result = $carDetails['VehiclePrice']; 
+        if ($result !== null) {
+            
+            $vehiclePrice = $result;
             $carDetails['VehiclePrice'] = $vehiclePrice. "万";
         }
 

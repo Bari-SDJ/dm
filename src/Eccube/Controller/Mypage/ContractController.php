@@ -283,40 +283,36 @@ class ContractController extends AbstractController
             if ($hiddenField->getAttribute('name') == "distance") $carDetails['Mileage'] = $hiddenField->getAttribute('value');
             if ($hiddenField->getAttribute('name') == "car") $carDetails['CarModel'] = $hiddenField->getAttribute('value');
             if ($hiddenField->getAttribute('name') == "total_price") $carDetails['totalPrice'] = $hiddenField->getAttribute('value');
+            if ($hiddenField->getAttribute('name') == "loan_price") $carDetails['VehiclePrice'] = $hiddenField->getAttribute('value');
         }
         
-        $result = $xpath->query('//*[@id="door_nm"]');
-        if ($result !== false && $result->length > 0) {
-            $carDetails['NumberOfDoors'] = $result->item(0)->nodeValue;
+        $entries = $xpath->query("//th[contains(., 'ドア')]/following-sibling::td[1]");
+        if ($entries->length > 0) {
+            $carDetails['NumberOfDoors'] = trim($entries->item(0)->nodeValue); 
         }
         
-        $result = $xpath->query('//*[@id="color_nm"]');
-        if ($result !== false && $result->length > 0) {
-            $carDetails['Color'] = $result->item(0)->nodeValue;
-        }
-        $result = $xpath->query('//div[contains(@class,"mainDataBottom")]/p[2]');
-        if ($result !== false && $result->length > 0) {
-            $warranty = $result->item(0)->nodeValue;
-            $str = str_replace(['(', ')', '法定整備：整備付','保証付',' '], '', $warranty);
-            $pos = strpos($str, "※"); //remove all after ※
-            if ($pos !== false) {
-                $str = substr($str, 0, $pos); 
-            }
-            $carDetails['WarrantyDetails'] = $str;
+        $entries = $xpath->query("//th[contains(., '車体色')]/following-sibling::td[1]");
+        if ($entries->length > 0) {
+            $carDetails['Color'] = trim($entries->item(0)->nodeValue); 
         }
 
-        // for without hidden eliments
-        $otherElements = $xpath->query('//div[contains(@class,"box_roundWhite")]')->item(0);
-        $items = preg_split('/\s+/', $otherElements->nodeValue, -1, PREG_SPLIT_NO_EMPTY);
-        for ($i = 0; $i < count($items); $i++) {
-            if ($items[$i] == "車検") $carDetails['VehicleInspection'] = $items[$i+1];
-            if ($items[$i] == "修復歴") $carDetails['RepairHistory'] = $items[$i+1];
+        $entries = $xpath->query("//th[contains(., '保証内容')]/following-sibling::td[1]");
+        if ($entries->length > 0) {
+            $carDetails['WarrantyDetails'] = trim($entries->item(0)->nodeValue); 
         }
 
-        $otherElements = $xpath->query('//div[contains(@class,"box_roundWhite")]')->item(1);
-        $items = preg_split('/\s+/', $otherElements->nodeValue, -1, PREG_SPLIT_NO_EMPTY);
-        for ($i = 0; $i < count($items); $i++) {
-            if ($items[$i] == "車台番号下3桁") $carDetails['ChassisNumber'] = $items[$i+1];
+        $entries = $xpath->query("//th[contains(., '車検')]/following-sibling::td[1]");
+        if ($entries->length > 0) {
+            $carDetails['VehicleInspection'] = trim($entries->item(0)->nodeValue); 
+        }
+        $entries = $xpath->query("//th[contains(., '修復歴')]/following-sibling::td[1]");
+        if ($entries->length > 0) {
+            $carDetails['RepairHistory'] = trim($entries->item(0)->nodeValue); 
+        }
+
+        $entries = $xpath->query("//th[contains(., '車台番号下３桁')]/following-sibling::td[1]");
+        if ($entries->length > 0) {
+            $carDetails['ChassisNumber'] = trim($entries->item(0)->nodeValue); 
         }
 /*
         $result = $xpath->query('//div[contains(@class,"countSlide")][1]/div/img/@src');
@@ -337,15 +333,14 @@ class ContractController extends AbstractController
         }
 */
         //$result = $xpath->query('//div[contains(@class,"mainDataList")]/div[2]/div/span');//modified 2026/04/05
-        $result = $xpath->query('(//div[contains(@class,"mainDataList")])[2]/div[@class="num"]/span');//modified 2026/04/05
-        if ($result !== false && $result->length > 0) {
-            $otherElements = $result->item(0)->nodeValue;
-            if (str_contains($otherElements, '.')) {
-                $vehiclePrice = str_replace(".", "",$otherElements);
+        $result = $carDetails['VehiclePrice']; 
+        if ($result !== null) {
+            if (str_contains($result, '.')) {
+                $vehiclePrice = str_replace(".", "",$result);
                 $carDetails['VehiclePrice'] = $vehiclePrice*1000;
                 //echo "車両体価格". $vehiclePrice*1000;
             }else{
-                $vehiclePrice = $otherElements;
+                $vehiclePrice = $result;
                 $carDetails['VehiclePrice'] = $vehiclePrice*10000;
                 //echo "車両体価格". $vehiclePrice*10000;
             }
