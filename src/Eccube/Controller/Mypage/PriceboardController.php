@@ -328,7 +328,7 @@ class PriceboardController extends AbstractController
        if ($entries->length > 0) {
            $carDetails['VehicleInspection'] = trim($entries->item(0)->nodeValue); 
        }
-       
+
        $entries = $xpath->query("//th[contains(., '修復歴')]/following-sibling::td[1]");
        if ($entries->length > 0) {
            $carDetails['RepairHistory'] = trim($entries->item(0)->nodeValue); 
@@ -360,17 +360,23 @@ class PriceboardController extends AbstractController
             $carDetails['VehiclePrice'] = $vehiclePrice. "万";
         }
 
-        $result = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em');
-        if ($result !== false && $result->length > 0) {
-            $otherElements = $result->item(0)->nodeValue;
-            if (str_contains($otherElements, '.')) {
-                $otherPrice = str_replace(".", "",$otherElements);
-                $carDetails['OtherPrice'] = $otherPrice*1000;
-                //echo "otherPrice". $otherPrice*1000;
-            }else{
-                $otherPrice = $otherElements;
-                $carDetails['OtherPrice'] = $otherPrice*10000;
-                //echo "otherPrice". $otherPrice*10000;
+        $entries = $xpath->query("//p[@class='gn-detail-price__fees']");
+        if ($entries->length > 0) {
+            $rawText = trim($entries->item(0)->nodeValue); 
+            // Pattern matches integers or decimal numbers (e.g., 8, 11, or 15.6)
+            if (preg_match('/\d+(\.\d+)?/', $rawText, $matches)) {
+                $otherElements = $matches[0];
+                if (str_contains($otherElements, '.')) {
+                    $otherPrice = str_replace(".", "",$otherElements);
+                    $carDetails['OtherPrice'] = $otherPrice*1000;
+                    //echo "otherPrice". $otherPrice*1000;
+                }else{
+                    $otherPrice = $otherElements;
+                    $carDetails['OtherPrice'] = $otherPrice*10000;
+                    //echo "otherPrice". $otherPrice*10000;
+                }
+            } else {
+                $carDetails['OtherPrice'] = 0; 
             }
         }
 

@@ -296,12 +296,11 @@ class ContractController extends AbstractController
             $carDetails['Color'] = trim($entries->item(0)->nodeValue); 
         }
 
-        /*
-        $entries = $xpath->query("//th[contains(., '保証内容')]/following-sibling::td[1]");
+        $entries = $xpath->query("//span[span[@class='gn-detail-price__terms-label' and contains(., '保証')]]/span[@class='gn-detail-price__terms-value']");
         if ($entries->length > 0) {
-            $carDetails['WarrantyDetails'] = trim($entries->item(0)->nodeValue); 
+            // trim() cleans up the extra white space and line breaks inside the tag
+            $carDetails['WarrantyDetails'] = trim($entries->item(0)->nodeValue); // Stores: "1ヶ月・1000km"
         }
-        */
 
         $entries = $xpath->query("//dt[contains(., '車検')]/following-sibling::dd[1]");
         if ($entries->length > 0) {
@@ -349,18 +348,23 @@ class ContractController extends AbstractController
             }
         }
 
-        //$result = $xpath->query('//div[contains(@class,"mainDataMiddleRight")]/p/em');//modified 2026/04/05
-        $result = $xpath->query('//div[contains(@class,"mainDataList")][1]//div[@class="num"]/p/span');//modified 2026/04/05
-        if ($result !== false && $result->length > 0) {
-            $otherElements = $result->item(0)->nodeValue;
-            if (str_contains($otherElements, '.')) {
-                $otherPrice = str_replace(".", "",$otherElements);
-                $carDetails['OtherPrice'] = $otherPrice*1000;
-                //echo "otherPrice". $otherPrice*1000;
-            }else{
-                $otherPrice = $otherElements;
-                $carDetails['OtherPrice'] = $otherPrice*10000;
-                //echo "otherPrice". $otherPrice*10000;
+        $entries = $xpath->query("//p[@class='gn-detail-price__fees']");
+        if ($entries->length > 0) {
+            $rawText = trim($entries->item(0)->nodeValue); 
+            // Pattern matches integers or decimal numbers (e.g., 8, 11, or 15.6)
+            if (preg_match('/\d+(\.\d+)?/', $rawText, $matches)) {
+                $otherElements = $matches[0];
+                if (str_contains($otherElements, '.')) {
+                    $otherPrice = str_replace(".", "",$otherElements);
+                    $carDetails['OtherPrice'] = $otherPrice*1000;
+                    //echo "otherPrice". $otherPrice*1000;
+                }else{
+                    $otherPrice = $otherElements;
+                    $carDetails['OtherPrice'] = $otherPrice*10000;
+                    //echo "otherPrice". $otherPrice*10000;
+                }
+            } else {
+                $carDetails['OtherPrice'] = 0; 
             }
         }
         return $carDetails;
